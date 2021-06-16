@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+@font-face {
+    font-family: "NexaBold";
+    src: url(../fonts/Nexa-Bold.otf);
+}
+
+@font-face {
+    font-family: "NexaLight";
+    src: url(../fonts/Nexa-Light.otf);
+}
+
+:root {
+    --black : #000;
+    --white : #fff;
+    --dullWhite : #F5F5F5;
+
+    --lightBlue : #9cbfda;
+    --brightBlue : #0173b2;
+    --darkBlue : #021433;
+    --bgBlue : #8fcaf1;
+
+    --grey: #636668;
+    --lightGrey: #ccc;
+    --darkGrey: #525659;
+    --mixGrey: #777;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: NexaLight;
+}
+
+/* <-----------------------------------General tag theme------------------------------------->*/
+
+header {
+    padding: 1rem;
+    background-color: var(--white);
+}
+
+
+section {
+    padding: 2rem 1.5rem;
+}
+
+footer {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: NexaBold;
+    color: var(--darkBlue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.3rem;
+}
+
+h6 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-family: "NexaLight";
+    color: var(--darkBlue);
+    font-size: 1rem;
+    line-height: 1.2rem;
+    word-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
+    margin: 1rem;
+    text-align:center;
+}
+
+img {
+    width :100%;
+    height : 100%;
+    object-fit: cover;
+}
+
+figcaption {
+    font-family: NexaLight;
+    text-align: center;
+    color: var(--darkBlue);
+    font-weight: bold;
+}
+
+ul, ol {
+    font-family: NexaLight;
+}
+
+li {
+    padding-bottom: 0.5rem;
+}
+
+
+/* <--------------------------------------------- Atribute related themes ---------------------------------------> */
+
+::placeholder {
+    color : var(--lightGrey);
+    font-size: 0.8rem;
+}
+
+/* <---------------------------------------------- Form themes ---------------------------------------------> */
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.8rem 0.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+/* <---------------------------------------- Button color variant themes -----------------------------------> */
+
+
+.button-type1 {
+    background-color: var(--darkBlue);
+    color: var(--white);
+    border: 0.05rem solid var(--white);
+    width: 50%;
+}
+
+.button-type1:hover{
+    background-color: var(--white);
+    color: var(--darkBlue);
+    border: 0.01rem solid var(--darkBlue)
+}
+
+.button-type2 {
+    background-color: var(--brightBlue);
+    color: white;
+    border-radius: 0.5rem;
+}
+
+
+/* <----------------------------------------- Positioning themes ---------------------------------------------> */
+
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}

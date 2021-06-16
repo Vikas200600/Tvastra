@@ -1,0 +1,239 @@
+nav {
+    display: flex;
+    justify-content: space-between ;
+}
+
+nav img {
+    width: 6rem;
+}
+
+
+
+
+
+#intro {
+    background-color: var(--bgBlue);
+}
+
+#location i{
+    position: absolute;
+    padding: 0.8rem;
+}
+
+#location input {
+    width: 100%;
+    padding-left: 2.2rem;
+}
+
+#right-icon{
+    width: 1rem;
+    position: absolute;
+    right: 44px;
+}
+
+#right-icon img {
+    margin: 0.8rem;
+}
+
+#intro .button-type1 {
+    position: relative;
+    left: 25%;    
+}
+
+
+#step-details button span{
+    padding-right: 15px;
+}
+
+
+.active button .span{    
+    color: var(--darkBlue);
+}
+
+.active button span {
+    color: var(--brightBlue);
+}
+
+#step-details button {
+    border: 1px solid black;
+    margin:.5rem;
+    padding:1rem;
+    border-radius: 20px;
+    text-align: left;
+    width: 100%;
+    background-color: var(--white);
+    font-family: NexaBold;
+    color: var(--lightGrey);
+}
+
+#step-details img {
+    height: auto;
+}
+#step-details figure {
+    margin-bottom: 1rem;
+    /* display: none; */
+}
+
+
+.active figure {
+    display: block;
+}
+
+.inactive figure {
+    display: none;
+}
+
+
+
+
+
+#doctors {    
+    background-color: var(--darkBlue);
+}
+
+#doctors h2,#doctors p, #help h2, #help button {
+    color: var(--white);
+}
+
+#doctor-card, #treatment-card{
+    display: grid;
+    width: auto;
+    grid-template-columns: auto;
+}
+
+#doctor-card figure, #treatment-card figure {
+    background-color: var(--white);
+    margin-bottom: 20px;
+}
+
+#doctor-card figure img, #treatment-card figure img {
+      width: 100%;   
+      height: 400px;
+}
+
+#doctor-card figure figcaption {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 0.5rem solid var(--lightBlue);
+    position: relative;
+}
+
+#doctors h5 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: var(--brightBlue);
+    padding-left: 2rem;
+}
+
+#doctors h5::before{
+    content:"";
+    display:block;
+    background-color: var(--brightBlue);
+    height:0.2rem;
+    width: 2rem;
+    position:absolute;
+    top: 1.5rem;
+    left: 0.5rem;
+}
+
+.img-style {
+    background-size: 100% 100%;
+    height: 18rem;
+    font-size: .8rem;
+    margin-bottom: .7rem;
+}
+
+.img-style figcaption {
+    position: relative;
+    text-align: left;
+    top: 14.8rem;
+    color: white;
+    padding-left: 1rem; 
+    letter-spacing: 1px; 
+}
+
+.img-style figcaption ul .bold {
+    font-family: NexaBold;
+}
+
+#dentist {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/dentistry.jpg);
+}
+
+#cancer {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/cancer.jpg);
+}
+
+#Multi-Organ {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/multiOrgan.jpg);    
+}
+
+#cardiologic {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/cardiology.jpg);    
+}
+
+#Orthopedics {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/orthopedics.jpg);    
+}
+
+#Infertility {
+    background-image: linear-gradient(to top,var(--black), transparent), url(./../images/treatments/infertility.jpg);    
+}
+
+
+
+
+
+
+#services {
+    background-color: var(--dullWhite);
+}
+
+
+#service-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;;
+}
+
+#service-card figure {
+    background-color: white;
+    border-radius: 15px;
+    font-family: NexaBold;
+    font-weight: bold;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+#help {
+    background-color: var(--lightBlue);
+}
+
+
+
+
+footer {
+    background-color: var(--darkBlue);
+    color: var(--lightGrey);
+}
+
+footer img {
+    width:50%;
+}
+
+footer li {
+    padding: 15px;
+}
+
+footer #social {
+    display: inline-flex;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: var(--lightGrey)
+}
