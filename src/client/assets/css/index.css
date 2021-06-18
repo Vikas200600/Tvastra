@@ -15,9 +15,13 @@ nav img {
     background-color: var(--bgBlue);
 }
 
+#forposition {
+    position: relative;
+}
+
 #location i{
     position: absolute;
-    padding: 0.8rem;
+    padding: 0.6rem;
 }
 
 #location input {
@@ -28,17 +32,18 @@ nav img {
 #right-icon{
     width: 1rem;
     position: absolute;
-    right: 44px;
+    right: 0.6rem;
+    bottom: 1rem;
 }
 
-#right-icon img {
-    margin: 0.8rem;
-}
 
 #intro .button-type1 {
     position: relative;
     left: 25%;    
 }
+
+
+
 
 
 #step-details button span{
@@ -63,7 +68,7 @@ nav img {
     width: 100%;
     background-color: var(--white);
     font-family: NexaBold;
-    color: var(--lightGrey);
+    color: var(--lightGray);
 }
 
 #step-details img {
@@ -111,10 +116,13 @@ nav img {
       height: 400px;
 }
 
+#doctor-card figure {
+    border-bottom: 0.5rem solid var(--lightBlue);
+}
+
 #doctor-card figure figcaption {
     text-align: left;
     padding: 1rem;
-    border-bottom: 0.5rem solid var(--lightBlue);
     position: relative;
 }
 
@@ -193,19 +201,30 @@ nav img {
 #service-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;;
+    grid-gap: 1rem;
 }
 
 #service-card figure {
     background-color: white;
-    border-radius: 15px;
-    font-family: NexaBold;
-    font-weight: bold;
+    border-radius: 15px ;
     padding: 1rem;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+#service-card figcaption {    
+    font-family: NexaBold;
+    font-weight: bold;
+    color: var(--darkGray);
+}
+
+
+#service-card figure img {
+    width: auto;
+    height: auto;
+}
 
 
 
@@ -218,7 +237,7 @@ nav img {
 
 footer {
     background-color: var(--darkBlue);
-    color: var(--lightGrey);
+    color: var(--lightGray);
 }
 
 footer img {
@@ -235,5 +254,92 @@ footer #social {
 }
 
 footer p {
-    color: var(--lightGrey)
+    color: var(--lightGray)
 }
+
+
+
+@media only screen and (min-width: 640px) {
+    #search-form {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        height: 2.4rem;
+    } 
+
+    #intro .button-type1{
+        position: static;
+        width: 100%;
+    }
+
+    #intro .textbox {
+        border-left: 1.5px solid var(--lightBlue);        
+    }
+
+
+    #step-details div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #step-details figure {
+        position: absolute;
+        width:18rem;
+        left:55%;
+        padding-top: 3rem;;
+    }
+
+    #doctor-card {
+        display : grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0rem 1rem;;
+    }
+
+    #treatment-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0rem 1rem
+    }
+
+    #service-card {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    footer {
+        background-color: var(--white);
+        display: grid;
+        grid-template-areas:
+            "links logo "
+            "rights social";
+        justify-items: start;
+        grid-row-gap: 1rem;
+    }
+
+    footer > *, footer p {
+        color : var(--darkGray);
+        font-family: NexaBold;
+        font-weight: bold;
+    }
+
+    footer img {
+        grid-area : logo;
+        justify-self: end;
+        height: 2.2rem;
+    }
+
+    footer #links {
+        grid-area: links;
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer #social {
+        grid-area: social;
+        justify-self: end;
+    }
+
+    footer p {
+        grid-area: rights;
+        padding: 0;
+    }
+}
+

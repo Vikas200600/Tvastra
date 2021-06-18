@@ -23,10 +23,10 @@
     --darkBlue : #021433;
     --bgBlue : #8fcaf1;
 
-    --grey: #636668;
-    --lightGrey: #ccc;
-    --darkGrey: #525659;
-    --mixGrey: #777;
+    --Gray: #636668;
+    --lightGray: #ccc;
+    --darkGray: #525659;
+    --mixGray: #777;
 }
 
 
@@ -106,7 +106,7 @@ img {
 
 figcaption {
     font-family: NexaLight;
-    text-align: center;
+    /* text-align: center; */
     color: var(--darkBlue);
     font-weight: bold;
 }
@@ -123,7 +123,7 @@ li {
 /* <--------------------------------------------- Atribute related themes ---------------------------------------> */
 
 ::placeholder {
-    color : var(--lightGrey);
+    color : var(--lightGray);
     font-size: 0.8rem;
 }
 
@@ -137,7 +137,7 @@ form {
 
 input {
     font-size: 1rem;
-    padding: 0.8rem;
+    padding: 0.6rem;
     border: none;
     outline: none;
     margin-bottom: 0.5rem;
@@ -159,7 +159,7 @@ button {
 .button-type1 {
     background-color: var(--darkBlue);
     color: var(--white);
-    border: 0.05rem solid var(--white);
+    /* border: 0.05rem solid var(--white); */
     width: 50%;
 }
 
@@ -174,7 +174,6 @@ button {
     color: white;
     border-radius: 0.5rem;
 }
-
 
 /* <----------------------------------------- Positioning themes ---------------------------------------------> */
 
