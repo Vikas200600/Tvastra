@@ -18,7 +18,7 @@
     --white : #fff;
     --dullWhite : #F5F5F5;
 
-    --lightBlue : #9cbfda;
+    --lightBlue : #1;
     --brightBlue : #0173b2;
     --darkBlue : #021433;
     --bgBlue : #8fcaf1;
@@ -38,21 +38,24 @@ body {
     font-family: NexaLight;
 }
 
-/* <-----------------------------------General tag theme------------------------------------->*/
+/* <-------------------------------------- Header And Footer Themes ----------------------------------------------> */
 
 header {
     padding: 1rem;
     background-color: var(--white);
 }
 
-
-section {
-    padding: 2rem 1.5rem;
+footer {
+    background-color: var(--darkBlue);
+    color: var(--lightGray);
+    padding: 2rem 1.5rem 1rem;
 }
 
-footer {
-    padding: 2rem 1.5rem;
-    text-align: center;
+
+/* <-----------------------------------General tag theme------------------------------------->*/
+
+section{
+    padding: 2rem 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,7 +97,7 @@ p {
     line-height: 1.2rem;
     word-spacing: 0.1rem;
     letter-spacing: 0.05rem;
-    margin: 1rem;
+    margin-bottom: 1rem;
     text-align:center;
 }
 
@@ -106,9 +109,7 @@ img {
 
 figcaption {
     font-family: NexaLight;
-    /* text-align: center; */
     color: var(--darkBlue);
-    font-weight: bold;
 }
 
 ul, ol {
@@ -116,7 +117,7 @@ ul, ol {
 }
 
 li {
-    padding-bottom: 0.5rem;
+    margin-bottom:  0.5rem;
 }
 
 
@@ -144,8 +145,10 @@ input {
 }
 
 button {
+    font-family: NexaLight;
     font-size: 1rem;
-    padding: 0.8rem 0.5rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.05rem;
     border: none;
     outline: none;
     cursor: pointer;
@@ -156,29 +159,99 @@ button {
 /* <---------------------------------------- Button color variant themes -----------------------------------> */
 
 
-.button-type1 {
+.btn-primary {
     background-color: var(--darkBlue);
     color: var(--white);
-    /* border: 0.05rem solid var(--white); */
-    width: 50%;
 }
 
-.button-type1:hover{
+.btn-primary:hover{
     background-color: var(--white);
     color: var(--darkBlue);
-    border: 0.01rem solid var(--darkBlue)
+    border-left: 1.5px solid var(--lightGray);
 }
 
-.button-type2 {
+.btn-secondary {
     background-color: var(--brightBlue);
     color: white;
     border-radius: 0.5rem;
 }
 
-/* <----------------------------------------- Positioning themes ---------------------------------------------> */
+.btn-light {
+    background-color: var(--white);
+    color: var(--darkBlue);
+    border: 0.01rem solid var(--darkBlue);
+}
 
 
-.justify-center {
-    display: flex;
-    justify-content: center;
+/* <------------------------------ Media Query themes ------------------------------------------------------------> */
+
+@media only screen and (min-width: 640px ){
+    section {
+        padding: 2rem 1.5rem;
+    }
+
+    footer {
+        background-color: var(--white);
+        padding-bottom: 1rem;
+        border-bottom: .5rem solid var(--brightBlue);
+    }
+}
+
+@media only screen and (min-width: 1280px){
+    h1, h2, h3, h4, h5, h6 {
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.8rem;
+    }
+    
+    h3 {
+        font-size: 2.6rem;
+    }
+    
+    h4 {
+        font-size: 2.4rem;
+    }
+    
+    h5 {
+        font-size: 1.5rem;
+    }
+    
+    h6 {
+        font-size: 1.2rem;
+    }
+
+    p{
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        text-align: left;
+        margin: 0rem 0rem 3.5rem;
+    }
+
+    ul,ol {
+        font-size: 1.2rem;
+    }
+    header {
+        padding: 1.5rem 6rem;
+    }    
+    
+    section {
+        padding: 6rem 6rem;
+    }
+    
+    footer {
+        padding: 1.5rem 6rem;
+        text-align: center;
+    }
+
+    ::placeholder {
+        color : var(--lightGray);
+        font-size: 1.1rem;
+    }
 }

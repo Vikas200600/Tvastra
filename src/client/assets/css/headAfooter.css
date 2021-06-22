@@ -1,0 +1,180 @@
+nav {
+    display: flex;
+    justify-content: space-between ;
+}
+
+nav img {
+    width: 7rem;
+}
+
+header #links{
+    display: none;
+}
+
+#buttons {
+    display: none;
+}
+
+
+footer {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: .5rem solid var(--brightBlue);
+}
+
+footer > * {
+    margin-bottom: 1rem;
+}
+footer img {
+    width:50%;
+}
+
+#links li {
+    margin-bottom: 1rem;   
+}
+
+#social {
+    display: inline-flex;
+}
+
+#social li {
+    margin: 0.5rem;
+}
+
+footer p {
+    color: var(--lightGray);    /* overiding p tag properties */
+}
+
+
+#links li a {
+    text-decoration: none;
+    color : var(--lightGray);
+}
+
+
+#help {
+    background-color: var(--lightBlue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#help button{
+    width:15rem;
+}
+
+@media only screen and (min-width: 640px) {
+    footer {
+        display: grid;
+        grid-template-areas:
+            "links logo"
+            "rights social";
+        justify-items: start;
+        grid-row-gap: 1rem;
+    }
+
+    footer > *, footer p {
+        color : var(--darkGray);
+        font-family: NexaBold;
+        font-weight: bold;
+    }
+
+    footer img {
+        grid-area : logo;
+        justify-self: end;
+        height: 2.2rem;
+        width: auto;
+    }
+
+    footer #links {
+        grid-area: links;
+        display: flex;
+        margin-left: 0;
+    }
+
+    #links li {
+        margin-right: 1.5rem;
+        font-size: 1.3rem;
+    }
+    
+    #links li a {
+        color : var(--darkGray);
+    }
+
+    #social li{
+        font-size: 1.5rem;
+    }
+
+    footer #social {
+        grid-area: social;
+        justify-self: end;
+    }
+
+    footer p {
+        grid-area: rights;
+        padding: 0;
+        font-size: 1rem;
+        margin-top: .2rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    nav img {
+        height: 2.9rem;
+        width: auto;
+        align-self: center;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    nav .fas {
+        display: none;
+    }
+
+    header #links{
+        display: flex;
+        align-items: center;    
+        justify-content: space-between;
+        width: 40rem;
+        padding: 0;
+    }
+
+    header #links a{
+        text-decoration: none;
+    }
+
+    
+    #buttons {
+        display: flex;
+        width: 20.5rem;
+        justify-content: space-between;
+    }
+
+    #buttons > * {
+        width: 10rem;
+        border-radius: .2rem;
+    }
+
+    #help{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        padding: 4rem 5rem;
+    }
+
+    #help p {
+        margin-bottom: 1rem;
+    }
+
+    #help button{
+        position: static;
+        height: 5rem;
+        padding: 0;
+        align-self: center;
+        border-radius: 0;
+        font-size: 1.5rem;
+    }
+}

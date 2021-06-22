@@ -7,7 +7,10 @@
     <title>Tvastra</title>
     <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
     <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">   
+    <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
     <link href="./../assets/css/index.css" rel="stylesheet" type="text/css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjgKrsMexm3lSbfFaIgQepfWZaEJRsjjc&callback=initMap"
+  type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,26 +19,39 @@
         <nav>
             <img src="./../assets/images/Logo.jpg" alt="Tvastra Logo">
             <i class="fas fa-bars"></i>
+            <ul id="links">
+                <li><a href="">Doctors</a></li>
+                <li><a href="">Hospitals</a></li>
+                <li><a href="">Treatment</a></li>
+                <li><a href="">Other Services</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+            <div id="buttons">
+                <button class="btn-light">Login / Sign Up</button>
+                <button class="btn-primary">Get a Quote</button>           
+            </div>
         </nav>
     </header>
 
     <section id="intro">
-        <h1>Find Affordable Healthcare</h1>
-        <p>Join the thousands of others who have exercised their rights to qualify healthcare at a price you can afford</p>
-        <div id="search">
-            <form id="search-form" action="#intro" method="POST">
-                <div id="forposition">
-                    <div id="location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Ahmedabad" name="location">
+        <div>
+            <h1>Find Affordable Healthcare</h1>
+            <p>Join the thousands of others who have exercised their rights to qualify healthcare at a price you can afford</p>
+            <div id="search">
+                <form id="search-form" action="#intro" method="POST">
+                    <div id="forposition">
+                        <div id="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" placeholder="Ahmedabad" name="location">
+                        </div>
+                        <div id="right-icon">
+                            <img src="./../assets/images/gps.png" alt="gps">
+                        </div>
                     </div>
-                    <div id="right-icon">
-                        <img src="./../assets/images/gps.png" alt="gps">
-                    </div>
-                </div>
-                <input class="textbox" type="text" name="searchKey" placeholder="Search for Doctor, hospitals and treatments">
-                <input class="button-type1" type="submit" value="Search">       
-            </form>
+                    <input class="textbox" type="text" name="searchKey" placeholder="Search for Doctor, hospitals and treatments">
+                    <input class="btn-primary" type="submit" value="Search">       
+              </form>
+            </div>
         </div>
     </section>
 
@@ -47,7 +63,10 @@
                 <button><span>01</span><span class="span">Fix Consultation</span></button> 
                 <figure>
                     <img src="./../assets//images/process/fixconsult.png" alt="Fix Consultation">
-                    <figcaption>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, recusandae accusantium quam rerum eos labore.</figcaption>
+                    <figcaption>
+                        <h5>Fix Consultation</h5>
+                        <p>This depicts that user will have to fix appointment first when it selects a particular doctor.</p>
+                    </figcaption>
                 </figure>            
             </div>
             <div class="inactive">
@@ -147,14 +166,14 @@
     </section>
 
 
-    <section id="treatment" style="padding-bottom: .8rem;">
+    <section id="treatment">
         <h2>Featured Medical Treatment</h2>
         <p>Join the thousands of others who have exercised thier rights to qualify healthcare at a price you can afford</p>
         <div id="treatment-card">
             <div id="dentist" class="img-style">
                 <figcaption>
                     <ul>
-                        <li class="bold">Dentistry</li>
+                        <li>Dentistry</li>
                         <li>50+ Specialists</li>
                     </ul>
                 </figcaption>
@@ -234,21 +253,21 @@
     </section>
 
     <section id="help">
-        <h2>Need Help?</h2>
-        <p>Just let us know, we will happy to assist you</p>
-        <div class="justify-center">    
-            <button id="submit" class="button-type2">Submit your enquiry</button>
+        <div>
+            <h2>Need Help?</h2>
+            <p>Just let us know, we will happy to assist you</p>  
         </div>
+        <button id="submit" class="btn-secondary">Submit your enquiry</button>
     </section>
 
     <footer>
         <img src="./../assets/images/footerlogo.png" alt="logo">
         <ul id="links">
-            <li>Doctor</li>
-            <li>Hospital</li>
-            <li>Treatment</li>
-            <li>Other Services</li>
-            <li>FAQs</li>
+            <li><a href="">Doctors</a></li>
+            <li><a href="">Hospitals</a></li>
+            <li><a href="">Treatment</a></li>
+            <li><a href="">Other Services</a></li>
+            <li><a href="">FAQs</a></li>
         </ul>
         <ul id="social">
             <li><i class="fab fa-facebook-f"></i></li>
