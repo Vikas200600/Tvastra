@@ -1,0 +1,208 @@
+.banner {
+    background-image: url(./../images/contactUs.png);
+    background-position: 47%;
+    background-size: cover;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner > * {
+    color: var(--white);
+}
+
+.banner :last-child {
+    margin-bottom: 0;
+}
+
+#treatment-banner {
+    background-image: linear-gradient(to right,var(--brightBlue), transparent),url(./../images/treatmentBanner.jpg);   
+    background-position: top; 
+}
+
+#map {
+    background-color: var(--brightBlue);
+    height:25rem;
+}
+
+.row {
+    display: flex;
+    margin-bottom: .7rem;
+}
+
+.row div > *  {
+    text-align: left;
+    margin-bottom: .35rem;
+    color: var(--darkBlue);
+}
+
+.row i {
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: .5rem;
+    color: var(--brightBlue);
+    align-self: start;
+}
+
+#cap #send-message {
+    background-color: var(--bgBlue);
+    padding: 1rem;
+}
+
+#send-message form input[type=submit] {
+    border-radius: 0;
+    width:50%;
+    align-self: flex-end;
+    margin-bottom: 0;
+}
+
+#cap {
+    padding: 0;
+}
+
+#cap > * {
+    padding: 0 1rem;
+}
+
+
+/* <---------------------------------------- about treatment page -----------------------------------> */
+
+#about-treatment > ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+#about-treatment ul li {
+    margin-bottom: 1rem;
+}
+
+#about-treatment > * {
+    text-align: left;
+}
+
+#disorders div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#disorders div i {
+    background-color: var(--lightBlue);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.table {
+    border: 1px solid var(--lightBlue);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.table h6 {
+    text-align: left;
+}
+
+.table p {
+    margin: 0;
+}
+
+.table .row {
+    justify-content: space-between;
+    border-bottom: 1px solid var(--lightBlue);
+    margin-top: 1rem;
+}
+
+.table .row p {
+    font-family: NexaBold;
+    font-weight: bold;    
+}
+
+.table .row :nth-child(2) {
+    color: var(--lightBlue);
+}
+
+
+@media screen and (min-width: 640px) {
+    #contact-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #send-message form{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-column-gap: .5rem;
+    }
+
+    #message-box {
+        grid-column: 2;
+        grid-row: 1 / span 3; 
+    }
+
+    #send-message form input[type=submit] {
+        grid-column: 2;
+        justify-self: end;
+        width:40%;
+    }
+
+    #treatment-description h3{
+        text-align: left;
+    }
+
+    #treatment-section {
+        display: flex;
+    }
+
+    #treatment-section img {
+        height: 16rem;
+        padding-right: 1rem;
+    }
+
+    #disorders {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+
+    #disorders > div {
+        padding: .3rem;
+    }
+
+    #tables {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    #tables .table {
+        width: 49%;
+        height: 0%;
+        margin: 0;
+    }
+    
+}
+
+@media screen and (min-width: 1280px) {
+    section {
+        padding: 2rem 6rem 2rem;
+    }
+    .banner {
+        padding-left: 6rem;
+        height:18rem;
+        background-position: 100%;
+    }
+
+    #cap {
+        display: flex; 
+        border: 1px solid var(--brightBlue);
+    }   
+
+    #contact-info {
+        flex-direction: column;
+    }
+
+}

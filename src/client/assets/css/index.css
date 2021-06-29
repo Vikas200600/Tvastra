@@ -2,6 +2,7 @@
     background-color: var(--bgBlue);
 }
 
+
 #forposition {
     position: relative;
 }
@@ -24,7 +25,7 @@
 }
 
 
-#intro .button-type1 {
+#intro .btn-primary {
     position: relative;
     width:50%;
     left: 25%;    
@@ -33,15 +34,6 @@
 
 #step-details button span{
     padding-right: 15px;
-}
-
-
-.active button .span{    
-    color: var(--darkBlue);
-}
-
-.active button span {
-    color: var(--brightBlue);
 }
 
 #step-details button {
@@ -55,6 +47,20 @@
     font-family: NexaBold;
     color: var(--lightGray);
 }
+
+#step-details .active button {   
+    border-color: var(--darkBlue);
+}
+
+.active button .span{    
+    color: var(--darkBlue);
+}
+
+.active button span {
+    color: var(--brightBlue);
+}
+
+
 
 #step-details img {
     height: auto;
@@ -230,7 +236,7 @@
         height: 2.4rem;
     } 
 
-    #intro .button-type1{
+    #intro .btn-primary{
         position: static;
         width: 100%;
     }
@@ -275,14 +281,10 @@
 
 }
 
-
-
-
-
-
-
-
 @media only screen and (min-width: 1280px){
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 2rem;
+    }
     #intro {
         background-image: url(./../images/introbg.jpg);
         background-repeat: no-repeat;
@@ -302,7 +304,7 @@
     }
     
     #location i{
-        padding-top: 1.65rem;
+        padding-top: 1.45rem;
         padding-left: 1rem;
     }
     

@@ -18,7 +18,7 @@
     --white : #fff;
     --dullWhite : #F5F5F5;
 
-    --lightBlue : #1;
+    --lightBlue : #9cbfda;
     --brightBlue : #0173b2;
     --darkBlue : #021433;
     --bgBlue : #8fcaf1;
@@ -49,14 +49,20 @@ footer {
     background-color: var(--darkBlue);
     color: var(--lightGray);
     padding: 2rem 1.5rem 1rem;
+    border-bottom: .5rem solid var(--brightBlue);
 }
 
 
 /* <-----------------------------------General tag theme------------------------------------->*/
 
-section{
+body > section{
     padding: 2rem 1rem;
 }
+
+body > div {
+    padding: 0 1rem;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: NexaBold;
@@ -116,9 +122,10 @@ ul, ol {
     font-family: NexaLight;
 }
 
-li {
-    margin-bottom:  0.5rem;
+a{
+    text-decoration: none;
 }
+
 
 
 /* <--------------------------------------------- Atribute related themes ---------------------------------------> */
@@ -138,7 +145,7 @@ form {
 
 input {
     font-size: 1rem;
-    padding: 0.6rem;
+    padding: 0.7rem;
     border: none;
     outline: none;
     margin-bottom: 0.5rem;
@@ -186,21 +193,36 @@ button {
 /* <------------------------------ Media Query themes ------------------------------------------------------------> */
 
 @media only screen and (min-width: 640px ){
-    section {
+    body > section {
         padding: 2rem 1.5rem;
     }
 
     footer {
         background-color: var(--white);
         padding-bottom: 1rem;
-        border-bottom: .5rem solid var(--brightBlue);
     }
 }
 
 @media only screen and (min-width: 1280px){
+    header {
+        padding: 1.5rem 6rem;
+    }    
+    
+    body > section {
+        padding: 6rem 6rem;
+    }
+
+    body > div {
+        padding: 0 6rem;
+    }
+    
+    footer {
+        padding: 1.5rem 6rem;
+        text-align: center;
+    }
+
     h1, h2, h3, h4, h5, h6 {
         text-align: left;
-        margin-bottom: 2rem;
     }
 
     h1 {
@@ -237,21 +259,15 @@ button {
     ul,ol {
         font-size: 1.2rem;
     }
-    header {
-        padding: 1.5rem 6rem;
-    }    
-    
-    section {
-        padding: 6rem 6rem;
-    }
-    
-    footer {
-        padding: 1.5rem 6rem;
-        text-align: center;
-    }
 
     ::placeholder {
         color : var(--lightGray);
         font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+       overflow-y: scroll;
     }
 }

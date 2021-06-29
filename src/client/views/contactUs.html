@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tvastra Hospital</title>
+    <title>Contact Us - Tvastra</title>
     <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
-    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">    
+    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">   
     <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
-    <link href="./../assets/css/list.css" rel="stylesheet" type="text/css">   
+    <link href="./../assets/css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
-
+    <script src="./../assets/scripts/googleMapApi.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjgKrsMexm3lSbfFaIgQepfWZaEJRsjjc&callback=initMap" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -25,55 +26,56 @@
                 <li><a href="">About</a></li>
             </ul>
             <div id="buttons">
-                <button class="btn-light">Login/Sign Up</button>
+                <button class="btn-light">Login / Sign Up</button>
                 <button class="btn-primary">Get a Quote</button>           
             </div>
         </nav>
     </header>
 
-    <section id="banner">
-        <h4>Hospitals in <span>Delhi</span></h4>
+    <div class="banner">
+        <h3>Contact Us</h3>
+        <p>Home / Contact Us</p>
+    </div>
+    
+    <section>
+    <div id="map"></div>
     </section>
 
-    <section id="path">
-        <h5>Home / Hospital List</h5>
-        <button>Sort By</button>
-    </section>
 
-    <section id="container" class="hospital-con">
-        <div id="filter" class="hospital-filter" style="background-color: var(--dullWhite);">
-        </div>
-        <div id="list-cards">
-            <div>
-                <h5>Fortis Hospital</h5>
-                <ul>
-                    <li><i class="fa fa-map-marker"></i>Cunningham Road</li>
-                    <li><i class="fas fa-bed"></i>100 beds</li>
-                    <li><i class="fas fa-stethoscope"></i>Famous Treatment</li>
-                </ul>
-                <button class="btn-primary callnow">Call Now</button>
-                <img src="./../assets/images/hospitals/fortis.jpg">
+    <div id="cap">
+        <section id="contact-info">
+            <div class=row>
+                <i class="fas fa-home"></i>
+                <div>
+                    <h5>Noida, India</h5>
+                    <p>Sector 45</p>
+                </div>
             </div>
-            <div>
-                <h5>Fortis Hospital</h5>
-                <ul>
-                    <li><i class="fa fa-map-marker"></i>Cunningham Road</li>
-                    <li><i class="fas fa-bed"></i>100 beds</li>
-                    <li><i class="fas fa-stethoscope"></i>Famous Treatment</li>
-                </ul>
-                <button class="btn-primary callnow">Call Now</button>
-                <img src="./../assets/images/hospitals/fortis.jpg">
+            <div class=row>
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h5>00 (440) 9865562</h5>
+                    <p>Mon to Fri 9am to 6pm</p>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section id="help">
-        <div>
-            <h2>Need Help?</h2>
-            <p>Just let us know, we will happy to assist you</p>  
-        </div>
-        <button id="submit" class="btn-secondary">Submit your enquiry</button>
-    </section>
+            <div class=row>
+                <i class="fas fa-at"></i>
+                <div>
+                    <h5>support@tvastra.com</h5>
+                    <p>Send us your query anytime!</p>
+                </div>
+            </div>
+        </section>    
+        <section id="send-message">
+            <form>
+                <input type="text" placeholder="Enter your name">
+                <input type="text" placeholder="Enter email address">
+                <input type="text" placeholder="Enter subject">
+                <input type="text" id="message-box" placeholder="Enter Message">
+                <input type="submit" class="btn-secondary" value="Send Message">
+            </form>
+        </section>
+    </div>
     
     <footer>
         <img src="./../assets/images/footerlogo.png" alt="logo">
@@ -93,6 +95,5 @@
         </ul>
         <p>All Rights Reserved. &copy tvastra 2018</p>
     </footer>
-    
 </body>
 </html>

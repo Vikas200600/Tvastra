@@ -15,13 +15,12 @@ header #links{
     display: none;
 }
 
-
 footer {
     text-align: center;
     display:flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: .5rem solid var(--brightBlue);
+    
 }
 
 footer > * {
@@ -61,8 +60,12 @@ footer p {
     align-items: center;
 }
 
+#help div > :first-child{    
+    color: var(--white);
+}
+
 #help button{
-    width:15rem;
+    width:auto;
 }
 
 @media only screen and (min-width: 640px) {
@@ -96,7 +99,7 @@ footer p {
 
     #links li {
         margin-right: 1.5rem;
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     
     #links li a {
@@ -115,7 +118,7 @@ footer p {
     footer p {
         grid-area: rights;
         padding: 0;
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-top: .2rem;
     }
 }
@@ -127,20 +130,21 @@ footer p {
         align-self: center;
     }
 
-    nav {
-        justify-content: space-between;
-    }
-
     nav .fas {
         display: none;
     }
 
     header #links{
+        align-self: center;
         display: flex;
-        align-items: center;    
         justify-content: space-between;
-        width: 40rem;
         padding: 0;
+        font-weight: bold;
+    }
+
+    header #links li {
+        font-size: 1.1rem;
+        margin-bottom: 0;
     }
 
     header #links a{
