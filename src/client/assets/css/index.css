@@ -118,18 +118,18 @@
     position: relative;
 }
 
-#doctors h5 {
+#doctors h6 {
     text-align: left;
     margin-bottom: 0.5rem;
     color: var(--brightBlue);
     padding-left: 1.2rem;
 }
 
-#doctors h5::before{
+#doctors h6::before{
     content:"";
     display:block;
     background-color: var(--brightBlue);
-    height:0.13rem;
+    height:0.1rem;
     width: 2rem;
     position:absolute;
     top: 1.5rem;
@@ -139,6 +139,7 @@
 #doctors ul {
     padding-left: 1.3rem;
 }
+
 
 .img-style {
     background-size: 100% 100%;
@@ -157,7 +158,8 @@
 
 .img-style figcaption ul :first-child {
     font-family: NexaBold;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    margin-bottom: .3rem;
 }
 
 #dentist {
@@ -228,10 +230,10 @@
 
 
 
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 760px) {
     #search-form {
         display: grid;
-        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-columns: 1fr 2fr .8fr;
         height: 2.4rem;
     } 
 
@@ -254,7 +256,7 @@
         position: absolute;
         width:20rem;
         left:55%;
-        padding-top: 3rem;
+        padding-top: .8rem;
     }
 
     #doctor-card {
@@ -282,8 +284,9 @@
 
 @media only screen and (min-width: 1280px){
     h1, h2, h3, h4, h5, h6 {
-        margin-bottom: 2rem;
+        margin-bottom: 1.1rem;
     }
+
     #intro {
         background-image: url(./../images/introbg.jpg);
         background-repeat: no-repeat;
@@ -291,14 +294,19 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         align-items: center;
+        height: 27rem;
     }
+
+    #intro>div p {
+        margin-bottom: 2rem;
+    } 
 
     #intro div > * {
         text-align: left;
     }
 
     #search-form input {
-        padding : 1rem;
+        padding : 1.1rem;
     }
     
     #location i{
@@ -315,7 +323,7 @@
     }
 
     #step-details button {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         padding: 2.5rem;
         padding-right: 0;
     }
@@ -344,12 +352,16 @@
 
     #treatment-card {
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: repeat(10,1fr);
+        grid-template-rows: repeat(8,1fr);
+    }
+
+    .img-style {
+        background-size: cover;
     }
 
     #treatment-card figcaption {
         position: relative;
-        top: 80%;
+        top:85%;
     }
 
     #treatment-card :nth-child(1) {
@@ -358,6 +370,7 @@
     }
 
     #treatment-card :nth-child(2) {
+        background-position: 70%;
         grid-row: 1 / span 5;
         grid-column: 2;
     }
@@ -381,7 +394,14 @@
         grid-row: 5 /span 6;
         grid-column: 3;
     }
-
+ 
+    #treatment-card :nth-child(1) figcaption, #treatment-card :nth-child(5) figcaption {
+        top:80%;
+    }
+    
+    #treatment-card :nth-child(2) figcaption, #treatment-card :nth-child(4) figcaption {
+        top:88%;
+    }
 
     #service-card {
         display: grid;

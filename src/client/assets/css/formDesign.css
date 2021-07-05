@@ -53,7 +53,7 @@ p {
 }
 
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 760px){
     #container{
         padding: 4rem 0;
     }
