@@ -2,31 +2,34 @@ html {
     height: 100%;
 }
 body{
-    height:100%;
     background-color: var(--bgBlue); 
-    justify-items: center;
-}
-
-#container {
-    height:85%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+#container{  
+    display: flex;
+    justify-content: center;padding: 1rem;
 }
 
 #form-container {
     background-color: var(--white);
-    width: 90%;
-    padding-top: 1rem;;
+    width: 100%;
+    padding-top: 1rem;
 }
 
 form {
     padding: 1rem;
 }
 
-#form-container input[type=text] {
+#form-container input , select{
     border: 1px solid var(--lightGray);
+}
+
+select {
+    font-size: 0.8rem;
 }
 
 #form-container input[type=submit] {
@@ -49,14 +52,31 @@ p {
     font-weight: bold;
 }
 
+
 @media screen and (min-width: 640px){
+    #container{
+        padding: 4rem 0;
+    }
+
     #form-container {
-        width:55%;
+        width:75%;
     }
 }
 
 @media screen and (min-width: 1280px){
+    #container{
+        padding: 6rem 0;
+    }
     #form-container {
         width : 30%;
     }
+
+    #form-container h4, #form-container p{
+        text-align: center;
+    }
+
+    #footer h6{
+        text-align: center;
+    }
+
 }

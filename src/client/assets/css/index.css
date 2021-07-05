@@ -24,7 +24,6 @@
     bottom: 1rem;
 }
 
-
 #intro .btn-primary {
     position: relative;
     width:50%;
@@ -289,7 +288,6 @@
         background-image: url(./../images/introbg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        height: 33rem;
         display: grid;
         grid-template-columns: 2fr 1fr;
         align-items: center;
@@ -300,11 +298,11 @@
     }
 
     #search-form input {
-        padding : 1.5rem;
+        padding : 1rem;
     }
     
     #location i{
-        padding-top: 1.45rem;
+        padding-top: 1rem;
         padding-left: 1rem;
     }
     
@@ -313,12 +311,13 @@
     }
     
     #right-icon{
-        bottom: 1.9rem;
+        bottom: 1.5rem;
     }
 
     #step-details button {
         font-size: 1.7rem;
-        padding: 3rem;
+        padding: 2.5rem;
+        padding-right: 0;
     }
 
     #step-details button .span {
@@ -332,7 +331,7 @@
     #step-details figure {
         width:40rem;
         left:50%;
-        padding-top: 8rem;
+        padding-top: 2rem;
     }
 
     #step-details figure figcaption > * {

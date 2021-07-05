@@ -11,7 +11,7 @@ header #links{
     display: none;
 }
 
-#buttons {
+header #buttons {
     display: none;
 }
 
@@ -20,7 +20,6 @@ footer {
     display:flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 footer > * {
@@ -76,6 +75,7 @@ footer p {
             "rights social";
         justify-items: start;
         grid-row-gap: 1rem;
+        padding-bottom: 0;
     }
 
     footer > *, footer p {
@@ -124,27 +124,43 @@ footer p {
 }
 
 @media only screen and (min-width: 1280px) {
-    nav img {
-        height: 2.9rem;
-        width: auto;
-        align-self: center;
+    nav {
+        display: grid;
+        grid-template-columns: 25% auto 25%;
     }
 
     nav .fas {
         display: none;
     }
 
-    header #links{
-        align-self: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-        font-weight: bold;
+    nav img {
+        height: 2rem;
+        width: 10rem;
     }
 
+
+    header #links{
+        display: flex;
+        font-weight: bold;
+        align-self: center;
+    }
+
+    header #buttons {
+        display: block;
+        justify-self: end;
+    }
+
+    #buttons > * {
+        font-size: .8rem;
+    }
+    
     header #links li {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0;
+    }
+
+    header #links :last-child {
+        margin: 0;
     }
 
     header #links a{
@@ -154,12 +170,10 @@ footer p {
     
     #buttons {
         display: flex;
-        width: 20.5rem;
         justify-content: space-between;
     }
 
     #buttons > * {
-        width: 10rem;
         border-radius: .2rem;
     }
 
