@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book An Appointment</title>
+    <title>Book An Appointment - Tvastra</title>
     <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
     <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">   
     <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
     <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">  
+    <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -29,13 +30,58 @@
         </nav>
     </header>
 
+    
     <div id="container">
         <div id="form-container">
-            <h4>Book An Appointment</h4>
-            <form>
-
+            <h5>Book An Appointment</h5>
+            <form id="appointment-form">
+                <h6>Select Appointment Date*</h6>
+                <input type="text" name="date" placeholder="dd / mm / yyyy">
+                <h6>Time Interval*</h6>
+                <div>                    
+                    <input type="radio" id="morning" name="slot">
+                    <label for="morning">Morning</label>
+                </div>
+                <div>                    
+                    <input type="radio" id="afternoon" name="slot">
+                    <label for="afternoon">Afternoon</label>
+                </div>
+                <div>                    
+                    <input type="radio" id="evening" name="slot">
+                    <label for="evening">Evening</label>
+                </div>
+                <h6>Appointment Status / Urgengy*</h6>
+                <div>                    
+                    <input type="radio" id="routine" name="status">
+                    <label for="routine">Routine Check-Up</label>
+                </div>
+                <div>                    
+                    <input type="radio" id="nonurgent" name="status">
+                    <label for="nonurgent">Non Urgent Check-Up</label>
+                </div>
+                <div>                    
+                    <input type="radio" id="urgent" name="status">
+                    <label for="urgent">Urgent Check-Up</label>
+                </div>
+                <div>                    
+                    <input type="radio" id="surgical" name="status">
+                    <label for="surgical">Surgical Appointment</label>
+                </div>
+                <h6>Upload Previous Health Record</h6>
+                <div>
+                    <input type="file" id="sel-file">
+                </div>
+                <h6>Appointment Details</h6>
+                <textarea placeholder=""></textarea>
+             
+                <div id="submit">
+                    <button class="btn-primary" type="submit">Book Appointment</button>
+                    <div>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
             </form>
-        </div>
+        </div>    
     </div>
 
     <div id="footer">

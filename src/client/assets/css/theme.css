@@ -152,15 +152,18 @@ form {
     flex-direction: column;
 }
 
-input , select{
+input , select, label{
     font-family: nexaLight;
     font-size: .8rem;
     font-weight: bold;
     letter-spacing: 0.05rem;
-    padding: .6rem .8rem;
+}
+
+textarea, input, select {    
     border: none;
     outline: none;
     margin-bottom: 0.5rem;
+    padding: .6rem .8rem;
 }
 
 
@@ -170,9 +173,9 @@ button {
     font-size: 1rem;
     padding: 0.5rem 1rem;
     letter-spacing: 0.05rem;
+    cursor: pointer;
     border: none;
     outline: none;
-    cursor: pointer;
 }
 
 

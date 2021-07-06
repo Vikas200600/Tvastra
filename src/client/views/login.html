@@ -33,18 +33,23 @@
 
     <div id="container">
         <div id="form-container">
-            <h4>Login</h4>
+            <h5>Login</h5>
             <form>
                 <input type="text" name="mobile" placeholder="Enter Mobile Number">
                 <input type="text" name="otp" placeholder="Enter OTP">
-                <input class="btn-primary" type="submit" value="login">
+                <div id="submit">
+                    <button class="btn-primary" type="submit">Login</button>
+                    <div>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
             </form>
-            <p>Not Registered?  <span><a href="signUp.html">Sign Up</a></span></p>
+            <p class="small registered-flag">Not Registered?  <span><a href="signUp.html">Sign Up</a></span></p>
         </div>    
     </div>
 
     <div id="footer">
-        <h6>
+        <h6 class="small">
             All Rights Reserved &copy Tvastra 2021
         </h6>
     </div>    

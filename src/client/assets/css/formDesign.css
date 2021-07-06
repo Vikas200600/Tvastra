@@ -24,24 +24,44 @@ form {
     padding: 1rem;
 }
 
-#form-container input , select{
+form textarea {
+    height: 10rem;
+}
+
+#form-container input , select, textarea{
     border: 1px solid var(--lightGray);
 }
 
 select {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    padding-left: .5rem;
 }
 
-#form-container input[type=submit] {
+#submit button {
+    padding: .7rem 0;
     letter-spacing: .35rem;
+    font-weight: bold;
     text-transform:uppercase;
+    position: relative;
+    width: 100%;
 }
 
-#form-container h4 {
+#submit i {
+    color: white;
+    position: relative;
+    left: 90%;
+    top : -1.9rem;
+}
+
+#form-container h5 {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--lightGray);
     color: var(--brightBlue)
 }
+
+
+
+
 
 #form-container span a{
     color: var(--brightBlue);
@@ -50,6 +70,46 @@ select {
 p {
     font-family: NexaBold;
     font-weight: bold;
+}
+
+#footer {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    word-spacing: .1rem;
+    letter-spacing: .085rem;
+}
+
+.small {
+    font-size : .8rem;
+}
+
+.registered-flag {
+    color: var(--lightGray);
+
+}
+.inline {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: .3rem;
+}
+
+#appointment-form h6 {
+    text-align: left;
+    margin-bottom: .7rem;
+    margin-top: 1rem;
+}
+
+#appointment-form :first-child {
+    margin-top: 0;
+}
+
+#appointment-form div label {
+    padding-left: .8rem;
+}
+
+#appointment-form input[type=file] {
+    border: none;
+    padding: 0;
 }
 
 
@@ -67,12 +127,17 @@ p {
     #container{
         padding: 6rem 0;
     }
+
     #form-container {
         width : 30%;
     }
 
-    #form-container h4, #form-container p{
+    #form-container h5, #form-container p{
         text-align: center;
+    }
+
+    #form-container p {
+        margin-bottom: 1rem;
     }
 
     #footer h6{
