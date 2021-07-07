@@ -157,6 +157,7 @@ input , select, label{
     font-size: .8rem;
     font-weight: bold;
     letter-spacing: 0.05rem;
+    background-color: white;
 }
 
 textarea, input, select {    

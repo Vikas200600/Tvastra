@@ -53,14 +53,12 @@ select {
     top : -1.9rem;
 }
 
-#form-container h5 {
+#form-head {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--lightGray);
-    color: var(--brightBlue)
+    color: var(--brightBlue);
+    letter-spacing : 1px;
 }
-
-
-
 
 
 #form-container span a{
@@ -87,6 +85,7 @@ p {
     color: var(--lightGray);
 
 }
+
 .inline {
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -132,7 +131,7 @@ p {
         width : 30%;
     }
 
-    #form-container h5, #form-container p{
+    #form-head, #form-container p{
         text-align: center;
     }
 
