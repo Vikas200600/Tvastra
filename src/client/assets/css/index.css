@@ -287,6 +287,10 @@
         margin-bottom: 1.1rem;
     }
 
+    p {
+        margin: 0rem 0rem 3rem;
+    }
+
     #intro {
         background-image: url(./../images/introbg.jpg);
         background-repeat: no-repeat;

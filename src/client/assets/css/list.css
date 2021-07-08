@@ -9,9 +9,88 @@
 }
 
 #path h5 {
+    font-family: nexaLight;
+    font-weight: bold;
     margin-bottom: 0;
     align-self: center;
 }
+
+.filter {
+    border: 1px solid var(--lightBlue);
+    color: var(--darkBlue);    
+}
+
+
+
+.filter-section {
+    display: none;
+    flex-direction: column;
+}
+
+.filter-section button {
+    text-align: left;
+    font-family : NexaBold;
+    font-weight: bold;
+    background-color: var(--lightGray)
+}
+
+.filter-card {
+    border-bottom: 1px solid var(--darkBlue);
+}
+
+.filter-card > * {
+    margin-bottom: 1rem;
+    color: var(--darkBlue);
+}
+
+.head p {
+    font-weight: 500;
+}
+
+.head div .fas {
+    color: var(--brightBlue);
+}
+
+.head .icon {    
+    content:"";
+    display:block;
+    background-color: var(--lightGray);
+    height:0.3rem;
+    width: 1.2rem;
+    margin-left: .3rem;
+    margin-top: .2rem;
+}
+
+.head>div {
+    display: flex;
+}
+
+.filter-card {
+    padding-left: 1rem;
+    padding-top: 2rem;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head p {
+    margin-bottom: .5rem;
+}
+
+.check-boxes {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.show-more {
+    font-size: .8rem;
+    letter-spacing: .1rem;
+    color: var(--lightBlue);
+}
+
+
 
 #list-cards div {
     border: 1px solid var(--lightBlue);
@@ -27,7 +106,7 @@
     padding-left: 2rem;
 }
 
-#list-cards h5::before{
+#list-cards h5::before {
     content:"";
     display:block;
     background-color: var(--brightBlue);
@@ -44,7 +123,7 @@
 }
 
 #list-cards ul li i {
-    margin-right: 1rem;
+    margin-right: .8rem;
     color: var(--brightBlue);
 }
 
@@ -55,7 +134,6 @@
 
 #list-cards div img {
     height:20rem;
-    width: auto;
     justify-self: end;
 }
 
@@ -63,29 +141,61 @@
     width: 9rem;
 }
 
+.treatments{
+    align-self: flex-start;
+    padding-left: 1.7rem;   
+    font-size: .75rem; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.treatments > * {
+    border: 1px solid var(--lightGray);
+    border-radius: 1rem;
+    padding: .35rem .8rem;
+    margin-right: .2rem;
+}
+
+.more {
+    background-color: var(--dullWhite);
+}
+
 
 @media only screen and (min-width: 640px) {
-    #container {
+    .container {
         display:grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 3fr;
+        grid-column-gap: 1rem;
     }
 
-    #container #filter{
-        margin: 0 1rem;
+    .filter-section {
+        display: flex;
+    }
+
+    #hospital-container {
+        display: block;
+    }
+
+    #hospital-filter {
+        display: none;
     }
 
     #list-cards div {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
     }
 
     #list-cards div img {
+        height: 17rem;
         grid-row: 1/4;
         grid-column: 2;
+        align-self: center;
     }
 
     #list-cards button {
-        justify-self: center;
+        justify-self: start;
+        margin-left:6%;
     }
 
     #list-cards .callnow {
@@ -113,5 +223,28 @@
 
     #banner h4 span {
         text-decoration:underline;
+    }
+
+    .wrap {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    #path, .container {
+        padding-top: 1.7rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 1280px) {
+    #hospital-container {
+        display:grid;
+        grid-template-columns: 1fr 3fr;
+        grid-column-gap: 1rem;
+    }
+
+    #hospital-filter {
+        display: flex;
     }
 }

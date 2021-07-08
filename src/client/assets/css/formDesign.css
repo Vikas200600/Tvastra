@@ -11,7 +11,8 @@ body{
 
 #container{  
     display: flex;
-    justify-content: center;padding: 1rem;
+    justify-content: center;
+    padding: 1rem;
 }
 
 #form-container {
@@ -33,7 +34,7 @@ form textarea {
 }
 
 select {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     padding-left: .5rem;
 }
 
@@ -92,6 +93,10 @@ p {
     grid-column-gap: .3rem;
 }
 
+.inline > * {
+    width: 100%;
+}
+
 #appointment-form h6 {
     text-align: left;
     margin-bottom: .7rem;
@@ -102,9 +107,6 @@ p {
     margin-top: 0;
 }
 
-#appointment-form div label {
-    padding-left: .8rem;
-}
 
 #appointment-form input[type=file] {
     border: none;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tvastra Hospital</title>
+    <title>Hospitals - Tvastra</title>
     <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
     <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">    
     <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
@@ -37,30 +37,131 @@
 
     <section id="path">
         <h5>Home / Hospital List</h5>
-        <button>Sort By</button>
+        <select class="filter">
+            <option>Sort by</option>
+        </select>
     </section>
 
-    <section id="container" class="hospital-con">
-        <div id="filter" class="hospital-filter" style="background-color: var(--dullWhite);">
+    <section class="container" id="hospital-container">
+        <div class="filter-section" id="hospital-filter">
+            <div class="filter-card">
+                <div class="head">
+                    <p>Location</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="location">
+                    <label for="item1" >DLF Cyber City</label>
+                    <input type="checkbox" id="item2" name="location">
+                    <label for="item2" >Dwaraka</label>
+                    <input type="checkbox" id="item3" name="location">
+                    <label for="item3" >Lajpat Nagar</label>
+                    <input type="checkbox" id="item4" name="location">
+                    <label for="item4" >Palam Vihar</label>
+                    <input type="checkbox" id="item5" name="location">
+                    <label for="item5" >Punjabi Baag</label>
+                    <input type="checkbox" id="item6" name="location">
+                    <label for="item6" >Pusa Road</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Department</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="department">
+                    <label for="item1" >Department one</label>
+                    <input type="checkbox" id="item2" name="department">
+                    <label for="item2" >Department two</label>
+                    <input type="checkbox" id="item3" name="department">
+                    <label for="item3" >Department onx</label>
+                    <input type="checkbox" id="item4" name="department">
+                    <label for="item4" >Department four</label>
+                    <input type="checkbox" id="item5" name="department">
+                    <label for="item5" >Department opo</label>
+                    <input type="checkbox" id="item6" name="department">
+                    <label for="item6" >Department ON</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Treatment</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="hospital">
+                    <label for="item1" >Multi Organ Transplant</label>
+                    <input type="checkbox" id="item2" name="hospital">
+                    <label for="item2" >Orthopedic Surgery</label>
+                    <input type="checkbox" id="item3" name="hospital">
+                    <label for="item3" >Infertility Treatment</label>
+                    <input type="checkbox" id="item4" name="hospital">
+                    <label for="item4" >Dentistry</label>
+                    <input type="checkbox" id="item5" name="hospital">
+                    <label for="item5" >Cardiology</label>
+                    <input type="checkbox" id="item6" name="hospital">
+                    <label for="item6" >Cancer</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
         </div>
         <div id="list-cards">
             <div>
                 <h5>Fortis Hospital</h5>
-                <ul>
+                <ul class="wrap">
                     <li><i class="fa fa-map-marker"></i>Cunningham Road</li>
                     <li><i class="fas fa-bed"></i>100 beds</li>
                     <li><i class="fas fa-stethoscope"></i>Famous Treatment</li>
                 </ul>
+                <ul class="treatments">
+                    <li>Multi Organ Transplant</li>
+                    <li>Orthopedics Surgery</li>
+                    <li>Infertility Treatment</li>
+                    <li>Dentistry</li>
+                    <li>Cardiology</li>
+                    <li>Cancer</li>
+                    <li class="more">+40 more</li>
+                </ul>    
                 <button class="btn-primary callnow">Call Now</button>
                 <img src="./../assets/images/hospitals/fortis.jpg">
             </div>
             <div>
                 <h5>Fortis Hospital</h5>
-                <ul>
+                <ul class="wrap">
                     <li><i class="fa fa-map-marker"></i>Cunningham Road</li>
                     <li><i class="fas fa-bed"></i>100 beds</li>
                     <li><i class="fas fa-stethoscope"></i>Famous Treatment</li>
                 </ul>
+                <ul class="treatments">
+                    <li>Multi Organ Transplant</li>
+                    <li>Orthopedics Surgery</li>
+                    <li>Infertility Treatment</li>
+                    <li>Dentistry</li>
+                    <li>Cardiology</li>
+                    <li>Cancer</li>
+                    <li class="more">+40 more</li>
+                </ul>   
                 <button class="btn-primary callnow">Call Now</button>
                 <img src="./../assets/images/hospitals/fortis.jpg">
             </div>

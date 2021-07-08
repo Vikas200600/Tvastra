@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tvastra Doctor</title>
+    <title>Doctors - Tvastra</title>
     <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
     <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">  
     <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
@@ -37,19 +37,129 @@
 
     <section id="path">
         <h5>Home / Doctor List</h5>
-        <button>Sort By</button>
+        <select class="filter">
+            <option>Sort by</option>
+        </select>
     </section>
+    <section class="container">
+        <div class="filter-section"">
+            <button>Filter By</button>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Location</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="location">
+                    <label for="item1" >DLF Cyber City</label>
+                    <input type="checkbox" id="item2" name="location">
+                    <label for="item2" >Dwaraka</label>
+                    <input type="checkbox" id="item3" name="location">
+                    <label for="item3" >Lajpat Nagar</label>
+                    <input type="checkbox" id="item4" name="location">
+                    <label for="item4" >Palam Vihar</label>
+                    <input type="checkbox" id="item5" name="location">
+                    <label for="item5" >Punjabi Baag</label>
+                    <input type="checkbox" id="item6" name="location">
+                    <label for="item6" >Pusa Road</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
 
-    <section id="container">
-        <div id="filter" style="background-color: var(--dullWhite);">
+            </div>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Treatment</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="hospital">
+                    <label for="item1" >Multi Organ Transplant</label>
+                    <input type="checkbox" id="item2" name="hospital">
+                    <label for="item2" >Orthopedic Surgery</label>
+                    <input type="checkbox" id="item3" name="hospital">
+                    <label for="item3" >Infertility Treatment</label>
+                    <input type="checkbox" id="item4" name="hospital">
+                    <label for="item4" >Dentistry</label>
+                    <input type="checkbox" id="item5" name="hospital">
+                    <label for="item5" >Cardiology</label>
+                    <input type="checkbox" id="item6" name="hospital">
+                    <label for="item6" >Cancer</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Hospitals</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="treatment">
+                    <label for="item1" >Apollo Hospital</label>
+                    <input type="checkbox" id="item2" name="treatment">
+                    <label for="item2" >Manipal North Side Hospital</label>
+                    <input type="checkbox" id="item3" name="treatment">
+                    <label for="item3" >Northstar</label>
+                    <input type="checkbox" id="item4" name="treatment">
+                    <label for="item4" >AIIMS</label>
+                    <input type="checkbox" id="item5" name="treatment">
+                    <label for="item5" >Fortis Hospital</label>
+                    <input type="checkbox" id="item6" name="treatment">
+                    <label for="item6" >Eibit Diagnostic</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
+            <div class="filter-card">
+                <div class="head">
+                    <p>Year of Experience</p>
+                    <div>                            
+                        <i class="fas fa-search"></i>
+                        <i class="icon"></i>
+                    </div>
+                </div>
+                <div class="check-boxes">
+                    <input type="checkbox" id="item1" name="year">
+                    <label for="item1" >30+</label>
+                    <input type="checkbox" id="item2" name="year">
+                    <label for="item2" >25+</label>
+                    <input type="checkbox" id="item3" name="year">
+                    <label for="item3" >20+</label>
+                    <input type="checkbox" id="item4" name="year">
+                    <label for="item4" >15+</label>
+                    <input type="checkbox" id="item5" name="year">
+                    <label for="item5" >10+</label>
+                    <input type="checkbox" id="item6" name="year">
+                    <label for="item6" >5+</label>
+                </div>
+                <div class="show-more">
+                    <a>+ Show More</a>
+                </div>
+
+            </div>
         </div>
         <div id="list-cards">
             <div>
                 <h5>Doctor Name</h5>
-                <ul>
+                <ul class="wrap">
                     <li> <i class="fas fa-certificate"></i>Certificates</li>
                     <li> <i class="fas fa-award"></i> Awards</li>
-                    <li> <i class="far fa-clock"></i> Experience</li>
+                    <li> <i class="far fa-clock"></i>Experience</li>
                     <li><i class="fas fa-building"></i> Work</li>
                     <li><i class="fa fa-map-marker"></i> Location</li>                
                 </ul>
@@ -58,7 +168,7 @@
             </div>
             <div>
                 <h5>Doctor Name</h5>
-                <ul>
+                <ul class="wrap">
                     <li> <i class="fas fa-certificate"></i>Certificates</li>
                     <li> <i class="fas fa-award"></i> Awards</li>
                     <li> <i class="far fa-clock"></i> Experience</li>

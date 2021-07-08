@@ -135,15 +135,12 @@ a{
 
 ::placeholder {
     color : var(--lightGray);
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-family: NexaLight;
     letter-spacing: .05rem;
     font-weight: bold;
 }
 
-select {
-    color : var(--lightGray);
-}
 /* <---------------------------------------------- Form themes ---------------------------------------------> */
 
 
@@ -152,12 +149,24 @@ form {
     flex-direction: column;
 }
 
-input , select, label{
+input , select{
     font-family: nexaLight;
-    font-size: .8rem;
+    font-size: .9rem;
     font-weight: bold;
     letter-spacing: 0.05rem;
+}
+
+select {    
     background-color: white;
+    color : var(--lightGray);
+}
+
+label {
+    font-family: nexaLight;
+    font-size: .85rem;
+    padding-left: .8rem;
+    padding-top: .3rem;
+    letter-spacing: .1rem;
 }
 
 textarea, input, select {    
@@ -271,11 +280,10 @@ button {
         font-size: 1.1rem;
     }
 
-    p{
+    p {
         font-size: 1.1rem;
         line-height: 1.5rem;
         text-align: left;
-        margin: 0rem 0rem 3rem;
     }
 }
 
