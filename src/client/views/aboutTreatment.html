@@ -20,12 +20,12 @@
             <ul id="links">
                 <li><a href="./doctor.html">Doctors</a></li>
                 <li><a href="./hospital.html">Hospitals</a></li>
-                <li><a href="">Treatment</a></li>
+                <li><a href="./aboutTreatment.html">Treatment</a></li>
                 <li><a href="">Other Services</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="./aboutUs.html">About</a></li>
             </ul>
             <div id="buttons">
-                <button class="btn-light">Login / Sign Up</button>
+                <button class="btn-light" onclick="document.location='./login.html'">Login / Sign Up</button>
                 <button class="btn-primary">Get a Quote</button>           
             </div>
         </nav>
@@ -37,14 +37,14 @@
     </div>
 
     <section id="treatment-description">
-        <h3>Vaccination</h3>
+        <div>
+            <h4>Vaccination</h4>
         <div id="treatment-section">
             <div>
-                <img src="./../assets/images/doctors.png">            
-            </div>
-            
+                <img src="./../assets/images/treatments/dentist.jpg">            
+            </div>            
             <div id="about-treatment">
-                <h4>About Dentist Department</h4>
+                <h6>About Dentist Department</h6>
                 <p>The vaccination of dentists against various vaccine-preventable infections is the most important measure of primary prevention against such diseases which would otherwise prove fatal for both dentists and thier patients.</p>
                 <ul>
                     <li>CF-related diabities (monthly)</li>
@@ -71,8 +71,8 @@
                 <h6>Neoplastuc Disorders</h6>
                 <p>Open visitation with only two visitors in a room at any time. No one under 12 years of any may.</p>
             </div>
-        </div>
-        
+        </div>   
+    </div>    
         <div id="tables">
             <div class="table">
                 <h6>Service Details</h6>
@@ -112,21 +112,41 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
     
     <section id="more-services">
-        
+        <div id="service-head">
+            <h4>More Services</h4>  
+            <div id="navigate-btn">
+                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div> 
+        <div id="service-cards">
+            <div>
+                <img src="./../assets/images/treatments/orthopedics.jpg">
+                <p>Orthopedic Surgery</p>
+            </div>
+            <div>
+                <img src="./../assets/images/treatments/cancer.jpg">
+                <p>Cancer</p>
+            </div>
+            <div>
+                <img src="./../assets//images/treatments/cardiology.jpg">
+                <p>Cardiology</p>
+            </div>
+        </div>          
     </section>
 
     <footer>
         <img src="./../assets/images/footerlogo.png" alt="logo">
         <ul id="links">
-            <li><a href="">Doctors</a></li>
-            <li><a href="">Hospitals</a></li>
-            <li><a href="">Treatment</a></li>
+            <li><a href="./doctor.html">Doctors</a></li>
+            <li><a href="./hospital.html">Hospitals</a></li>
+            <li><a href="./aboutTreatment.html">Treatment</a></li>
             <li><a href="">Other Services</a></li>
-            <li><a href="">FAQs</a></li>
+            <li><a href="./faq.html">FAQs</a></li>
         </ul>
         <ul id="social">
             <li><i class="fab fa-facebook-f"></i></li>

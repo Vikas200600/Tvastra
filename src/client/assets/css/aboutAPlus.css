@@ -1,0 +1,158 @@
+#intro {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0,0,0, 0.3) 100%), url("./../images/aboutUsBanner.jpeg");
+    height:25rem;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    font-weight: normal;
+    font-family: nexaLight;
+    font-size: .9rem;
+}
+
+#about>div ,#info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#signature-img {
+    height: 5rem;
+    width:auto;
+    margin-bottom: 1rem;
+}
+
+#intro > h2, #info h4 {    
+    color: var(--white);
+}
+
+#intro p , #info p{
+    color: var(--lightGray)
+}
+
+#info {
+    background-color: var(--black);
+}
+
+#info video {
+    display: none;
+}
+
+#numbers {
+    width: 100%;
+}
+
+#numbers h5 {
+    color: var(--white);
+    margin: .5rem;
+    letter-spacing: .1rem;
+}
+
+#numbers p {
+    font-size: .7rem;
+    margin: 0;
+}
+
+#numbers div {
+    border: 1px solid var(--lightGray);
+    border-radius: 3px;
+    padding: 2rem;
+    margin-top: .8rem;
+}
+
+#help p {
+    font-size: 1rem;
+}
+
+@media only screen and (min-width : 760px ){
+
+    #about {
+        display: grid;
+        grid-template-columns: 2fr 1.6fr;
+        grid-column-gap: 1rem;
+    }
+
+    #about>div {
+        align-self: center;
+    }
+
+    #info {
+        align-items:flex-start;
+    }
+
+    #about h4 {
+        text-align: left;
+    }
+    
+     
+    #info>p , #about p{
+        text-align: left;
+    }
+
+    #info button {
+        margin: 2rem 0;
+    }
+
+    #numbers {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-column-gap: 1rem;
+    }
+}
+
+@media only screen and (min-width : 1280px) {
+    #intro h2, #intro p{
+        text-align: center;
+    }
+    #about {
+        grid-template-columns: 2fr 1fr .1fr;
+        grid-column-gap: 7rem;
+    }
+
+    #info {
+        position: relative;
+        background-color: transparent;
+        display: grid;
+        grid-column-gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2,auto);
+        align-items: center;
+    }
+
+    #info video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        top: 0; left: 0;
+        z-index: -1;
+    }
+
+    #info {
+        height: 30rem;
+    }
+
+    #info #numbers {
+        grid-column: 2;
+        grid-row: 1/ span3;
+    }
+
+    #info button {
+        width: 50%;
+    }
+
+    #numbers div h5, #numbers div p {
+        text-align: center;
+    }
+
+    #numbers div{
+        padding: 2.5rem 1rem;
+    }
+}
