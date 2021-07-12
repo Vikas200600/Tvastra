@@ -72,24 +72,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 2rem;
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 h3 {
-    font-size: 1.7rem;
-}
-
-h4 {
     font-size: 1.5rem;
 }
 
-h5 {
+h4 {
     font-size: 1.3rem;
+}
+
+h5 {
+    font-size: 1.2rem;
 }
 
 h6 {
@@ -180,8 +180,9 @@ textarea, input, select {
 
 button {
     font-family: NexaLight;
+    font-weight: bold;
     font-size: 1rem;
-    padding: 0.8rem 1rem;
+    padding: 0.5rem 1rem;
     letter-spacing: 0.05rem;
     cursor: pointer;
     border: none;
@@ -221,11 +222,11 @@ button {
 
 @media only screen and (min-width: 760px ){
     body > section {
-        padding: 2rem 1.5rem;
+        padding: 2rem 2rem;
     }
 
     body > div {
-        padding: 0 1.5rem;
+        padding: 0 2rem;
     }
 
     footer {

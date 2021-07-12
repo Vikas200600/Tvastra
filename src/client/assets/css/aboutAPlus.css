@@ -1,3 +1,22 @@
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/* p, h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0;
+} */
+
 #intro {
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0,0,0, 0.3) 100%), url("./../images/aboutUsBanner.jpeg");
     height:25rem;
@@ -13,6 +32,10 @@ p {
     font-weight: normal;
     font-family: nexaLight;
     font-size: .9rem;
+}
+
+h2 {
+    line-height: 1.8rem;
 }
 
 #about>div ,#info{
@@ -71,7 +94,7 @@ p {
 }
 
 @media only screen and (min-width : 760px ){
-
+    
     #about {
         display: grid;
         grid-template-columns: 2fr 1.6fr;
@@ -107,6 +130,9 @@ p {
 }
 
 @media only screen and (min-width : 1280px) {
+    #intro {
+        background-position: top;     
+    }
     #intro h2, #intro p{
         text-align: center;
     }
@@ -156,3 +182,530 @@ p {
         padding: 2.5rem 1rem;
     }
 }
+
+
+
+/* <----------------------------------- tvastra Plus ------------------------------------> */
+
+#plus-intro, #plans div, #rating, #stars, #benefits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#plus-intro {
+    background-image: linear-gradient(0deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 10%), url(https://workspace.konfinity.com/swapnil/tvastra-wiki/-/wikis/uploads/8536f1015de112e4fe8bf84aa46625d4/tvastraPlus_heroSection.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10%;
+    height: 400px;
+}
+
+
+
+#plus-intro button {
+    margin-bottom: 1rem;
+}
+
+
+#plans-section .flex-column p {
+    margin-bottom: 2rem;
+}
+
+
+#plans-section > div{
+    background-color: var(--white);
+    padding: 1rem .5rem;
+    margin-top: -12rem;
+    box-shadow: .05rem .05rem 1rem var(--lightBlue);
+    border-radius: .3rem;
+}
+
+#plans {
+    border-top: 1px solid var(--lightGray);
+}
+
+#plans div {
+    margin-bottom: 3rem;
+}
+
+#plans div h4{
+    padding: 1rem;
+    margin: 0;
+}
+
+#plans div ul {
+    border-top: 1px solid var(--lightGray);
+    margin: 0 3rem 1rem;
+    padding: 1rem 0;
+}
+
+#plans div ul li {
+    text-align: center;
+    padding: .5rem 0;
+}
+
+#plans div h2 span {
+    font-size: 1rem;
+}
+
+#plans div p {
+    color: var(--brightBlue);
+    font-size: .8rem;
+    font-family: NexaBold;
+    font-weight: bold;
+    letter-spacing: .05rem;
+}
+
+#plans >:nth-child(2), #plans-section {    
+    background: linear-gradient(180deg, rgba(156,191,218,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+#plans >:nth-child(2) ul {
+    border-top: 2px solid var(--lightBlue);
+}
+
+#plans >:nth-child(2) i {
+    background-color: tomato;
+    color: white;
+    font-size: .7rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: .3rem;
+    border-radius: .5rem;
+    margin-top: -.65rem;
+}
+
+
+#rating > div, #rating > div h1, #rating > div p, #achievement > div h5 {
+    color: var(--brightBlue);
+    margin: 0;
+}
+
+
+#rating, #benefits, #tests, #reviews, #faq {
+    padding: 1rem 1rem;
+}
+
+#ratings-container {
+    width:100%;
+}
+
+#ratings-container > div {
+    margin-bottom: 1rem;
+    padding: 0 3rem;
+}
+
+#stars i {
+    font-size: .7rem;
+}
+
+#progress > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#progress p {
+    font-family: NexaBold;
+    font-weight: bolder;
+    font-size: .9rem;
+}
+
+#progress > div, #stars > * {
+    margin-bottom: .5rem;
+}
+
+.outer, .inner {
+    content:" ";
+    height: .9rem;
+    border-radius: .5rem;
+}
+
+.outer {
+    background-color: var(--lightBlue);
+    width: 90%;
+}
+
+.inner {
+    background-color: var(--brightBlue);
+    width: 70%;
+}
+
+#progress >:nth-child(2) .inner, #progress >:nth-child(3) .inner {
+    width: 30%;
+} 
+
+#progress >:nth-child(4) .inner {
+    width: 20%;
+}
+
+#progress >:nth-child(5) .inner {
+    width: 10%;
+}
+
+
+#achievement {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    padding: 1rem;
+}
+
+#achievement > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#achievement i {
+    font-size: 2rem;
+    margin-bottom: .5rem;    
+}
+
+
+#achievement > div h5 {
+    margin-bottom: .8rem;
+} 
+
+#achievement > div p {
+    font-size: .8rem;
+}
+
+#border {
+    width: 80%;
+    height: .35rem;
+    background-color: var(--lightGray);
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefits-details i {
+    color: var(--lightBlue);
+    margin-right: 1rem;
+}
+
+.benefits-details p {
+    text-align: left;
+}
+
+.benefits-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#benefits-cards > img {
+    border-radius: 1rem;
+    border: 1px solld var(--lightBlue);
+    box-shadow: 2px 2px 4px var(--lightGray), -2px -2px 4px var(--lightGray);
+}
+
+
+#benefits-cards > div {
+    margin-top: 3rem ;
+    margin-bottom: .5rem;
+}
+
+#benefits-cards >:first-child {
+    margin-top: 0;
+}
+
+#benefits-cards h4 {
+    margin-top: -3rem;
+    margin-bottom: 1rem;
+}
+
+#hospital-logo img {
+    object-fit: contain;
+    height: 5rem;
+}
+
+#hospital-logo div {
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--lightGray);
+}
+
+#hospital-logo > :nth-child(2n) {
+    border-left: 1px solid var(--lightGray);
+}
+
+#hospital-logo > :nth-child(5), #hospital-logo > :nth-child(6) {
+    border-bottom: none;
+}
+
+#hospital-logo {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+#more-hospital  {
+    color: var(--darkGray);
+    margin-top: 1.2rem;
+    font-size: .9rem;
+}
+
+#reviews > div {
+    margin-bottom: 2rem;
+} 
+#reviews div h3{
+    margin-bottom: 0;
+    margin-right: 1rem;
+}
+
+#reviews div button {
+    font-size: .8rem;
+}
+#review-cards > div {
+    padding: 1rem;
+    border: 1px solid var(--dullWhite);
+    margin-bottom: 1.2rem;
+    justify-content: space-between;
+    box-shadow: 4px 4px 4px  var(--dullWhite), -5px -5px 4px var(--dullWhite);
+}
+
+#review-cards div > *{
+    text-align: left;
+}
+
+#review-cards div p {
+    font-family: NexaBold;
+    font-weight: normal;
+    font-size: .8rem;
+}
+
+.reviewer-profile {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.reviewer-profile i {
+    grid-row: 1 / span 2;
+    grid-column: 1;;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    background-color: var(--lightBlue);
+    padding: .8rem;
+    border-radius: 1.6rem;
+    color: var(--dullWhite)
+}
+
+#review-cards div div p  {
+    background-color: rgba(159, 227, 248, 0.5);
+    color: var(--brightBlue);
+    margin-bottom: 0;
+    font-size: .55rem;
+    padding: .2rem .5rem;
+    font-family: nexaLight;
+    font-weight: bold;
+    justify-self: flex-start;
+    border-radius: .2rem;
+}
+
+.reviewer-profile h5 {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+}
+
+.test-cards {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);   
+    grid-gap: 1rem;   
+}
+
+.test-cards > div {
+    padding: 2rem 1rem;
+    box-shadow: 4px 4px 4px  var(--dullWhite), -5px -5px 4px var(--dullWhite);
+}
+
+.test-cards > div > * {
+    margin-bottom: 1rem;
+}
+
+.test-cards img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.test-cards h6 {
+    font-family: nexaLight;
+    font-weight: bolder;
+}
+
+#tests > :nth-child(3) {
+    display: none;
+}
+
+#tests > p {
+    font-weight: bold;
+}
+
+#slide-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#slide-btn button {
+    margin:2rem .2rem;    
+    background-color: var(--lightBlue);
+    padding: .3rem;
+    border-radius: .3rem;
+}
+
+#slide-btn :first-child{
+    background-color: var(--brightBlue);
+}
+
+
+
+
+@media only screen and (min-width:760px) {
+    #plus-intro {
+        background-position: 45%;
+        align-items: flex-start;
+        padding-top: 5rem;
+    }
+
+    #plans {
+        display: flex;
+    }
+
+    #plans div ul {
+        height: 22rem;
+    }
+
+    #plans div h4 {
+        height: 5rem;
+    }
+
+    #ratings-container {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        padding: 0 7rem;
+    }
+
+    #ratings-container > div {
+        padding: 0;
+    }
+
+    #achievement {
+        grid-template-columns: repeat(4,1fr);
+        padding: 0;
+    }
+
+    #review-cards {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    #border {
+        width: 50%;
+    }
+
+    #benefits-cards {
+        padding-top: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 3rem;
+    }
+
+    #benefits-cards > :nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    #benefits-cards > :nth-child(7) {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    #benefits-cards > div {
+        margin: 0;
+    }
+    
+    #benefits-cards h4 {
+        margin-top: 0;
+    }
+
+    #tests > p {
+        text-align: left;
+    }
+    
+    #faq h3 {
+        text-align: left;
+    }
+
+}
+
+@media only screen and (min-width:1280px) {
+    #rating, #benefits {
+        padding: 1.5rem 6rem;
+    }
+
+    #benefits {
+        margin-top: 3rem;
+    }
+    #tests, #reviews, #faq {
+        padding: 1rem 6rem;
+    }
+
+    #plus-intro {
+        justify-content: center;
+        background-position: top;
+    }
+
+    #plans-section .flex-column{
+        padding-top: 2.5rem;
+    }
+
+    #plans-section > div {
+        margin-top: -10rem;
+    }
+
+    #plans div ul{
+        height: 15rem;
+    }
+    
+    #review-cards {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    #achievement > div {
+        margin-top: 1.5rem;        
+    }
+
+    .test-cards {
+        grid-template-columns: repeat(4,1fr);   
+    }
+
+    #benefits-cards img {
+        height: 250px;
+        width: 340px;
+    } 
+
+    #hospital-logo img {
+        width: 5rem;
+        height: 5rem;
+    }
+    #benefits-cards {
+        padding-top: 1.5rem;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+    }
+
+    #benefits-cards > :nth-child(1), #benefits-cards > :nth-child(5) {
+        grid-column: 1 / span 2;
+    }
+
+    #benefits-cards > :nth-child(3), #benefits-cards > :nth-child(7) {
+        grid-column: 2 / span 2;
+    }
+
+}
+
+
+
