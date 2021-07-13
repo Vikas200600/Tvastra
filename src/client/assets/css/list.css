@@ -103,6 +103,15 @@
     flex-direction: column;
     padding: 1rem 1rem 0;
 }
+
+#list-cards > div > div > * {
+    margin-bottom: 1.5rem;
+}
+
+#list-cards > div > div > .wrap {
+    margin-bottom: 0;
+}
+
 #list-cards h5 {    
     text-align: left;
     color: var(--brightBlue);
@@ -194,7 +203,7 @@
     }
 
     #list-cards div img {
-        height: 15rem;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -264,8 +273,11 @@
         padding: 2rem 1rem;
     }
 
+    #list-cards > div > div > * {
+        margin-bottom: 1.5rem;
+    }
+
     #list-cards div img {
-        height: 20rem;
         align-self: center;
     }
 }
