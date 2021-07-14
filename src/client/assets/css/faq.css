@@ -26,13 +26,13 @@ p {
 }
 
 #faq .question {
-    padding: .8rem 0;
+    padding: .7rem 0;
 }
 
 .question > * {
     color: var(--brightBlue);
     text-align: left;
-    line-height: 1.3rem;
+    line-height: 1.8rem;
 }
 
 .question > i {
@@ -44,20 +44,28 @@ p {
 
 .heading, #hospital-details > div{
     display: flex;
+    align-items: center;
 }
 
-.heading > *, #hospital-details div > * {
+.heading > i, #hospital-details div > i {
     margin-right: 1rem;
 }
 
 #hospital-details {
-    margin-top : 2rem;
+    margin-top : 1rem;
+}
+
+#hospital-details div {
+    margin-bottom: 1rem;
 }
 
 #hospital-details i {
     color: var(--brightBlue);
 }
 
+#hospital-details div p {
+    margin: 0;
+}
 
 .active > i {
     transform: rotate(180deg);
@@ -67,10 +75,11 @@ p {
     display: none;
 }
 
-.answer p{
+.answer p {
     text-align: left;
     background-color: var(--dullWhite);
-    padding: 1rem;
+    padding: .6rem; 
+    font-size: .8rem;
 }
 
 #about-section {
@@ -90,7 +99,7 @@ p {
 }
 
 
-#info h4 , .heading  h5{
+#info h2 , .heading  h5{
     color: var(--brightBlue);
     text-align: left;
     padding: 0;
@@ -149,6 +158,21 @@ p {
     #profile {
         grid-column: 2;
     }
+}
 
+@media only screen and (min-width:1280px) {
+    .question > * {
+        font-size: 1.2rem;
+    }    
+
+    .answer p {
+        font-size: .95rem;
+    }
+
+    #hospital-details {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin: 0;
+    }
 }
 

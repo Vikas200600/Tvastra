@@ -63,12 +63,17 @@ footer p {
     align-items: center;
 }
 
+#help p {
+    font-size: 1rem;
+}
+
 #help div > :first-child{    
     color: var(--white);
 }
 
 #help button{
     width:auto;
+    padding: .8rem 1rem;
 }
 
 @media only screen and (min-width: 760px) {
