@@ -115,8 +115,8 @@ div#contact-info {
 }
 
 #disorders div i {
-    background-color: var(--lightBlue);
-    padding: 1rem;
+    background-color: var(--bgBlue);
+    padding: 1.3rem;
     margin-bottom: 1rem;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -252,7 +252,7 @@ div#contact-info {
 
     #treatment-section {
         display: grid;
-        grid-template-columns: 1.5fr 2fr;
+        grid-template-columns: 2fr 2fr;
     }
 
     #treatment-section img {
@@ -315,7 +315,7 @@ div#contact-info {
     }
     
     #disorders {
-        padding: 2rem 0;
+        padding: 3rem 0 2rem;
     }
     
 }
@@ -371,7 +371,7 @@ div#contact-info {
 
     #tables {
         flex-direction: column;
-        justify-content: center;
+        justify-content:flex-start;
         margin: 0;
     }
 
