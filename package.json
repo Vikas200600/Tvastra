@@ -1,5 +1,5 @@
 {
-  "name": "css",
+  "name": "Tvastra",
   "version": "1.0.0",
   "description": "## This is the wiki file to read about the tasks",
   "main": "index.js",
@@ -10,6 +10,13 @@
     "type": "git",
     "url": "git@workspace.konfinity.com:html-css-demo/tvastra.git"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Vikas M",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
