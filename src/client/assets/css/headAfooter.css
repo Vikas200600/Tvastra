@@ -76,6 +76,74 @@ footer p {
     padding: .8rem 1rem;
 }
 
+/* <================================== FLASH Codes =========================================> */
+.flashContainer {
+    display: none;
+}
+
+.flashContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: var(--white);
+    padding: .6rem 1rem;
+    top:6rem;
+    right: .8rem;
+    animation-name: flashContainer;
+    animation-duration: 8s;
+    animation-fill-mode: both;    
+}
+
+@keyframes flashContainer {
+    0% {
+      opacity: .1;
+    }
+    100% {
+        opacity: 0;
+    }
+    20%, 70% {
+      opacity: 1;
+    } 
+}
+
+.flashContainer i {
+    font-size: 1.8rem;
+}
+
+.flashContainer > :last-child {
+    font-size: 1.5rem;
+    color: var(--darkBlue);
+}
+
+#msg > * {
+    margin: 0;
+    font-family: NexaBold;
+    padding: 0 5rem 0 1rem;
+}
+
+#msg > :first-child {
+    font-size: 1rem;
+}
+
+#msg :nth-child(2) {
+    font-size: .6rem;
+}
+
+#success {
+    color: green;
+    border-left: 5px solid green;
+}
+
+#fail {
+    color: red;
+    border-left: 5px solid red;
+}
+
+#info {
+    color: blue;
+    border-left: 5px solid blue;
+}
+
 @media only screen and (min-width: 760px) {
     footer {
         display: grid;
@@ -203,4 +271,9 @@ footer p {
         border-radius: 0;
         font-size: 1.5rem;
     }
+
+    .flashContainer {
+        display: flex;
+    }
+
 }

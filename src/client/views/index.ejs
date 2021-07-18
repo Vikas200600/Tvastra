@@ -26,11 +26,22 @@
                 <li><a href="./aboutUs.html">About</a></li>
             </ul>
             <div id="buttons">
-                <button onclick="document.location='./login.html'" class="btn-light">Login / Sign Up</button>
+                <button onclick="document.location='/login'" class="btn-light">Login / Sign Up</button>
                 <button class="btn-primary" onclick="document.location='./submitQuery.html'">Get a Quote</button>           
             </div>
         </nav>
     </header>
+
+    <% if(flash.head) { %>
+        <div id="success" class="flashContainer">
+            <i class="fas fa-check-circle"></i>
+            <ul id="msg">
+                <li><%= flash.head %></li>
+                <li><%= flash.msg %></li>
+            </ul>
+            <i class="fas fa-times"></i>
+        </div>
+    <% } %>
 
     <section id="intro">
         <div>
