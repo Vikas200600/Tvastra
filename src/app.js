@@ -8,7 +8,7 @@ const ejs = require('ejs');
 const path = require('path');
 const flash = require('req-flash');
 
-const appConfig = require('./config/appConfig');
+const appConfig = require('./backend/config/appConfig');
 const routes = require('./backend/routes/routes');
 
 

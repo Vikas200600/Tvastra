@@ -17,12 +17,12 @@ body{
 
 #form-container {
     background-color: var(--white);
-    width: 100%;
     padding-top: 1rem;
 }
 
 form {
     padding: 1rem;
+    padding-top: 0;
 }
 
 form textarea {
@@ -84,7 +84,19 @@ p {
 
 .registered-flag {
     color: var(--lightGray);
+}
 
+#options {
+    padding: 0 .5rem .5rem;
+}
+
+#options > p > a, .blue{
+    color: var(--brightBlue);
+}
+
+.inline-flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 .inline {
@@ -95,6 +107,22 @@ p {
 
 .inline > * {
     width: 100%;
+}
+
+#digits {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+#digits > input {
+    font-weight: bolder;
+    border: none;
+    border-bottom: 1px solid var(--darkBlue);
+    text-align: center;
+    width : 3rem;
+    height : 3rem;
+    margin: 0 1rem 2rem;
 }
 
 #appointment-form h6 {
@@ -126,7 +154,7 @@ p {
 
 @media screen and (min-width: 1280px){
     #container{
-        padding: 6rem 0;
+        padding: 5rem 0;
     }
 
     #form-container {

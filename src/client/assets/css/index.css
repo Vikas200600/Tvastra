@@ -2,6 +2,11 @@
     background-color: var(--bgBlue);
 }
 
+#search-form input[type="submit"]:hover {
+    background-color: var(--white);
+    color: var(--darkBlue);
+    border-left: 1.5px solid var(--lightGray);
+}
 
 #forposition {
     position: relative;

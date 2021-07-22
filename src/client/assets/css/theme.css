@@ -199,12 +199,6 @@ button {
     color: var(--white);
 }
 
-.btn-primary:hover{
-    background-color: var(--white);
-    color: var(--darkBlue);
-    border-left: 1.5px solid var(--lightGray);
-}
-
 .btn-secondary {
     background-color: var(--brightBlue);
     color: white;

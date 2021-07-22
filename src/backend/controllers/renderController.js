@@ -4,6 +4,12 @@ let renderLogin = (req, res) => {
     });
 }
 
+let renderMobileLogin = (req, res) => {
+    res.render('mobileLogin',{
+        flash : req.flash()
+    });
+}
+
 let renderSignUp = (req, res) => {
     res.render('signUp');
 }
@@ -18,6 +24,7 @@ let renderHome = (req, res) =>{
 
 module.exports = {
     renderLogin : renderLogin,
+    renderMobileLogin : renderMobileLogin,
     renderSignUp : renderSignUp,
     renderHome : renderHome
 }
