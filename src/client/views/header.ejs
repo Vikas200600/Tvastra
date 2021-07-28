@@ -3,14 +3,18 @@
         <img src="./../assets/images/Logo.jpg" alt="Tvastra Logo">
         <i class="fas fa-bars"></i>
         <ul id="links">
-            <li><a href="./doctor.html">Doctors</a></li>
-            <li><a href="./hospital.html">Hospitals</a></li>
-            <li><a href="./aboutTreatment.html">Treatment</a></li>
+            <li><a href="/doctors">Doctors</a></li>
+            <li><a href="/hospitals">Hospitals</a></li>
+            <li><a href="/Treatments">Treatment</a></li>
             <li><a href="">Other Services</a></li>
-            <li><a href="./aboutUs.html">About</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
         <div id="buttons">
-            <button class="btn-light" onclick="document.location='./login.html'">Login/Sign Up</button>
+            <% if(loggedIn) { %>
+                <button class="btn-secondary" onclick="document.location='/Plus'">Tvastra Plus</button>
+            <% } else { %>
+                <button class="btn-light" onclick="document.location='/login'">Login/Sign Up</button>
+            <% } %>
             <button class="btn-primary">Get a Quote</button>
         </div>
     </nav>

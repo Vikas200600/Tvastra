@@ -24,6 +24,14 @@ router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);
 
 router.route('/').get(sessionAuth.redirectlogin ,renderController.renderHome);
+router.route('/doctors').get(sessionAuth.redirectlogin ,renderController.renderDoctor);
+router.route('/hospitals').get(sessionAuth.redirectlogin ,renderController.renderHospital);
+router.route('/treatments').get(sessionAuth.redirectlogin ,renderController.renderTreatment);
+router.route('/about').get(renderController.renderAbout);
+router.route('/faq').get(renderController.renderFaq);
+router.route('/Plus').get(renderController.renderPlus);
+
+
 
 
 
