@@ -16,23 +16,7 @@
 
 </head>
 <body>
-    <header>
-        <nav>
-            <img src="./../assets/images/Logo.jpg" alt="Tvastra Logo">
-            <i class="fas fa-bars"></i>
-            <ul id="links">
-                <li><a href="./doctor.html">Doctors</a></li>
-                <li><a href="./hospital.html">Hospitals</a></li>
-                <li><a href="./aboutTreatment.html">Treatment</a></li>
-                <li><a href="">Other Services</a></li>
-                <li><a href="./aboutUs.html">About</a></li>
-            </ul>
-            <div id="buttons">
-                <button class="btn-light" onclick="document.location='./login.html'">Login / Sign Up</button>
-                <button class="btn-primary" onclick="document.location='./submitQuery.html'">Get a Quote</button>           
-            </div>
-        </nav>
-    </header>
+    <%- include('header.ejs') %>
 
     <div class="banner">
         <h2>FAQ</h2>
@@ -101,24 +85,7 @@
         <button id="submit" class="btn-secondary" onclick="document.location='./submitQuery.html'">Submit your enquiry</button>
     </section>
 
-    <footer>
-        <img src="./../assets/images/footerlogo.png" alt="logo">
-        <ul id="links">
-            <li><a href="./doctor.html">Doctors</a></li>
-            <li><a href="./hospital.html">Hospitals</a></li>
-            <li><a href="./aboutTreatment.html">Treatment</a></li>
-            <li><a href="">Other Services</a></li>
-            <li><a href="./faq.html">FAQs</a></li>
-        </ul>
-        <ul id="social">
-            <li><i class="fab fa-facebook-f"></i></li>
-            <li><i class="fab fa-pinterest-p"></i></li>
-            <li><i class="fab fa-twitter"></i></li>
-            <li><i class="fab fa-google-plus-g"></i></li>
-            <li><i class="fab fa-instagram"></i></li>
-        </ul>
-        <p>All Rights Reserved. &copy tvastra 2018</p>
-    </footer>
+    <%- include('footer.ejs') %>
     
 </body>
 </html>

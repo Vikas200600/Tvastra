@@ -12,23 +12,8 @@
     <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <img src="./../assets/images/Logo.jpg" alt="Tvastra Logo">
-            <i class="fas fa-bars"></i>
-            <ul id="links">
-                <li><a href="./doctor.html">Doctors</a></li>
-                <li><a href="./hospital.html">Hospitals</a></li>
-                <li><a href="./aboutTreatment.html">Treatment</a></li>
-                <li><a href="">Other Services</a></li>
-                <li><a href="./aboutUs.html">About</a></li>
-            </ul>
-            <div id="buttons">
-                <button class="btn-light" onclick="document.location='/login'">Login / Sign Up</button>
-                <button class="btn-primary" onclick="document.location='./submitQuery.html'">Get a Quote</button>           
-            </div>
-        </nav>
-    </header>
+
+    <%- include('header.ejs') %>
 
     <div id="container">
         <div id="form-container">

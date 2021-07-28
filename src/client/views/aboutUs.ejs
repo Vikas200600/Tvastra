@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Tvastra</title>
-    <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
-    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">   
-    <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">   
-    <link href="./../assets/css/aboutAPlus.css" rel="stylesheet" type="text/css">     
+    <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/aboutAPlus.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <img src="./../assets/images/Logo.jpg" alt="Tvastra Logo">
-            <i class="fas fa-bars"></i>
-            <ul id="links">
-                <li><a href="./doctor.html">Doctors</a></li>
-                <li><a href="./hospital.html">Hospitals</a></li>
-                <li><a href="./aboutTreatment.html">Treatment</a></li>
-                <li><a href="">Other Services</a></li>
-                <li><a href="./aboutUs.html">About</a></li>
-            </ul>
-            <div id="buttons">
-                <button class="btn-light" onclick="document.location='./login.html'">Login / Sign Up</button>
-                <button class="btn-primary" onclick="document.location='./submitQuery.html'">Get a Quote</button>           
-            </div>
-        </nav>
-    </header>
+    <%- include('header.ejs') %>
 
-    <section id="intro">
-        <h2>Living healthy matters.</h2>
-        <p>Our specialists aspire to bridge the gap between your benefits plan and the health needs</p>
-    </section>
-    <section id="about">
-        <div>
-            <h4>You have to begin to tell the story of your life as you now want it to be and discontinue the tales.</h4>
-            <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium investor long tail agile workers prototype valiation influencer market share.</p>
-            <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium investor long tail agile workers prototype valiation influencer market share.</p>
-            <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium investor long tail agile workers prototype valiation influencer market share.</p>   
-            <img id="signature-img" src="./../assets/images/signature.png" alt="signature">
-        </div>
-        <img src="./../assets/images/femaleDoctor.png" alt="doctor"> 
-    </section>
+        <section id="intro">
+            <h2>Living healthy matters.</h2>
+            <p>Our specialists aspire to bridge the gap between your benefits plan and the health needs</p>
+        </section>
+        <section id="about">
+            <div>
+                <h4>You have to begin to tell the story of your life as you now want it to be and discontinue the tales.
+                </h4>
+                <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium
+                    investor long tail agile workers prototype valiation influencer market share.</p>
+                <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium
+                    investor long tail agile workers prototype valiation influencer market share.</p>
+                <p>Deployment long tail monetization strategy equity basic of team of conversion. Supply chain freemium
+                    investor long tail agile workers prototype valiation influencer market share.</p>
+                <img id="signature-img" src="./../assets/images/signature.png" alt="signature">
+            </div>
+            <img src="./../assets/images/femaleDoctor.png" alt="doctor">
+        </section>
 
-    <section id="info">
-        <video autoplay muted loop>
-            <source src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/video/The+New+Stamford+Hospital+TV+Commercial.mp4" type="video/mp4">
-        </video>
-        <h4>Your wellness builds upon the medical daily.</h4>
-        <p>Find your best self here. Discover new ways to live an inspiring life through natural beauty, nutrition and diet, an active lifestyle, and better relationships.</p>
-        <button class="btn-secondary">Get a Free Checkup</button>
-        <div id="numbers">
-            <div>
-                <h5>12M</h5>
-                <p>Happy Patients</p>
+        <section id="info">
+            <video autoplay muted loop>
+                <source
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/video/The+New+Stamford+Hospital+TV+Commercial.mp4"
+                    type="video/mp4">
+            </video>
+            <h4>Your wellness builds upon the medical daily.</h4>
+            <p>Find your best self here. Discover new ways to live an inspiring life through natural beauty, nutrition
+                and diet, an active lifestyle, and better relationships.</p>
+            <button class="btn-secondary">Get a Free Checkup</button>
+            <div id="numbers">
+                <div>
+                    <h5>12M</h5>
+                    <p>Happy Patients</p>
+                </div>
+                <div>
+                    <h5>5K</h5>
+                    <p>Medical Assistants</p>
+                </div>
+                <div>
+                    <h5>9.8</h5>
+                    <p>Alexa Score</p>
+                </div>
+                <div>
+                    <h5>3.2K</h5>
+                    <p>Doctors Available</p>
+                </div>
+                <div>
+                    <h5>45K</h5>
+                    <p>Cure Rate</p>
+                </div>
+                <div>
+                    <h5>75</h5>
+                    <p>Health Points</p>
+                </div>
             </div>
-            <div>
-                <h5>5K</h5>
-                <p>Medical Assistants</p>
-            </div>
-            <div>
-                <h5>9.8</h5>
-                <p>Alexa Score</p>
-            </div>
-            <div>
-                <h5>3.2K</h5>
-                <p>Doctors Available</p>
-            </div>
-            <div>
-                <h5>45K</h5>
-                <p>Cure Rate</p>
-            </div>
-            <div>
-                <h5>75</h5>
-                <p>Health Points</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="help">
-        <div>
-            <h3>Join our team</h3>
-            <p>We are always looking for good and talented people.</p>  
-        </div>
-        <button id="submit" class="btn-secondary" onclick="document.location='./submitQuery.html'">Submit your CV</button>
-    </section>
+        <section id="help">
+            <div>
+                <h3>Join our team</h3>
+                <p>We are always looking for good and talented people.</p>
+            </div>
+            <button id="submit" class="btn-secondary" onclick="document.location='./submitQuery.html'">Submit your
+                CV</button>
+        </section>
 
 
-    <footer>
-        <img src="./../assets/images/footerlogo.png" alt="logo">
-        <ul id="links">
-            <li><a href="./doctor.html">Doctors</a></li>
-            <li><a href="./hospital.html">Hospitals</a></li>
-            <li><a href="./aboutTreatment.html">Treatment</a></li>
-            <li><a href="./contactUs.html">Contact Us</a></li>
-            <li><a href="./faq.html">FAQs</a></li>
-        </ul>
-        <ul id="social">
-            <li><i class="fab fa-facebook-f"></i></li>
-            <li><i class="fab fa-pinterest-p"></i></li>
-            <li><i class="fab fa-twitter"></i></li>
-            <li><i class="fab fa-google-plus-g"></i></li>
-            <li><i class="fab fa-instagram"></i></li>
-        </ul>
-        <p>All Rights Reserved. &copy tvastra 2018</p>
-    </footer>
-    
+        <%- include('footer.ejs') %>
+
 </body>
+
 </html>
