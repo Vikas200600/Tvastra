@@ -1,21 +1,24 @@
 let renderLogin = (req, res) => {
     res.render('login',{
         flash : req.flash(),
-        loggedIn : null
+        loggedIn : null,
+        username : null
     });
 }
 
 let renderMobileLogin = (req, res) => {
     res.render('mobileLogin',{
         flash : req.flash(),
-        loggedIn : null
+        loggedIn : null,
+        username : null
     });
 }
 
 let renderSignUp = (req, res) => {
     res.render('signUp',{
         flash : req.flash(),
-        loggedIn : null
+        loggedIn : null,
+        username : null
     });
 }
 
@@ -28,40 +31,46 @@ let renderDetails = (req, res) => {
 let renderHome = (req, res) =>{
     res.render('index',{
         flash : req.flash(),
-        loggedIn : true
+        loggedIn : true,
+        username : req.session.name
     });
 }
 
 let renderDoctor = (req, res) => {
     res.render('doctor',{
-        loggedIn : true
+        loggedIn : true,
+        username : req.session.name
     });
 }
 
 let renderHospital = (req, res) => {
     res.render('hospital',{
-        loggedIn : true
+        loggedIn : true,
+        username : req.session.name
     });
 }
 
 let renderTreatment = (req, res) => {
     res.render('aboutTreatment',{
-        loggedIn : true
+        loggedIn : true,
+        username : req.session.name
     });
 }
 
 let renderPlus = (req, res) => {
     res.render('tvastraPlus',{
-        loggedIn : true
+        loggedIn : true,
+        username : req.session.name
     });
 }
 
+
 let renderAbout = (req, res) => {
-    req.session.name ? res.render('aboutUs',{ loggedIn : true }) : res.render('aboutUs', { loggedIn :false});
+    req.session.name ? res.render('aboutUs',{ loggedIn : true, username : req.session.name}) : res.render('aboutUs', { loggedIn :false, username : null});
 }
 
 let renderFaq = (req, res) => {
-    req.session.name ? res.render('faq',{ loggedIn : true }) : res.render('faq', { loggedIn : false });
+    req.session.name ? res.render('faq',{ loggedIn : true, username : req.session.name}) : res.render('faq', { loggedIn : false, username : null });
 }
 
 

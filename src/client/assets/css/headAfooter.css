@@ -215,7 +215,7 @@ footer p {
 @media only screen and (min-width: 1280px) {
     nav {
         display: grid;
-        grid-template-columns: 25% auto 25%;
+        grid-template-columns: 30% auto 30%;
     }
 
     nav .fas {
@@ -235,12 +235,28 @@ footer p {
     }
 
     header #buttons {
-        display: block;
+        display: flex;
+        align-items: center;
         justify-self: end;
     }
 
     #buttons > * {
         font-size: .8rem;
+        border-radius: .2rem;
+        margin-right: .4rem;
+    }
+
+    #buttons :last-child {
+        margin: 0;
+    }
+
+    #userInfo p {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    #userInfo {
+        display : flex;
     }
     
     header #links li {
@@ -254,16 +270,6 @@ footer p {
 
     header #links a{
         text-decoration: none;
-    }
-
-    
-    #buttons {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    #buttons > * {
-        border-radius: .2rem;
     }
 
     #help{
@@ -288,5 +294,6 @@ footer p {
     .flashContainer {
         display: flex;
     }
+
 
 }
