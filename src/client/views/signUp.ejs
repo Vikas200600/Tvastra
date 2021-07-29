@@ -23,7 +23,7 @@
                 <input type="text" name="email" placeholder="Enter Email" required>
                 <input type="password" name="password" placeholder="Enter Password" required>
                 <select name="gender" required>
-                    <option value="none">Select Your Gender</option>
+                    <option value="" disabled selected hidden>Select Your Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Others">Others</option>
@@ -35,10 +35,15 @@
                     <input type="text" name="state" placeholder="Enter State" required>
                 </div>
                 <select name="country" required>
-                    <option value="none">Select Your Country</option>
+                    <option value="" disabled selected hidden>Select Your Country</option>
                     <option value="India">India</option>
                     <option value="Australia">Australia</option>
                     <option value="Newzeland">Newzeland</option>
+                </select>
+                <select name="isDoctor" required>
+                    <option value="" disabled selected hidden>Are You Doctor ?</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
                 </select>
                 <div id="submit">
                     <button class="btn-primary" type="submit">Sign up</button>

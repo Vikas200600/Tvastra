@@ -10,6 +10,7 @@ const sessionAuth = require('../controllers/sessionAuth');
 
 router.route('/test').get(testController.test);
 router.route('/testFlash').get(testController.testFlash);
+router.route('/temp').get(testController.tempRoute);
 
 router.route('/adduser').get(testController.addUser);
 router.route('/users').get(testController.getUsers);
@@ -18,7 +19,10 @@ router.route('/users').get(testController.getUsers);
 
 router.route('/login').get(renderController.renderLogin).post(authController.login);
 router.route('/signup').get(renderController.renderSignUp).post(authController.signup);
+router.route('/details').get(sessionAuth.redirectlogin, renderController.renderDetails);
+router.route('/submit_details').post(authController.submitDetails);
 router.route('/mobilelogin').get(renderController.renderMobileLogin);
+
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);

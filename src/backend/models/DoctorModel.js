@@ -1,46 +1,43 @@
 const mongoose = require('mongoose');
 
-let userSchema = mongoose.Schema({
-    name : {
+let doctorSchema = mongoose.Schema({
+    about : {
         type : String,
         required : true
     },
-    email : {
-        type : String,
-        required : true,   
+    profile : {
+        type : String
     },
-    password : {
-        type : String,
-        required : true 
-    },
-    gender : {
+    hospital : {
         type : String,
         required : true
     },
-    dob : {
-        type: String,
-        required: true
+    acheivements : {
+        type : String,
     },
-    mobile : {
-        type : Number,
-        required : true
-    },
-    city : {
+    experience : {
         type : String,
         required : true
     },
-    state : {
+    qualification : {
         type : String,
         required : true
     },
-    country : {
+    awards : {
+        type : String,
+    },
+    specialization : {
         type : String,
         required : true
     },
-    isDoctor : {
+    fees : {
+        type : String,
+        required : true
+    },
+    userId : {
         type : String,
         required : true
     }
-})
+});
 
-module.exports = mongoose.model('user',userSchema);
+module.exports = mongoose.model('doctor',doctorSchema);
