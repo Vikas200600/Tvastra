@@ -157,6 +157,45 @@ footer p {
     border-left: 5px solid blue;
 }
 
+.toaster {
+    padding: 0;
+    background-color: var(--white);
+    position: absolute;
+    z-index:10;
+    height: 100%;
+
+}
+
+.toaster > * {
+    padding : 0 1rem;
+}
+
+.toaster h6, .toaster h4 {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#name > i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.toaster #name {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--darkBlue);
+    border-top: 0.1px solid var(--darkBlue);
+}
+
+.toaster ul li {
+    padding: 1rem 0;
+}
+.toaster-active {
+    display: none;
+}
+
 @media only screen and (min-width: 760px) {
     footer {
         display: grid;
@@ -213,6 +252,13 @@ footer p {
 }
 
 @media only screen and (min-width: 1280px) {
+    .toaster {
+        position: absolute;
+        top: 6rem;
+        right: 4rem;
+        height: auto;
+    }
+
     nav {
         display: grid;
         grid-template-columns: 30% auto 30%;

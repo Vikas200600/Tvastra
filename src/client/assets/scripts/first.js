@@ -33,3 +33,12 @@ var showSlide = (n) => {
     }
 
 }
+
+
+// <------------------------------------------ Toaster Toggles ------------------------------------------>
+
+let toaster = document.querySelector('.toaster');
+
+let toggleToaster = () => {
+    toaster.classList.toggle("toaster-active")
+}
