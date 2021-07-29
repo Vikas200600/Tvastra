@@ -19,6 +19,12 @@ let renderSignUp = (req, res) => {
     });
 }
 
+let renderDetails = (req, res) => {
+    res.render('docProfile',{
+        loggedIn : null
+    });
+}
+
 let renderHome = (req, res) =>{
     res.render('index',{
         flash : req.flash(),
@@ -65,6 +71,7 @@ module.exports = {
     renderLogin : renderLogin,
     renderMobileLogin : renderMobileLogin,
     renderSignUp : renderSignUp,
+    renderDetails : renderDetails, 
     renderHome : renderHome,
     renderDoctor : renderDoctor,
     renderHospital : renderHospital,
