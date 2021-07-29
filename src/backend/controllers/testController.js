@@ -9,6 +9,12 @@ let test = (req, res) => {
     })
 };
 
+let tempRoute = (req, res) => {
+    res.render('docProfile',{
+        loggedIn : "flase"
+    });
+}
+
 let testFlash = (req, res) => {
     req.flash("head","welcome");
     req.flash("msg","welcome");
@@ -42,9 +48,11 @@ let getUsers = (req, res) => {
     })
 }
 
+
 module.exports = {
     test : test,
     addUser : addUser,
     getUsers : getUsers,
-    testFlash : testFlash
+    testFlash : testFlash,
+    tempRoute : tempRoute
 }

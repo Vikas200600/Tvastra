@@ -3,7 +3,7 @@ let appConfig = {
     allowedCorsOrigin : "*",
     env : "dev",
     db : {
-        uri: 'mongodb://localhost:27017/tvastraDB'
+        uri: 'mongodb+srv://tvastraConn:admin-Tvastra@tvastracluster.lj8do.mongodb.net/tvastraDB?retryWrites=true&w=majority'
     },
     apiVersion : '/api/v1'
 };

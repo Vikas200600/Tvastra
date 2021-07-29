@@ -10,6 +10,7 @@ const sessionAuth = require('../controllers/sessionAuth');
 
 router.route('/test').get(testController.test);
 router.route('/testFlash').get(testController.testFlash);
+router.route('/temp').get(testController.tempRoute);
 
 router.route('/adduser').get(testController.addUser);
 router.route('/users').get(testController.getUsers);
