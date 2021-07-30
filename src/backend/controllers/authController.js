@@ -40,7 +40,7 @@ let signup = async (req, res) => {
     let registred = await newUser.save();
     if (registred) {
         sessionLib.setSession(req, registred);
-        if (isDoctor === "yes") {
+        if (isDoctor) {
             return res.redirect('/details');
         } else {
             req.flash("head", "Success");

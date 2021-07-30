@@ -1,7 +1,7 @@
 const Doctor = require('./../models/DoctorModel');
 
 exports.redirectlogin= async (req,res,next)=>{  
-    if(req.session.isDoctor === "yes") {
+    if(req.session.isDoctor) {
         let filled = await Doctor.findOne({userId : req.session.userId});
         if(!filled){
             req.flash("info","Last Step");

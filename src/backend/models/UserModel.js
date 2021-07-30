@@ -38,7 +38,7 @@ let userSchema = mongoose.Schema({
         required : true
     },
     isDoctor : {
-        type : String,
+        type : Boolean,
         required : true
     }
 })
