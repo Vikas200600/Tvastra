@@ -45,6 +45,10 @@ let doctorSchema = mongoose.Schema({
     userId : {
         type : String,
         required : true
+    },
+    country : {
+        type : String,
+        required: true
     }
 });
 

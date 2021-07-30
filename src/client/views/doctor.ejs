@@ -141,35 +141,22 @@
             </div>
         </div>
         <div id="list-cards">
-            <div>
+            <% allDoctors.forEach(doctor => { %>
                 <div>
-                    <h5>Doctor Name</h5>
-                    <ul class="wrap">
-                        <li> <i class="fas fa-certificate"></i>Certificates</li>
-                        <li> <i class="fas fa-award"></i> Awards</li>
-                        <li> <i class="far fa-clock"></i>Experience</li>
-                        <li><i class="fas fa-building"></i> Work</li>
-                        <li><i class="fa fa-map-marker"></i> Location</li>                
-                    </ul>
-                    <button class="btn-primary">Book An Appointment</button>
+                    <div>
+                        <h5><%= doctor.name %></h5>
+                        <ul class="wrap">
+                            <li> <i class="fas fa-certificate"></i><%= doctor.qualification %></li>
+                            <li> <i class="fas fa-award"></i> <%= doctor.specialization %></li>
+                            <li> <i class="far fa-clock"></i><%= doctor.experience%></li>
+                            <li><i class="fas fa-building"></i> <%= doctor.hospital%></li>
+                            <li><i class="fa fa-map-marker"></i> <%= doctor.country%></li>                
+                        </ul>
+                        <button class="btn-primary">Book An Appointment</button>
+                    </div>
+                    <img src="./../assets/images/doctors/rose.jpg" alt="Doctor Image">
                 </div>
-                <img src="./../assets/images/doctors/rose.jpg" alt="Doctor Image">
-            </div>
-            <div>
-                <div>
-                    <h5>Doctor Name</h5>
-                    <ul class="wrap">
-                        <li> <i class="fas fa-certificate"></i>Certificates</li>
-                        <li> <i class="fas fa-award"></i> Awards</li>
-                        <li> <i class="far fa-clock"></i> Experience</li>
-                        <li><i class="fas fa-building"></i> Work</li>
-                        <li><i class="fa fa-map-marker"></i> Location</li>                
-                    </ul>
-                    <button class="btn-primary">Book An Appointment</button>
-                </div>
-                <img src="./../assets/images/doctors/duke.jpg" alt="Doctor Image">
-            </div>
-        </div>
+            <% }) %>            
     </section>
 
     <section id="help">

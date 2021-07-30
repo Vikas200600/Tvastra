@@ -40,7 +40,7 @@ let signup = async (req, res) => {
     let registred = await newUser.save();
     if (registred) {
         sessionLib.setSession(req, registred);
-        if (isDoctor === "yes") {
+        if (isDoctor) {
             return res.redirect('/details');
         } else {
             req.flash("head", "Success");
@@ -66,7 +66,8 @@ let submitDetails = async (req, res) => {
         awards: awards,
         specialization: specialization,
         fees: fees,
-        userId: req.session.userId
+        userId: req.session.userId,
+        country: req.session.country
     })
     let submited = await docDetails.save();
     if (submited) {

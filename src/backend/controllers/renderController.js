@@ -1,3 +1,5 @@
+const Doctor = require('./../models/DoctorModel');
+
 let renderLogin = (req, res) => {
     res.render('login',{
         flash : req.flash(),
@@ -45,10 +47,12 @@ let renderProfile = (req, res) => {
     });
 }
 
-let renderDoctor = (req, res) => {
+let renderDoctor = async (req, res) => {
+    let allDoctors = await Doctor.find();
     res.render('doctor',{
         loggedIn : true,
-        username : req.session.name
+        username : req.session.name,
+        allDoctors : allDoctors
     });
 }
 
