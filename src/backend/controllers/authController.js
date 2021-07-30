@@ -55,6 +55,8 @@ let signup = async (req, res) => {
 let submitDetails = async (req, res) => {
     let { about, profile, hospital, acheivements, experience, qualification, awards, specialization, fees } = req.body;
     let docDetails = new Doctor({
+        name : req.session.name,
+        email: req.session.email,
         about: about,
         profile: profile,
         hospital: hospital,

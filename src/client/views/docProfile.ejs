@@ -11,6 +11,17 @@
         <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>        
     </head>
     <body>
+        <% if(flash.info) { %>
+            <div id="info" class="flashContainer">
+                <i class="fas fa-times-circle"></i>
+                <ul id="msg">
+                    <li><%= flash.info %></li>
+                    <li><%= flash.msg %></li>
+                </ul>
+                <i class="fas fa-times"></i>
+            </div>
+        <% } %> 
+
         <%- include('header.ejs') %>
         
         <div id="container">
