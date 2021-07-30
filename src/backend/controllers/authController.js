@@ -13,9 +13,16 @@ let login = async (req, res) => {
     let checkPassword = await User.findOne({ email: email, password: password });
     if (checkPassword) {
         sessionLib.setSession(req, checkPassword);
-        req.flash("head", "Success");
-        req.flash("msg", "Login Successful");
-        return res.redirect('/');
+        if(checkPassword.isDoctor === "yes"){
+            let filled = await Doctor.findOne({userId : req.session.userId});
+            if(filled){
+                req.flash("head", "Success");
+                req.flash("msg", "Login Successful");
+                return res.redirect('/');
+            } else {
+                return res.redirect('/details');
+            }  
+        }          
     } else {
         req.flash("fail", "Failure");
         req.flash("msg", "Invaild Password");
@@ -55,6 +62,8 @@ let signup = async (req, res) => {
 let submitDetails = async (req, res) => {
     let { about, profile, hospital, acheivements, experience, qualification, awards, specialization, fees } = req.body;
     let docDetails = new Doctor({
+        name : req.session.name,
+        email: req.session.email,
         about: about,
         profile: profile,
         hospital: hospital,
