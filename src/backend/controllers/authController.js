@@ -66,7 +66,8 @@ let submitDetails = async (req, res) => {
         awards: awards,
         specialization: specialization,
         fees: fees,
-        userId: req.session.userId
+        userId: req.session.userId,
+        country: req.session.country
     })
     let submited = await docDetails.save();
     if (submited) {
