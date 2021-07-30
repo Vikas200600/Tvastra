@@ -13,16 +13,9 @@ let login = async (req, res) => {
     let checkPassword = await User.findOne({ email: email, password: password });
     if (checkPassword) {
         sessionLib.setSession(req, checkPassword);
-        if(checkPassword.isDoctor === "yes"){
-            let filled = await Doctor.findOne({userId : req.session.userId});
-            if(filled){
-                req.flash("head", "Success");
-                req.flash("msg", "Login Successful");
-                return res.redirect('/');
-            } else {
-                return res.redirect('/details');
-            }  
-        }          
+        req.flash("head", "Success");
+        req.flash("msg", "Login Successful");
+        return res.redirect('/');
     } else {
         req.flash("fail", "Failure");
         req.flash("msg", "Invaild Password");

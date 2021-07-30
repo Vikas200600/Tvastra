@@ -24,6 +24,7 @@ let renderSignUp = (req, res) => {
 
 let renderDetails = (req, res) => {
     res.render('docProfile',{
+        flash : req.flash(),
         loggedIn : null
     });
 }
