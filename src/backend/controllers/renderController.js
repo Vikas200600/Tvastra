@@ -36,6 +36,14 @@ let renderHome = (req, res) =>{
     });
 }
 
+
+let renderProfile = (req, res) => {
+    res.render('profile',{
+        loggedIn : "true",
+        username : req.session.name
+    });
+}
+
 let renderDoctor = (req, res) => {
     res.render('doctor',{
         loggedIn : true,
@@ -82,6 +90,7 @@ module.exports = {
     renderSignUp : renderSignUp,
     renderDetails : renderDetails, 
     renderHome : renderHome,
+    renderProfile :renderProfile,
     renderDoctor : renderDoctor,
     renderHospital : renderHospital,
     renderTreatment : renderTreatment,

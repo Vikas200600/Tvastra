@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Tvastra</title>
+    <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
+    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">   
+    <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">     
+    <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjgKrsMexm3lSbfFaIgQepfWZaEJRsjjc&callback=initMap" type="text/javascript"></script>
+    <script async defer src="./../assets/scripts/first.js"></script>
+    <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('header.ejs') %>
+
+    <section id="dashboard-container">
+        <%- include('dashboardMenu.ejs')%>
+        <div class="content">
+            <div id="head">
+                <h2>My Profile</h2>
+                <button class="btn-secondary">Save Changes</button>
+            </div>
+            <div id="profile">
+                <form>
+                    <div>
+                        <label for="name">Name</label>
+                        <input id="name" type="text" >
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form>
+                    <div>
+                        <label for="phone">Mobile Number</label>
+                        <input id="phone" type="text" disabled>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" type="text" disabled>
+                    </div>
+                    <div>
+                        <label for="gender">Gender</label>
+                        <input id="gender" type="text">
+                    </div>
+                    <div>
+                        <label for="dob">Date of Birth</label>
+                        <input id="dob" type="text">
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form>
+                    <div>
+                        <label for="phone">City</label>
+                        <input id="phone" type="text">
+                    </div>
+                    <div>
+                        <label for="email">State</label>
+                        <input id="email" type="text">
+                    </div>
+                    <div>
+                        <label for="gender">Country</label>
+                        <input id="gender" type="text">
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form>
+                    <div>
+                        <label for="hospital">Your Hospitals</label>
+                        <input id="hospital" type="text">
+                    </div>
+                    <div>
+                        <label for="achievements">Achievements</label>
+                        <input id="achievements" type="text">
+                    </div>
+                    <div>
+                        <label for="experience">Experience</label>
+                        <input id="experience" type="text">
+                    </div>
+                    <div>
+                        <label for="qualification">Qualification</label>
+                        <input id="qualification" type="text">
+                    </div>
+                    <div>
+                        <label for="awards">Awards</label>
+                        <input id="awards" type="text">
+                    </div>
+                    <div>
+                        <label for="achievements">Specialization</label>
+                        <input id="achievements" type="text">
+                    </div>
+                    <div>
+                        <label for="fees">Your average Fees</label>
+                        <input id="fees" type="text">
+                    </div>
+                    <div>
+                        <label for="about">Describe Yourself</label>
+                        <textarea id="about"></textarea>      
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <%- include('footer.ejs') %>    
+
+</body>
+</html>

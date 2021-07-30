@@ -1,0 +1,120 @@
+#dashboard-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  background-color: var(--lighterBlue);
+}
+
+#dashboard-container .content {
+  background-color: var(--white);
+}
+
+#dashboard-container .content > * {
+  border-top: 1px solid var(--brightBlue);
+  padding: 1rem;
+}
+
+#dashboard-container .content #head {
+  border-bottom: 1px solid var(--brightBlue);
+  border-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dashboard-container .content #head > * {
+  margin: 0;
+}
+
+#dashboard-container .content #profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dashboard-container .content #profile > :first-child {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+#dashboard-container .content input, #dashboard-container .content textarea {
+  border: 1px solid var(--lighterBlue);
+}
+
+#dashboard-container .content form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: .5rem 1rem;
+}
+
+#dashboard-container .content form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#dashboard-container .content form label {
+  color: var(--brightBlue);
+  padding: .5rem 0;
+}
+
+#dashboard-menu h3, #dashboard-menu h4 {
+  margin-bottom: 0;
+}
+
+#dashboard-menu i {
+  margin-right: 1rem;
+}
+
+#dashboard-menu #head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5rem 1rem;
+  color: var(--darkBlue);
+}
+
+#dashboard-menu #head i {
+  font-size: 2rem;
+}
+
+#dashboard-menu .row {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5rem;
+  color: var(--brightBlue);
+}
+
+#dashboard-menu .row i {
+  font-size: 1.5rem;
+}
+
+#dashboard-menu .row:hover {
+  color: white;
+  background-color: var(--brightBlue);
+}
+/*# sourceMappingURL=dashboard.css.map */

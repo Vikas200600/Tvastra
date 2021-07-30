@@ -22,6 +22,8 @@ router.route('/signup').get(renderController.renderSignUp).post(authController.s
 router.route('/details').get(sessionAuth.redirectlogin, renderController.renderDetails);
 router.route('/submit_details').post(authController.submitDetails);
 router.route('/mobilelogin').get(renderController.renderMobileLogin);
+router.route('/profile').get(renderController.renderProfile);
+
 
 
 router.route('/requestotp').post(otpController.otpRequest);
