@@ -22,6 +22,7 @@
     --brightBlue : #0173b2;
     --darkBlue : #021433;
     --bgBlue : #8fcaf1;
+    --lighterBlue : #eeebeb;
 
     --Gray: #636668;
     --lightGray: #ccc;
@@ -66,7 +67,6 @@ body > div {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: NexaBold;
-    color: var(--darkBlue);
     margin-bottom: 1rem;
     text-align: center;
 }
