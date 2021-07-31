@@ -18,11 +18,10 @@
             <button class="btn-primary">Get a Quote</button>
             <% if(loggedIn) { %>
                 <div id="userInfo" onclick="toggleToaster()">
-                    <p id="username"> <%= username %></p>
+                    <p id="username"> <%= session.name %></p>
                     <i class="fas fa-chevron-down" aria-hidden="false"> </i>
                 </div>
             <% } %>
-
         </div>
     </nav>
 </header>

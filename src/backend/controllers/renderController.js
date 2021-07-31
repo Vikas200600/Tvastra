@@ -4,7 +4,7 @@ let renderLogin = (req, res) => {
     res.render('login', {
         flash: req.flash(),
         loggedIn: null,
-        username: null
+        session: null
     });
 }
 
@@ -12,7 +12,7 @@ let renderMobileLogin = (req, res) => {
     res.render('mobileLogin', {
         flash: req.flash(),
         loggedIn: null,
-        username: null
+        session: null
     });
 }
 
@@ -20,7 +20,7 @@ let renderSignUp = (req, res) => {
     res.render('signUp', {
         flash: req.flash(),
         loggedIn: null,
-        username: null
+        session: null
     });
 }
 
@@ -35,22 +35,22 @@ let renderHome = (req, res) => {
     res.render('index', {
         flash: req.flash(),
         loggedIn: true,
-        username: req.session.name
+        session: req.session
     });
 }
 
 
 let renderProfile = (req, res) => {
     res.render('profile', {
-        loggedIn: "true",
-        username: req.session.name
+        loggedIn: true,
+        session: req.session
     });
 }
 
 let renderAppointment = (req, res) => {
     res.render('appointments', {
-        loggedIn: "true",
-        username: req.session.name
+        loggedIn: true,
+        session: req.session
     });
 }
 
@@ -58,7 +58,7 @@ let renderDoctor = async (req, res) => {
     let allDoctors = await Doctor.find();
     res.render('doctor', {
         loggedIn: true,
-        username: req.session.name,
+        session: req.session,
         allDoctors: allDoctors
     });
 }
@@ -66,31 +66,31 @@ let renderDoctor = async (req, res) => {
 let renderHospital = (req, res) => {
     res.render('hospital', {
         loggedIn: true,
-        username: req.session.name
+        session: req.session
     });
 }
 
 let renderTreatment = (req, res) => {
     res.render('aboutTreatment', {
         loggedIn: true,
-        username: req.session.name
+        session: req.session
     });
 }
 
 let renderPlus = (req, res) => {
     res.render('tvastraPlus', {
         loggedIn: true,
-        username: req.session.name
+        session: req.session
     });
 }
 
 
 let renderAbout = (req, res) => {
-    req.session.name ? res.render('aboutUs', { loggedIn: true, username: req.session.name }) : res.render('aboutUs', { loggedIn: false, username: null });
+    req.session ? res.render('aboutUs', { loggedIn: true, session: req.session }) : res.render('aboutUs', { loggedIn: false, session: null });
 }
 
 let renderFaq = (req, res) => {
-    req.session.name ? res.render('faq', { loggedIn: true, username: req.session.name }) : res.render('faq', { loggedIn: false, username: null });
+    req.session ? res.render('faq', { loggedIn: true, session: req.session }) : res.render('faq', { loggedIn: false, session: null });
 }
 
 
