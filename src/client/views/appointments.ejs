@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments - Tvastra</title>
+    <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">
+    <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjgKrsMexm3lSbfFaIgQepfWZaEJRsjjc&callback=initMap"
+        type="text/javascript"></script>
+    <script async defer src="./../assets/scripts/first.js"></script>
+    <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include('header.ejs') %>
+
+        <section id="dashboard-section">
+            <div id="dashboard-container">
+                <%- include('dashboardMenu.ejs')%>
+                    <div class="content">
+                        <div>
+                            <h4>Upcoming Appointments</h4>
+                            <div class="appointments-list">
+                                <div class="appointment">
+                                    <div class="appointment-info">
+                                        <div class="date">
+                                            <h6>4</h6>
+                                            <h6>SEp</h6>
+                                        </div>
+                                        <ul class="details">
+                                            <li class="head">Dr. Maruthi</li>
+                                            <li>Wed, 12:00 pm</li>
+                                            <li>Maruthi Clinic</li>
+                                            <li class="status">Approved</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modify-btn">
+                                        <button class="btn-secondary">Cancel Apointment</button>
+                                        <button class="btn-secondary">Reschedule Apointment</button>
+                                    </div>
+                                </div>
+                                <div class="appointment">
+                                    <div class="appointment-info">
+                                        <div class="date">
+                                            <h6>4</h6>
+                                            <h6>SEp</h6>
+                                        </div>
+                                        <ul class="details">
+                                            <li class="head">Dr. Maruthi Maruthi Maruthi</li>
+                                            <li>Wed, 12:00 pm</li>
+                                            <li>Maruthi Clinic</li>
+                                            <li class="status">Approved</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modify-btn">
+                                        <button class="btn-secondary">Cancel Apointment</button>
+                                        <button class="btn-secondary">Reschedule Apointment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Past Appointments</h4>
+                            <div class="appointments-list">
+                                <div class="appointment">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <%- include('footer.ejs') %>
+
+</body>
+
+</html>
