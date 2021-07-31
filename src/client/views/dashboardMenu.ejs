@@ -11,11 +11,17 @@
         <i class="fas fa-calendar-check"></i>
         <h4>Appointments</h4>
     </div>
+    <% if(session.isDoctor) { %>
+        <div class="row" onclick="document.location='/add-schedule'">
+            <i class="fas fa-calendar-check"></i>
+            <h4>Add Schedule</h4>
+        </div>
+    <% } %>
     <div class="row">
         <i class="fas fa-file-medical-alt"></i>
         <h4>Medical Reports</h4>
     </div>
-    <div class="row">
+    <div class="row" onclick="document.location='/settings'">
         <i class="fas fa-cog"></i>
         <h4>Settings</h4>
     </div>

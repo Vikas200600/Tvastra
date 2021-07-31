@@ -33,7 +33,8 @@
                 }
             }
             input,
-            textarea {
+            textarea,
+            select {
                 border: 1px solid var(--lighterBlue);
             }
             form {
@@ -42,7 +43,8 @@
                     flex-direction: column;
                 }
                 label {
-                    color: var(--brightBlue);
+                    color: var(--darkBlue);
+                    font-family: "NexaBold";
                     padding: 0.5rem 0;
                 }
             }

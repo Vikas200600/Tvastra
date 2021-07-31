@@ -24,6 +24,10 @@ router.route('/mobilelogin').get(renderController.renderMobileLogin);
 //dashboard routes
 router.route('/profile').get(sessionAuth.redirectlogin, renderController.renderProfile);
 router.route('/dashboard_appointments').get(sessionAuth.redirectlogin, renderController.renderAppointment);
+router.route('/add-schedule').get(sessionAuth.redirectlogin, renderController.renderSchedule);
+router.route('/settings').get(sessionAuth.redirectlogin, renderController.renderSettings);
+
+
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);
