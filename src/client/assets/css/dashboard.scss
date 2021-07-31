@@ -1,61 +1,179 @@
-#dashboard-container {
-    display : grid;
-    grid-template-columns: 30% 70%;
-    background-color: var(--lighterBlue);
-    .content {
-        background-color: var(--white);
-        > * {
-            border-top: 1px solid var(--brightBlue);
-            padding: 1rem;
-        }
-        #head {
-            border-bottom: 1px solid var(--brightBlue);
-            border-top: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+#dashboard-section {
+    background-color: var(--dullWhite);
+    #dashboard-menu {
+        display: none;
+    }
+    #dashboard-container {
+        background-color: var(--lighterBlue);
+        .content {
+            background-color: var(--white);
+            h4 {
+                text-align: left;
+            }
             > * {
-                margin: 0;
+                border-top: 1px solid var(--brightBlue);
+                padding: 1rem;
             }
-        }
-        #profile {
-            display: flex;
-            align-items: center;
-            > :first-child {
-                font-size: 2rem;
-                margin-right: 1rem;
+            #head {
+                border-bottom: 1px solid var(--brightBlue);
+                border-top: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > * {
+                    margin: 0;
+                }
             }
-        }
-        input, textarea {
-            border: 1px solid var(--lighterBlue);
-        }
-        form {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            grid-gap: .5rem 1rem;
-            > div {
+            #profile {
+                display: flex;
+                align-items: center;
+                > :first-child {
+                    font-size: 2rem;
+                    margin-right: 1rem;
+                }
+            }
+            input,
+            textarea {
+                border: 1px solid var(--lighterBlue);
+            }
+            form {
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                }
+                label {
+                    color: var(--brightBlue);
+                    padding: 0.5rem 0;
+                }
+            }
+            .appointments-list {
                 display: flex;
                 flex-direction: column;
+                .appointment {
+                    margin-top: 0.5rem;
+                    padding: 0.8rem 1rem;
+                    background-color: var(--dullWhite);
+                    .appointment-info {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 0.8rem;
+                        .date {
+                            background-color: var(--white);
+                            padding: 1rem;
+                            margin-right: 1rem;
+                            > * {
+                                text-align: center;
+                                margin: 0;
+                            }
+                            :first-child {
+                                margin-bottom: 0.5rem;
+                            }
+                            :last-child {
+                                text-transform: capitalize;
+                            }
+                        }
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            li {
+                                font-size: 0.6rem;
+                                font-family: "NexaBold";
+                                font-weight: bold;
+                                line-height: 0.6rem;
+                                margin-bottom: 0.2rem;
+                            }
+                            .head {
+                                font-size: 0.85rem;
+                                line-height: 0.9rem;
+                                margin-bottom: 0.2rem;
+                            }
+                            .status {
+                                font-size: 0.5rem;
+                                padding: 0.3rem 0.2rem;
+                                background-color: lightgreen;
+                                color: green;
+                                border-radius: 0.4rem;
+                            }
+                        }
+                    }
+                    .modify-btn {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        button {
+                            font-size: 0.8rem;
+                            font-weight: bold;
+                        }
+                        :first-child {
+                            margin-right: 0.35rem;
+                        }
+                        :last-child {
+                            margin-left: 0.35rem;
+                        }
+                    }
+                }
             }
-            label {
-                color : var(--brightBlue);
-                padding: .5rem 0;
+            #stats{
+                .stats-card {
+                    border: 1px solid var(--brightBlue);
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                    h6 {
+                        margin: 0;
+                        text-align: left;
+                    }
+                    i {
+                        margin-right: 2rem;
+                        font-size: 2rem;
+                        color: var(--brightBlue);
+                    }
+                    .stat-info {
+                        :first-child {
+                            margin-bottom: .5rem;
+                        }
+                        :last-child {
+                            color: var(--brightBlue);
+                        }
+                    }
+                }
+            }
+            .details-mob {
+                background-color: var(--dullWhite);
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                padding: 1rem;
+                > * {
+                    text-align: left;
+                }
+                .actions{
+                    color: var(--brightBlue);
+                    > * {
+                        margin-right: 1rem ;
+                    }                    
+                }
+            }
+            .details-nonmob {
+                display : none;
             }
         }
     }
 }
 
 #dashboard-menu {
-    h3, h4 {
+    h3,
+    h4 {
         margin-bottom: 0;
     }
     i {
         margin-right: 1rem;
     }
     #head {
-        display : flex;
+        display: flex;
         align-items: center;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
         color: var(--darkBlue);
         i {
             font-size: 2rem;
@@ -63,16 +181,87 @@
     }
     .row {
         cursor: pointer;
-        display : flex;
+        display: flex;
         align-items: center;
-        padding : .5rem;
+        padding: 0.5rem;
         color: var(--brightBlue);
         i {
             font-size: 1.5rem;
         }
     }
     .row:hover {
-        color : white;
+        color: white;
         background-color: var(--brightBlue);
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    #dashboard-section {
+        padding: 2rem 3rem;
+        #dashboard-container {
+            .content {
+                form {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 0.5rem 1rem;
+                }
+                .appointments-list {
+                    .appointment {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        .appointment-info {
+                            margin-bottom: 0rem;
+                        }
+                        .modify-btn {
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+                #stats {
+                    display : grid;
+                    grid-template-columns: repeat(2,1fr);
+                    grid-gap: 1rem;
+                }
+                .details-mob {
+                    display: none;
+                }
+                .details-nonmob {
+                    display : block;
+                    table {
+                        font-family: "NexaBold";
+                        text-align: center;
+                        vertical-align: center;
+                        th,td {
+                            padding: 1rem;
+                        }
+                        th{
+                            font-size: 1rem;
+                            background-color: var(--lighterBlue);
+                        }
+                        td{
+                            font-size: .8rem;
+                        }
+                    }
+                        .actions i {
+                            font-size: 1.5rem;
+                            color: var(--brightBlue);
+                            cursor: pointer;
+                        }                    
+                    }
+                }
+            }
+        }
+    }
+
+
+@media only screen and (min-width: 1280px) {
+    #dashboard-section {
+        #dashboard-container {
+            display: grid;
+            grid-template-columns: 25% 75%;
+            #dashboard-menu {
+                display: block;
+            }
+        }
     }
 }
