@@ -54,6 +54,13 @@ let renderAppointment = (req, res) => {
     });
 }
 
+let renderSchedule = (req, res) => {
+    res.render('addSchedule', {
+        loggedIn: true,
+        session: req.session
+    });
+}
+
 let renderDoctor = async (req, res) => {
     let allDoctors = await Doctor.find();
     res.render('doctor', {
@@ -104,6 +111,7 @@ module.exports = {
     renderHome: renderHome,
     renderProfile: renderProfile,
     renderAppointment: renderAppointment,
+    renderSchedule: renderSchedule,
     renderDoctor: renderDoctor,
     renderHospital: renderHospital,
     renderTreatment: renderTreatment,

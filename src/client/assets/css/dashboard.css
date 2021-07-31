@@ -56,7 +56,8 @@
 }
 
 #dashboard-section #dashboard-container .content input,
-#dashboard-section #dashboard-container .content textarea {
+#dashboard-section #dashboard-container .content textarea,
+#dashboard-section #dashboard-container .content select {
   border: 1px solid var(--lighterBlue);
 }
 
@@ -71,7 +72,8 @@
 }
 
 #dashboard-section #dashboard-container .content form label {
-  color: var(--brightBlue);
+  color: var(--darkBlue);
+  font-family: "NexaBold";
   padding: 0.5rem 0;
 }
 
