@@ -163,12 +163,8 @@ footer p {
     position: absolute;
     z-index:10;
     height: 100%;
-
 }
 
-.toaster > * {
-    padding : 0 1rem;
-}
 
 .toaster h6, .toaster h4 {
     margin-bottom: 0;
@@ -182,16 +178,22 @@ footer p {
 
 .toaster #name {
     padding: 1.5rem 1rem;
-    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--darkBlue);
     border-top: 0.1px solid var(--darkBlue);
 }
 
-.toaster ul li {
-    padding: 1rem 0;
+#links > div {
+    padding: 1rem;
+    padding-right: 4rem;
 }
+#links > div:hover {
+    border-left: 4px solid var(--brightBlue);
+    border-top: 1px solid var(--brightBlue);
+    border-bottom: 1px solid var(--brightBlue);
+}
+
 .toaster-active {
     display: none;
 }
@@ -303,6 +305,14 @@ footer p {
 
     #userInfo {
         display : flex;
+        align-items: center;
+        padding-left: .3rem;
+    }
+
+    #userInfo i{
+        font-size: 1rem;
+        padding-left: .1rem;
+        display: block;
     }
     
     header #links li {

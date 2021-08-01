@@ -18,12 +18,12 @@ router.route('/users').get(testController.getUsers);
 router.route('/login').get(renderController.renderLogin).post(authController.login);
 router.route('/signup').get(renderController.renderSignUp).post(authController.signup);
 router.route('/details').get(renderController.renderDetails);
-router.route('/submit_details').post(authController.submitDetails);
+router.route('/submit-details').post(authController.submitDetails);
 router.route('/mobilelogin').get(renderController.renderMobileLogin);
 
 //dashboard routes
 router.route('/profile').get(sessionAuth.redirectlogin, renderController.renderProfile);
-router.route('/dashboard_appointments').get(sessionAuth.redirectlogin, renderController.renderAppointment);
+router.route('/dashboard-appointments').get(sessionAuth.redirectlogin, renderController.renderAppointment);
 router.route('/add-schedule').get(sessionAuth.redirectlogin, renderController.renderSchedule);
 router.route('/settings').get(sessionAuth.redirectlogin, renderController.renderSettings);
 

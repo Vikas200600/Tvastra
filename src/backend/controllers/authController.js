@@ -76,7 +76,7 @@ let submitDetails = async (req, res) => {
         res.redirect('/');
         return;
     } else {
-        res.redirect('/submit_details');
+        res.redirect('/submit-details');
     }
 }
 
