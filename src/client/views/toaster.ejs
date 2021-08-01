@@ -1,35 +1,37 @@
 <div class="toaster toaster-active">
     <div id="name" onclick="document.location='/profile'">
         <i class="far fa-user"></i>
-        <h4>Vikas M</h4>
+        <h4><%= session.name %></h4>
     </div>
-    <ul>
-        <li><a href="/dashboard_appointments">
+    <div id="links">
+        <div><a href="/dashboard-appointments">
                 <h6>My Appointments<h6>
             </a>
-        </li>
+        </div>
         <% if(session.isDoctor) { %>
-            <li>
+            <div>
                 <a href="/add-schedule">
                     <h6>Add Schedule<h6>
                 </a>
-            </li>
+            </div>
         <% } %>
-        <li><a href="">
+        <% if(!session.isDoctor) { %>
+        <div><a href="/reports">
                 <h6>Medical Records<h6>
             </a>
-        </li>
-        <li><a href="/settings">
+        </div>
+        <% } %>
+        <div><a href="/settings">
                 <h6>Settings<h6>
             </a>
-        </li>
-        <li><a href="">
+        </div>
+        <div><a href="">
                 <h6>My Payments<h6>
             </a>
-        </li>
-        <li><a href="">
+        </div>
+        <div><a href="">
                 <h6>Logout<h6>
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>
