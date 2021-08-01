@@ -1,10 +1,10 @@
 <div class="toaster toaster-active">
     <div id="name" onclick="document.location='/profile'">
         <i class="far fa-user"></i>
-        <h4>Vikas M</h4>
+        <h4><%= session.name %></h4>
     </div>
     <ul>
-        <li><a href="/dashboard_appointments">
+        <li><a href="/dashboard-appointments">
                 <h6>My Appointments<h6>
             </a>
         </li>
@@ -15,10 +15,12 @@
                 </a>
             </li>
         <% } %>
-        <li><a href="">
+        <% if(!session.isDoctor) { %>
+        <li><a href="/reports">
                 <h6>Medical Records<h6>
             </a>
         </li>
+        <% } %>
         <li><a href="/settings">
                 <h6>Settings<h6>
             </a>

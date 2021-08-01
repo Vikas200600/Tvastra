@@ -4,11 +4,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome - Tvastra</title>
-        <link href="./../assets/css/reset.css" rel="stylesheet" type="text/css">    
-        <link href="./../assets/css/theme.css" rel="stylesheet" type="text/css">    
-        <link href="./../assets/css/headAfooter.css" rel="stylesheet" type="text/css">
-        <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">  
-        <script src="https://kit.fontawesome.com/0c23d4ccc5.js" crossorigin="anonymous"></script>        
+        <%- include('linker.ejs') %>  
+        <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">       
     </head>
     <body>
         <% if(flash.info) { %>
@@ -23,6 +20,8 @@
         <% } %> 
 
         <%- include('header.ejs') %>
+        <%- include('toaster.ejs') %>  
+
         
         <div id="container">
             <div id="form-container">
