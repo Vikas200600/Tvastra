@@ -6,7 +6,7 @@ const renderController = require('../controllers/renderController');
 const authController = require('../controllers/authController');
 const otpController = require('../controllers/otpController');
 const sessionAuth = require('../controllers/sessionAuth');
-const mainController = require('../controllers/mainController');
+const dashboardController = require('../controllers/dashboardController');
 
 
 router.route('/test').get(testController.test);
@@ -29,7 +29,10 @@ router.route('/dashboard-appointments').get(sessionAuth.redirectlogin, renderCon
 router.route('/add-schedule').get(sessionAuth.redirectlogin, renderController.renderSchedule);
 router.route('/settings').get(sessionAuth.redirectlogin, renderController.renderSettings);
 
-router.route('/edit-profile').post(sessionAuth.redirectlogin, mainController.editProfile);
+router.route('/edit-profile').post(sessionAuth.redirectlogin, dashboardController.editProfile);
+router.route('/change-password').post(sessionAuth.redirectlogin, dashboardController.editProfile);
+
+
 
 
 

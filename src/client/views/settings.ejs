@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Tvastra</title>
-    <%- include('linker.ejs') %>  
+    <%- include('partials/linker.ejs') %>  
     <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <%- include('header.ejs') %>
-    <%- include('toaster.ejs') %>  
+    <%- include('partials/header.ejs') %>
+    <%- include('partials/toaster.ejs') %>  
 
 
         <section id="dashboard-section">
             <div id="dashboard-container">
-                <%- include('dashboardMenu.ejs')%>
+                <%- include('partials/dashboardMenu.ejs')%>
                     <div class="content">
                         <div id="head">
                             <h3>Settings</h3>
@@ -41,7 +41,7 @@
             </div>
         </section>
 
-        <%- include('footer.ejs') %>
+        <%- include('partials/footer.ejs') %>
     
 </body>
 </html>
