@@ -1,23 +1,24 @@
 let User = require('../models/UserModel');
+let Doctor = require('../models/DoctorModel');
 
 let test = (req, res) => {
     res.json({
         error: "none",
         message: "Server Test Success",
         status: 200,
-        data :null
+        data: null
     })
 };
 
 let tempRoute = (req, res) => {
-    res.render('docProfile',{
-        loggedIn : "flase"
+    res.render('docProfile', {
+        loggedIn: "flase"
     });
 }
 
 let testFlash = (req, res) => {
-    req.flash("head","welcome");
-    req.flash("msg","welcome");
+    req.flash("head", "welcome");
+    req.flash("msg", "welcome");
     return res.send(req.flash());
 }
 
@@ -25,12 +26,12 @@ let testFlash = (req, res) => {
 let addUser = (req, res) => {
     let newUser = new User();
     newUser.save((err) => {
-        if(err) {
+        if (err) {
             res.json({
                 error: err,
                 message: "User not Added",
                 status: 404,
-            });            
+            });
         } else {
             console.log("User Added");
             res.json({
@@ -48,11 +49,18 @@ let getUsers = (req, res) => {
     })
 }
 
+let getDoctors = (req, res) => {
+    Doctor.find((err, result) => {
+        res.json(result);
+    })
+}
+
 
 module.exports = {
-    test : test,
-    addUser : addUser,
-    getUsers : getUsers,
-    testFlash : testFlash,
-    tempRoute : tempRoute
+    test: test,
+    addUser: addUser,
+    getUsers: getUsers,
+    getDoctors: getDoctors,
+    testFlash: testFlash,
+    tempRoute: tempRoute
 }
