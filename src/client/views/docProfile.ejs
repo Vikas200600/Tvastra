@@ -1,67 +1,56 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome - Tvastra</title>
-        <%- include('partials/linker.ejs') %>  
-        <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">       
-    </head>
-    <body>
-        <% if(flash.info) { %>
-            <div id="info" class="flashContainer">
-                <i class="fas fa-times-circle"></i>
-                <ul id="msg">
-                    <li><%= flash.info %></li>
-                    <li><%= flash.msg %></li>
-                </ul>
-                <i class="fas fa-times"></i>
-            </div>
-        <% } %> 
 
-        <%- include('partials/header.ejs') %>
-        <%- include('partials/toaster.ejs') %>  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Tvastra</title>
+    <%- include('partials/linker.ejs') %>
+        <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">
+</head>
 
-        
-        <div id="container">
-            <div id="form-container">
-                <h4 id="form-head">WELCOME</h4>
-                <form id="appointment-form" action="/submit-details" method="POST">                    
-                    <h6>Describe Yourself</h6>
-                    <textarea placeholder="Describe Yourself..." name="about" autofocus></textarea>                    
-                    <h6>Upload Your Profile Picture</h6>
+<body>
+    <%- include('partials/header.ejs') %>
+    <%- include('partials/toaster.ejs') %>
+    <div id="container">
+        <div id="form-container">
+            <h4 id="form-head">WELCOME</h4>
+            <form id="appointment-form" action="/submit-details" method="POST">
+                <h6>Describe Yourself</h6>
+                <textarea placeholder="Describe Yourself..." name="about" autofocus></textarea>
+                <h6>Upload Your Profile Picture</h6>
+                <div>
+                    <input name="profile" type="file" id="sel-file">
+                </div>
+                <h6>Your Hospital</h6>
+                <input type="text" name="hospital" placeholder="">
+                <h6>Acheivements</h6>
+                <input type="text" name="acheivements" placeholder="">
+                <h6>Experience</h6>
+                <input type="text" name="experience" placeholder="">
+                <h6>Qualification</h6>
+                <input type="text" name="qualification" placeholder="">
+                <h6>Awards</h6>
+                <input type="text" name="awards" placeholder="">
+                <h6>Specialization</h6>
+                <input type="text" name="specialization" placeholder="">
+                <h6>Avaerage Fees</h6>
+                <input type="text" name="fees" placeholder="">
+
+                <div id="submit">
+                    <button class="btn-primary" type="submit">Submit</button>
                     <div>
-                        <input name="profile" type="file" id="sel-file">
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                    <h6>Your Hospital</h6>
-                    <input type="text" name="hospital" placeholder="">
-                    <h6>Acheivements</h6>
-                    <input type="text" name="acheivements" placeholder="">
-                    <h6>Experience</h6>
-                    <input type="text" name="experience" placeholder="">
-                    <h6>Qualification</h6>
-                    <input type="text" name="qualification" placeholder="">
-                    <h6>Awards</h6>
-                    <input type="text" name="awards" placeholder="">
-                    <h6>Specialization</h6>
-                    <input type="text" name="specialization" placeholder="">
-                    <h6>Avaerage Fees</h6>
-                    <input type="text" name="fees" placeholder="">                    
-
-                    <div id="submit">
-                        <button class="btn-primary" type="submit">Submit</button>
-                        <div>
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
+    </div>
 
-        <div id="footer">
-            <h6 class="small">
-                All Rights Reserved &copy Tvastra 2021
-            </h6>
-        </div>
-    </body>
+    <div id="footer">
+        <h6 class="small">
+            All Rights Reserved &copy Tvastra 2021
+        </h6>
+    </div>
+</body>
 </html>

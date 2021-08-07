@@ -9,18 +9,7 @@
     <link href="./../assets/css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-    <% if(flash.head) { %>
-        <div id="success" class="flashContainer">
-            <i class="fas fa-check-circle"></i>
-            <ul id="msg">
-                <li><%= flash.head %></li>
-                <li><%= flash.msg %></li>
-            </ul>
-            <i class="fas fa-times"></i>
-        </div>
-    <% } %>
-
+    <%- include('partials/flash.ejs') %> 
     <%- include('partials/header.ejs') %> 
     <%- include('partials/toaster.ejs') %> 
     

@@ -1,84 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Tvastra</title>
-    <%- include('partials/linker.ejs') %>  
-    <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">  
+    <%- include('partials/linker.ejs') %>
+        <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    
-    <% if(flash.info) { %>
-        <div id="info" class="flashContainer">
-            <i class="fas fa-times-circle"></i>
-            <ul id="msg">
-                <li><%= flash.info %></li>
-                <li><%= flash.msg %></li>
-            </ul>
-            <i class="fas fa-times"></i>
-        </div>
-    <% } %> 
+    <%- include('partials/flash.ejs') %>
+        <%- include('partials/header.ejs') %>
 
-    <%- include('partials/header.ejs') %>
-
-    <div id="container">
-        <div id="form-container">
-            <h4 id="form-head">Enter OTP</h4>
-            <form method="post" action="/verify"> 
-                <div id="digits">
-                    <input type="text" class="digit" name="d1" maxlength="1" autofocus onclick="this.select();">
-                    <input type="text" class="digit" name="d2" maxlength="1">
-                    <input type="text" class="digit" name="d3" maxlength="1">
-                    <input type="text" class="digit" name="d4" maxlength="1">
+            <div id="container">
+                <div id="form-container">
+                    <h4 id="form-head">Enter OTP</h4>
+                    <form method="post" action="/verify">
+                        <div id="digits">
+                            <input type="text" class="digit" name="d1" maxlength="1" autofocus onclick="this.select();">
+                            <input type="text" class="digit" name="d2" maxlength="1">
+                            <input type="text" class="digit" name="d3" maxlength="1">
+                            <input type="text" class="digit" name="d4" maxlength="1">
+                        </div>
+                        <p class="small blue"><a id="seconds">Resend <span></span></a></p>
+                        <div id="submit">
+                            <button class="btn-primary" type="submit">submit</button>
+                            <div>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="small registered-flag">Not Registered? <span><a href="/signup">Sign Up</a></span></p>
                 </div>
-                <p class="small blue"><a id="seconds">Resend <span></span></a></p>
-                <div id="submit">
-                    <button class="btn-primary" type="submit">submit</button>
-                    <div>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </form>
-            <p class="small registered-flag">Not Registered?  <span><a href="/signup">Sign Up</a></span></p>
-        </div>    
-    </div>
+            </div>
 
-    <div id="footer">
-        <h6 class="small">
-            All Rights Reserved &copy Tvastra 2021
-        </h6>
-    </div>  
-      
-    <script>
-        let digits = document.querySelectorAll('.digit');
-        let submit = document.querySelector('#submit');
-        digits.forEach(digit => {
-            digit.addEventListener("keyup", () => {
-                if(digit.value)
-                digit.nextElementSibling ? digit.nextElementSibling.focus() : submit.focus();
-                else
-                digit.previousElementSibling ? digit.previousElementSibling.focus() : digits[0].focus();
-            })
-        })
+            <div id="footer">
+                <h6 class="small">
+                    All Rights Reserved &copy Tvastra 2021
+                </h6>
+            </div>
 
-        let seconds = document.getElementById("seconds");
-        let sec= 5;
-        setTimeout(() => {
-            seconds.innerHTML = "Resend";
-            seconds.setAttribute("href","/resendotp");
-        },5000);
-        let timer = (sec) =>{
-            seconds.innerHTML = "Resend in "+sec--;
-            if(sec > 0) {
-                setTimeout(() => {timer(sec)},1000);
-                return;
-            }
-        }
-        timer(sec);
+            <script>
+                let digits = document.querySelectorAll('.digit');
+                let submit = document.querySelector('#submit');
+                digits.forEach(digit => {
+                    digit.addEventListener("keyup", () => {
+                        if (digit.value)
+                            digit.nextElementSibling ? digit.nextElementSibling.focus() : submit.focus();
+                        else
+                            digit.previousElementSibling ? digit.previousElementSibling.focus() : digits[0].focus();
+                    })
+                })
 
-
-    </script>
+                let seconds = document.getElementById("seconds");
+                let sec = 5;
+                setTimeout(() => {
+                    seconds.innerHTML = "Resend";
+                    seconds.setAttribute("href", "/resendotp");
+                }, 5000);
+                let timer = (sec) => {
+                    seconds.innerHTML = "Resend in " + sec--;
+                    if (sec > 0) {
+                        setTimeout(() => { timer(sec) }, 1000);
+                        return;
+                    }
+                }
+                timer(sec);
+            </script>
 </body>
+
 </html>

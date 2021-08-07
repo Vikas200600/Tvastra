@@ -9,28 +9,7 @@
     <link href="./../assets/css/formDesign.css" rel="stylesheet" type="text/css">  
 </head>
 <body>
-    <% if(flash.fail) { %>
-        <div id="fail" class="flashContainer">
-            <i class="fas fa-times-circle"></i>
-            <ul id="msg">
-                <li><%= flash.fail %></li>
-                <li><%= flash.msg %></li>
-            </ul>
-            <i class="fas fa-times"></i>
-        </div>
-    <% } %>  
-
-    <% if(flash.info) { %>
-        <div id="info" class="flashContainer">
-            <i class="fas fa-times-circle"></i>
-            <ul id="msg">
-                <li><%= flash.info %></li>
-                <li><%= flash.msg %></li>
-            </ul>
-            <i class="fas fa-times"></i>
-        </div>
-    <% } %>  
-
+    <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
 
     <div id="container">
