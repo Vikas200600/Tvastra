@@ -41,6 +41,8 @@ let renderHome = (req, res) => {
 
 
 let renderProfile = (req, res) => {
+    console.log("from render profile:")
+    console.log(req.session);
     res.render('profile', {
         loggedIn: true,
         session: req.session

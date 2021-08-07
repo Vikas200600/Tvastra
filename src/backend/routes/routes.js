@@ -6,6 +6,7 @@ const renderController = require('../controllers/renderController');
 const authController = require('../controllers/authController');
 const otpController = require('../controllers/otpController');
 const sessionAuth = require('../controllers/sessionAuth');
+const mainController = require('../controllers/mainController');
 
 
 router.route('/test').get(testController.test);
@@ -14,6 +15,7 @@ router.route('/temp').get(testController.tempRoute);
 
 router.route('/adduser').get(testController.addUser);
 router.route('/users').get(testController.getUsers);
+router.route('/doctorsList').get(testController.getDoctors);
 
 router.route('/login').get(renderController.renderLogin).post(authController.login);
 router.route('/signup').get(renderController.renderSignUp).post(authController.signup);
@@ -26,6 +28,10 @@ router.route('/profile').get(sessionAuth.redirectlogin, renderController.renderP
 router.route('/dashboard-appointments').get(sessionAuth.redirectlogin, renderController.renderAppointment);
 router.route('/add-schedule').get(sessionAuth.redirectlogin, renderController.renderSchedule);
 router.route('/settings').get(sessionAuth.redirectlogin, renderController.renderSettings);
+
+router.route('/edit-profile').post(sessionAuth.redirectlogin, mainController.editProfile);
+
+
 
 
 
