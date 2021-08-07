@@ -6,143 +6,147 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Tvastra</title>
-    <%- include('linker.ejs') %>  
-    <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
+    <%- include('linker.ejs') %>
+        <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
 
-    <script defer>
-        $(document).ready(() => {
-            $('#update').click(() => {
-                let updatedData = {
-                    name : $('#user-name').val(),
-                    email : $('#email').val(),
-                    gender : $('#gender').val(),
-                    dob : $('#dob').val(),
-                    city :$('#city').val(),
-                    state : $('#state').val(),
-                    country : $('#country').val(),
-                    about : $('#about').val(),
-                    hospital : $('#hospital').val(),
-                    achievements : $('#achievements').val(),
-                    experience : $('#experience').val(),
-                    qualification : $('#qualification').val(),
-                    awards : $('#awards').val(),
-                    specialization : $('#specialization').val(),
-                    fees : $('#fees').val()
-                };       
-                $.ajax({
-                    type: 'POST',
-                    url : 'http://localhost:8080/edit-profile',
-                    data : updatedData,
+        <script defer>
+            $(document).ready(() => {
+                $('#update').click(() => {
+                    let updatedData = {
+                        name: $('#user-name').val(),
+                        email: $('#email').val(),
+                        gender: $('#gender').children('option:selected').val(),
+                        dob: $('#dob').val(),
+                        city: $('#city').val(),
+                        state: $('#state').val(),
+                        country: $('#country').val(),
+                        about: $('#about').val(),
+                        hospital: $('#hospital').val(),
+                        achievements: $('#achievements').val(),
+                        experience: $('#experience').val(),
+                        qualification: $('#qualification').val(),
+                        awards: $('#awards').val(),
+                        specialization: $('#specialization').val(),
+                        fees: $('#fees').val()
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:8080/edit-profile',
+                        data: updatedData,
+                    })
                 })
             })
-        })
-    </script>
+        </script>
 </head>
 
 <body>
     <%- include('header.ejs') %>
-    <%- include('toaster.ejs') %>  
+        <%- include('toaster.ejs') %>
 
-        <section id="dashboard-section">
-            <div id="dashboard-container">
-                <%- include('dashboardMenu.ejs')%>
-                    <div class="content">
-                        <div id="head">
-                            <h3>My Profile</h3>
-                            <button id="update" class="btn-secondary">Save Changes</button>
-                        </div>
-                        <div id="profile">
-                            <form>
-                                <div>
-                                    <label for="user-name">Name</label>
-                                    <input id="user-name" name="name" type="text" value=<%= session.name %>>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <form>
-                                <div>
-                                    <label for="phone">Mobile Number</label>
-                                    <input id="phone" type="text" value="<%= session.mobile %>" disabled>
-                                </div>
-                                <div>
-                                    <label for="email">Email</label>
-                                    <input id="email" type="text" value="<%= session.email %>" disabled>
-                                </div>
-                                <div>
-                                    <label for="gender">Gender</label>
-                                    <select id="gender" name="gender" required>
-                                        <option value="<%= session.gender %>" disabled selected hidden><%= session.gender %></option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Others">Others</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="dob">Date of Birth</label>
-                                    <input id="dob" type="text" value="<%= session.dob %>">
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <form>
-                                <div>
-                                    <label for="city">City</label>
-                                    <input id="city" name="city" value="<%= session.city %>" type="text">
-                                </div>
-                                <div>
-                                    <label for="state">State</label>
-                                    <input id="state" name="state" value="<%= session.state %>"" type="text">
-                                </div>
-                                <div>
-                                    <label for="country">Country</label>
-                                    <input id="country" name="country" value="<%= session.dob %>" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <% if(session.isDoctor) { %>
-                            <div>
+            <section id="dashboard-section">
+                <div id="dashboard-container">
+                    <%- include('dashboardMenu.ejs')%>
+                        <div class="content">
+                            <div id="head">
+                                <h3>My Profile</h3>
+                                <button id="update" class="btn-secondary">Save Changes</button>
+                            </div>
+                            <div id="profile">
                                 <form>
                                     <div>
-                                        <label for="hospital">Your Hospitals</label>
-                                        <input id="hospital" value="<%= session.hospital %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="achievements">Achievements</label>
-                                        <input id="achievements" value="<%= session.achievements %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="experience">Experience</label>
-                                        <input id="experience" value="<%= session.experience %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="qualification">Qualification</label>
-                                        <input id="qualification" value="<%= session.qualification %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="awards">Awards</label>
-                                        <input id="awards" value="<%= session.awards %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="achievements">Specialization</label>
-                                        <input id="achievements" value="<%= session.specialization %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="fees">Your average Fees</label>
-                                        <input id="fees" value="<%= session.fees %>" type="text">
-                                    </div>
-                                    <div>
-                                        <label for="about">Describe Yourself</label>
-                                        <textarea id="about" value="<%= session.about %>"><%= session.about %></textarea>
+                                        <label for="user-name">Name</label>
+                                        <input id="user-name" name="name" type="text" value="<%= session.name %>">
                                     </div>
                                 </form>
                             </div>
-                        <% } %>
-                    </div>
-            </div>
-        </section>
+                            <div>
+                                <form>
+                                    <div>
+                                        <label for="phone">Mobile Number</label>
+                                        <input id="phone" type="text" value="<%= session.mobile %>" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="email">Email</label>
+                                        <input id="email" type="text" value="<%= session.email %>" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="gender">Gender</label>
+                                        <select id="gender" name="gender" required>
+                                            <option value="<%= session.gender %>" disabled selected hidden>
+                                                <%= session.gender %>
+                                            </option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="dob">Date of Birth</label>
+                                        <input id="dob" type="text" value="<%= session.dob %>">
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <form>
+                                    <div>
+                                        <label for="city">City</label>
+                                        <input id="city" name="city" value="<%= session.city %>" type="text">
+                                    </div>
+                                    <div>
+                                        <label for="state">State</label>
+                                        <input id="state" name="state" value="<%= session.state %>"" type=" text">
+                                    </div>
+                                    <div>
+                                        <label for="country">Country</label>
+                                        <input id="country" name="country" value="<%= session.dob %>" type="text">
+                                    </div>
+                                </form>
+                            </div>
+                            <% if(session.isDoctor) { %>
+                                <div>
+                                    <form>
+                                        <div>
+                                            <label for="hospital">Your Hospitals</label>
+                                            <input id="hospital" value="<%= session.hospital %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="achievements">Achievements</label>
+                                            <input id="achievements" value="<%= session.achievements %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="experience">Experience</label>
+                                            <input id="experience" value="<%= session.experience %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="qualification">Qualification</label>
+                                            <input id="qualification" value="<%= session.qualification %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="awards">Awards</label>
+                                            <input id="awards" value="<%= session.awards %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="specialization">Specialization</label>
+                                            <input id="specialization" value="<%= session.specialization %>"
+                                                type="text">
+                                        </div>
+                                        <div>
+                                            <label for="fees">Your average Fees</label>
+                                            <input id="fees" value="<%= session.fees %>" type="text">
+                                        </div>
+                                        <div>
+                                            <label for="about">Describe Yourself</label>
+                                            <textarea id="about"
+                                                value="<%= session.about %>"><%= session.about %></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <% } %>
+                        </div>
+                </div>
+            </section>
 
-        <%- include('footer.ejs') %>
+            <%- include('footer.ejs') %>
 
 </body>
 
