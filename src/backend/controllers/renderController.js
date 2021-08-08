@@ -65,6 +65,7 @@ let renderSchedule = (req, res) => {
 
 let renderSettings = (req, res) => {
     res.render('settings', {
+        flash: req.flash(),
         loggedIn: true,
         session: req.session
     });
