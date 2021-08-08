@@ -31,12 +31,7 @@ router.route('/settings').get(sessionAuth.redirectlogin, renderController.render
 
 router.route('/edit-profile').post(sessionAuth.redirectlogin, dashboardController.editProfile);
 router.route('/change-password').post(sessionAuth.redirectlogin, dashboardController.changePassword);
-
-
-
-
-
-
+router.route('/logout').get(sessionAuth.redirectlogin, dashboardController.logout);
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);

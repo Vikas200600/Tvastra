@@ -64,7 +64,16 @@ let changePassword = async (req, res) => {
     }
 }
 
+let logout = (req, res) => {
+    req.session.destroy(() => {
+        req.flash("head", "Success");
+        req.flash("msg", "Logged out Sucessfully");
+        return res.redirect('/login'); 
+    })
+}
+
 module.exports = {
     editProfile: editProfile,
-    changePassword: changePassword
+    changePassword: changePassword,
+    logout: logout
 }
