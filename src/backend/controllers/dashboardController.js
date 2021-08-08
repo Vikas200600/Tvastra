@@ -37,14 +37,14 @@ let editProfile = async (req, res) => {
 
 let changePassword = async (req, res) => {
     let {curPassword, newPassword, conPassword} = req.body;
-    let user = await User.findOne({ _id: req.body.userId });
+    let user = await User.findOne({ _id: req.session.userId });
     if(user) {
-        if(!(curPassword === user.password)) {
+        if(curPassword !== user.password) {
             req.flash("fail","Failure");
             req.flash("msg", "Invalid Password");
             return res.redirect('/settings');
         } else {
-            if(!(newPassword === conPassword)) {
+            if(newPassword !== conPassword) {
                 req.flash("info", "Failure");
                 req.flash("msg", "Passwords Doesn't Match");
                 return res.redirect('/settings');
@@ -54,7 +54,7 @@ let changePassword = async (req, res) => {
             if(isChanged) {
                 req.flash("head", "Success");
                 req.flash("msg", "Password Changed");
-                return res.redirect('/settings');                
+                return res.redirect('/settings'); 
             } else {
                 req.flash("fail", "Failure");
                 req.flash("msg", "Try Again Later");
