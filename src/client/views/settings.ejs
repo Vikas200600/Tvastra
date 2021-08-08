@@ -7,8 +7,25 @@
     <title>Settings - Tvastra</title>
     <%- include('partials/linker.ejs') %>  
     <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
+    <script defer>
+        $(document).ready(() => {
+            $('#change').click(() => {
+                let passwords = {
+                    curPassword: $('#curPassword').val(),
+                    newPassword: $('#newPassword').val(),
+                    conPassword: $('#conPassword').val()
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:8080/change-password',
+                    data: passwords
+                })
+            })
+        })
+    </script>
 </head>
 <body>
+    <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
     <%- include('partials/toaster.ejs') %>  
 
@@ -19,7 +36,7 @@
                     <div class="content">
                         <div id="head">
                             <h3>Settings</h3>
-                            <button class="btn-secondary">Save Changes</button>
+                            <button id="change" class="btn-secondary">Save Changes</button>
                         </div>
                         <div>
                             <form>

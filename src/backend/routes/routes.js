@@ -30,7 +30,7 @@ router.route('/add-schedule').get(sessionAuth.redirectlogin, renderController.re
 router.route('/settings').get(sessionAuth.redirectlogin, renderController.renderSettings);
 
 router.route('/edit-profile').post(sessionAuth.redirectlogin, dashboardController.editProfile);
-router.route('/change-password').post(sessionAuth.redirectlogin, dashboardController.editProfile);
+router.route('/change-password').post(sessionAuth.redirectlogin, dashboardController.changePassword);
 
 
 
