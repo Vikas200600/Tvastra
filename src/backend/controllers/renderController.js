@@ -57,7 +57,9 @@ let renderAppointment = (req, res) => {
 }
 
 let renderSchedule = (req, res) => {
+    console.log(`from render: ${req.flash().head}`);
     res.render('addSchedule', {
+        flash: req.flash(),
         loggedIn: true,
         session: req.session
     });

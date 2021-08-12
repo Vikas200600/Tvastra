@@ -1,21 +1,23 @@
 const Slot = require('./../models/SlotModel');
 
 let createSchedule = async (req, res) => {
-    let {slotStartTime, slotEndTime, interval, hospital, days } = req.body;
-    console.log(req.body);
     let newSlot =  new Slot({
-        slotStartTime: slotStartTime,
-        slotEndTime: slotEndTime,
-        interval: interval,
-        hospital: hospital,
-        days: days
+        slotStartTime: req.body.slotStartTime,
+        slotEndTime: req.body.slotEndTime,
+        interval: req.body.interval,
+        doctorId: req.session.userId,
+        hospital: req.body.hospital,
+        days: req.body.days
     });
     let slotSaved = await newSlot.save();
     if(slotSaved) {
-        console.log("Slot Saved Successfully.");
-        res.send("Slot Saved Successfully.");
+        req.flash("head","Success");
+        req.flash("msg","Schedule Added");
+        return res.redirect('/add-schedule');
     } else {
-        res.send(slotSaved);
+        req.flash("fail","Failure");
+        req.flash("msg","Unable To Add");
+        return res.redirect('/add-schedule');
     }
 }
 
