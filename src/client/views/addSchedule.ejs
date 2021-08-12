@@ -9,6 +9,7 @@
     <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
     <%- include('partials/toaster.ejs') %> 
 
@@ -19,8 +20,8 @@
                         <div>
                             <form>
                                 <div>
-                                    <label for="day">Day</label>
-                                    <select id="day">
+                                    <label for="days">Days</label>
+                                    <select id="days" multiple>
                                         <option name="monday" value="monday">Monday</option>
                                         <option name="tuesday" value="tuesday">Tuesday</option>
                                         <option name="wednesday" value="wednesday">Wednesday</option>
@@ -45,6 +46,9 @@
                                 <div>
                                     <label for="hospital">Hospital</label>
                                     <input id="hospital" type="text">
+                                </div>
+                                <div class="submit-btn">
+                                    <button id="add" class="btn-secondary">Add Schedule</button>
                                 </div>
                             </form>
                         </div>
@@ -71,6 +75,28 @@
         </section>
 
         <%- include('partials/footer.ejs') %>
+
+        <script>
+            $(document).ready(() => {
+                $('#add').click(() => {
+                    window.alert($('#days').val());
+                    let schedule =  {
+                        slotStartTime : $('#s-time').val(),
+                        slotEndTime: $('#e-time').val(),
+                        interval : $('#interval').val(),
+                        hospital : $('#hospital').val(),
+                        days : $('#days').val(),
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:8080/create-schedule',
+                        data: schedule
+                    });
+                })
+            })
+
+        </script>
+
     
 </body>
 </html>
