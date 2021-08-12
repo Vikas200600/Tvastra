@@ -7,11 +7,11 @@ const authController = require('../controllers/authController');
 const otpController = require('../controllers/otpController');
 const sessionAuth = require('../controllers/sessionAuth');
 const dashboardController = require('../controllers/dashboardController');
-
+const slotController = require('../controllers/slotController');
 
 router.route('/test').get(testController.test);
 router.route('/testFlash').get(testController.testFlash);
-router.route('/temp').get(testController.tempRoute);
+router.route('/temp').post(testController.tempRoute);
 
 router.route('/adduser').get(testController.addUser);
 router.route('/users').get(testController.getUsers);
@@ -32,6 +32,10 @@ router.route('/settings').get(sessionAuth.redirectlogin, renderController.render
 router.route('/edit-profile').post(sessionAuth.redirectlogin, dashboardController.editProfile);
 router.route('/change-password').post(sessionAuth.redirectlogin, dashboardController.changePassword);
 router.route('/logout').get(sessionAuth.redirectlogin, dashboardController.logout);
+
+//slot routes
+router.route('/create-schedule').post(slotController.createSchedule);
+
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);

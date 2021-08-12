@@ -47,6 +47,14 @@
                     font-family: "NexaBold";
                     padding: 0.5rem 0;
                 }
+                .submit-btn {
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                }
+                // > div > button {
+                //     align-self: center;
+                // justify-self: flex-end;
+                // }
             }
             .appointments-list {
                 display: flex;

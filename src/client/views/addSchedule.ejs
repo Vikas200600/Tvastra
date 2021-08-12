@@ -9,68 +9,101 @@
     <link href="./../assets/css/dashboard.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
     <%- include('partials/toaster.ejs') %> 
 
         <section id="dashboard-section">
             <div id="dashboard-container">
                 <%- include('partials/dashboardMenu.ejs')%>
-                    <div class="content">
-                        <div>
-                            <form>
-                                <div>
-                                    <label for="day">Day</label>
-                                    <select id="day">
-                                        <option name="monday" value="monday">Monday</option>
-                                        <option name="tuesday" value="tuesday">Tuesday</option>
-                                        <option name="wednesday" value="wednesday">Wednesday</option>
-                                        <option name="thurday" value="thurday">Thurday</option>
-                                        <option name="friday" value="friday">Friday</option>
-                                        <option name="saturday" value="saturday">Saturday</option>
-                                        <option name="sunday" value="sunday">Sunnday</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="s-time">Start Time</label>
-                                    <input id="s-time" type="text">
-                                </div>
-                                <div>
-                                    <label for="e-time">Start Time</label>
-                                    <input id="e-time" type="text">
-                                </div>
-                                <div>
-                                    <label for="interval">Interval</label>
-                                    <input id="interval" type="text">
-                                </div>
-                                <div>
-                                    <label for="hospital">Hospital</label>
-                                    <input id="hospital" type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="appointments-list">
-                            <h4>Scheduled Slots</h4>
-                            <div class="appointment">
-                                <div class="appointment-info">
-                                    <div class="date">
-                                        <h6 style="margin-bottom: 0;">Thursday</h6>
-                                    </div>
-                                    <ul class="details">
-                                        <li style="font-size: 1rem; margin-bottom: .5rem;">Maruthi Clinic</li>
-                                        <li>10:00 - 10:30</li>
-                                    </ul>
-                                </div>
-                                <div class="modify-btn">
-                                    <button class="btn-secondary">Delete Slot</button>
-                                    <button class="btn-secondary">Edit Slot</button>
-                                    <button class="btn-secondary">View Detail</button>
-                                </div>
+                <div class="content">
+                    <div>
+                        <form>
+                            <div>
+                                <label for="days">Days</label>
+                                <select id="days" multiple>
+                                    <option name="monday" value="monday">Monday</option>
+                                    <option name="tuesday" value="tuesday">Tuesday</option>
+                                    <option name="wednesday" value="wednesday">Wednesday</option>
+                                    <option name="thursday" value="thursday">Thursday</option>
+                                    <option name="friday" value="friday">Friday</option>
+                                    <option name="saturday" value="saturday">Saturday</option>
+                                    <option name="sunday" value="sunday">Sunnday</option>
+                                </select>
                             </div>
+                            <div>
+                                <label for="s-time">Start Time</label>
+                                <input id="s-time" type="text">
+                            </div>
+                            <div>
+                                <label for="e-time">Start Time</label>
+                                <input id="e-time" type="text">
+                            </div>
+                            <div>
+                                <label for="interval">Interval</label>
+                                <input id="interval" type="text">
+                            </div>
+                            <div>
+                                <label for="hospital">Hospital</label>
+                                <input id="hospital" type="text">
+                            </div>
+                            <div class="submit-btn">
+                                <button id="add" class="btn-secondary">Add Schedule</button>
+                            </div>
+                        </form>
                     </div>
+                    <div class="appointments-list">
+                        <h4>Scheduled Slots</h4>
+                        <% if(slots.length) { %>
+                            <% for(let i=0; i< slots.length; i++ ) {%>
+                                <% for(let j=0;j<slots[i].days.length;j++) { %>
+                                    <div class="appointment">
+                                        <div class="appointment-info">
+                                            <div class="date">
+                                                <h6 style="margin-bottom: 0;"><%= slots[i].days[j] %></h6>
+                                            </div>
+                                            <ul class="details">
+                                                <li style="font-size: 1rem; margin-bottom: .5rem;"><%= slots[i].hospital %></li>
+                                                <li><%= `${slots[i].slotStartTime} - ${slots[i].slotEndTime}` %></li>
+                                            </ul>
+                                        </div>
+                                        <div class="modify-btn">
+                                            <button class="btn-secondary">Delete Slot</button>
+                                            <button class="btn-secondary">Edit Slot</button>
+                                            <button class="btn-secondary">View Detail</button>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>    
             </div>
         </section>
 
         <%- include('partials/footer.ejs') %>
+
+        <script>
+            $(document).ready(() => {
+                $('#add').click(() => {
+                    window.alert($('#days').val());
+                    let schedule =  {
+                        slotStartTime : $('#s-time').val(),
+                        slotEndTime: $('#e-time').val(),
+                        interval : $('#interval').val(),
+                        hospital : $('#hospital').val(),
+                        days : $('#days').val(),
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:8080/create-schedule',
+                        data: schedule
+                    }).then(() => { location.reload(true) });
+                })
+            })
+
+        </script>
+
     
 </body>
 </html>

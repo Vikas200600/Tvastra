@@ -1,4 +1,5 @@
 const Doctor = require('./../models/DoctorModel');
+const Slot = require('./../models/SlotModel');
 
 let renderLogin = (req, res) => {
     res.render('login', {
@@ -56,10 +57,14 @@ let renderAppointment = (req, res) => {
     });
 }
 
-let renderSchedule = (req, res) => {
+let renderSchedule = async (req, res) => {
+    console.log(`from renderSchedule: flash main = ${req.flash().head}`);
+    let scheduledSlots = await Slot.find({ doctorId: req.session.userId }).select('-__v -name -email -interval -doctorId');
     res.render('addSchedule', {
+        flash: req.flash(),
         loggedIn: true,
-        session: req.session
+        session: req.session,
+        slots: scheduledSlots
     });
 }
 
