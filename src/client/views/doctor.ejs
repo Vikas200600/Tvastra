@@ -7,6 +7,7 @@
     <title>Doctors - Tvastra</title>
     <%- include('partials/linker.ejs') %>  
     <link href="./../assets/css/list.css" rel="stylesheet" type="text/css">   
+    <link href="./../assets/css/doctor.css" rel="stylesheet" type="text/css">   
 </head>
 <body>
     <%- include('partials/header.ejs') %>
@@ -150,6 +151,69 @@
                         </ul>
                         <button class="btn-primary">Book An Appointment</button>
                     </div>
+                    <div class="available-slots">
+                        <h6>Select a Time Slot</h6>
+                        <div class="date-head">
+                            <div class="date-head-controls left-control">
+                                <i class="fas fa-chevron-left"></i>
+                            </div>
+                            <div class="date-head-slides">
+                                <div class="date-head-slides-slide date-head-slides-slide--active">
+                                    <p class="date">Today</p>
+                                    <p class="slot-count">No Slots Available</p>
+                                </div>
+                                <div class="date-head-slides-slide">
+                                    <p class="date">Tommorow</p>
+                                    <p class="slot-count">No Slots Available</p>
+                                </div>
+                                <div class="date-head-slides-slide">
+                                    <p class="date">Day 3</p>
+                                    <p class="slot-count">No Slots Available</p>
+                                </div>
+                            </div>
+                            <div class="date-head-controls right-control">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>         
+                        <div class="time-schedule">
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-cloud-sun"></i>
+                                    <p>Morning</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <div class="time-schedule-session-slots-slot">10:30</div>
+                                    <div class="time-schedule-session-slots-slot">10:40</div>
+                                    <div class="time-schedule-session-slots-slot">11:00</div>
+                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                                </div>
+                            </div>
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-sun"></i>
+                                    <p>Afternoon</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <div class="time-schedule-session-slots-slot">10:30</div>
+                                    <div class="time-schedule-session-slots-slot">10:40</div>
+                                    <div class="time-schedule-session-slots-slot">11:00</div>
+                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                                </div>
+                            </div>
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-moon"></i>
+                                    <p>Evening</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <div class="time-schedule-session-slots-slot">10:30</div>
+                                    <div class="time-schedule-session-slots-slot">10:40</div>
+                                    <div class="time-schedule-session-slots-slot">11:00</div>
+                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                                </div>
+                            </div>
+                        </div>               
+                    </div>
                     <img src="./../assets/images/doctors/rose.jpg" alt="Doctor Image">
                 </div>
             <% }) %>            
@@ -164,6 +228,71 @@
     </section>
 
     <%- include('partials/footer.ejs') %>
+
+    <script>
+        $(document).ready(() => {
+            // let slidesControls = Array.from($('.date-head-controls'))
+            let slidesContainer = Array.from($('.date-head'));
+            console.log(typeof slidesContainer)
+            slidesContainer.forEach((container) => {
+                let slides = Array.from(container.querySelectorAll('.date-head-slides-slide'));
+                let moveRight = container.querySelector('.left-control');
+                let moveLeft = container.querySelector('.right-control');
+                console.log(moveRight);
+                console.log($('.left-control'));
+                let currentHead = slides[0];
+                let i=1;
+
+                slides.forEach((slide) => {
+                    slide.style.order = i++;
+                })
+
+                console.log("Printing Orders")
+                slides.forEach((slide) => {
+                    console.log(slide.style.order)
+                })
+                
+                let getOrder = (slide) => {
+                    return parseInt(getComputedStyle(slide).order);
+                }
+
+                let setActive =  _ =>{
+                    slides.forEach((slide) => {
+                        if(slide.style.order == 1) {
+                            slide.classList.add("date-head-slides-slide--active");
+                        } else {
+                            slide.classList.remove("date-head-slides-slide--active")
+                        }
+                    })
+                }
+
+                moveRight.addEventListener('click', () => {
+                    slides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder < slides.length) {
+                            slide.style.order = slideOrder + 1;                            
+                        } else {
+                            slide.style.order = 1;
+                        }
+                    })
+                    setActive();
+                })
+
+                moveLeft.addEventListener('click',() => {
+                    slides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder == 1) {
+                            slide.style.order = slides.length;                            
+                        } else {
+                            slide.style.order = slideOrder - 1;
+                        }
+                    })
+                    setActive();
+                })          
+            })
+        })
+    </script>
+
     
 </body>
 </html>
