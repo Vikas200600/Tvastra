@@ -158,180 +158,133 @@
                                 <i class="fas fa-chevron-left"></i>
                             </div>
                             <div class="date-head-slides">
+                                <%
+                                    let dayCount = currentDay;
+                                    let days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+
+                                    let getSlotCount = (dayCount) => {
+                                        dayCount = dayCount > 6 ? dayCount % 7 : dayCount;
+                                        let weekday = days[dayCount];
+                                        let slotCount = 0;
+                                        allSlots.forEach((slot) => {
+                                            if(JSON.stringify(slot.doctorId) == JSON.stringify(doctor.userId)){
+                                                slot.days.forEach((day) => {
+                                                    if(day == weekday) {
+                                                        slotCount += slot.subSlots.length;
+                                                    }
+                                                })
+                                            }
+                                        })
+                                        return slotCount;
+                                    } 
+                                %>
+
                                 <div class="date-head-slides-slide date-head-slides-slide--active">
                                     <p class="date">Today</p>
-                                    <p class="slot-count">No Slots Available</p>
+                                    <p class="slot-count"><% let count = getSlotCount(dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
                                 </div>
                                 <div class="date-head-slides-slide">
                                     <p class="date">Tommorow</p>
-                                    <p class="slot-count">No Slots Available</p>
+                                    <p class="slot-count"><% count = getSlotCount(++dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
                                 </div>
-                                <div class="date-head-slides-slide">
-                                    <p class="date">Day 3</p>
-                                    <p class="slot-count">No Slots Available</p>
-                                </div>
-                                <div class="date-head-slides-slide">
-                                    <p class="date">Day 4</p>
-                                    <p class="slot-count">No Slots Available</p>
-                                </div>
+                                <%
+                                    let slideDate = new Date();
+                                    slideDate.setDate(slideDate.getDate() + 2);
+                                    for(let rem=5; rem > 0; rem--) {
+                                %>
+                                    <div class="date-head-slides-slide">
+                                        <p class="date"><%= slideDate.toDateString() %></p>
+                                        <p class="slot-count"><% count = getSlotCount(++dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
+                                    </div>      
+                                <% 
+                                        slideDate.setDate(slideDate.getDate() + 1);
+                                    }
+                                %>                       
                             </div>
                             <div class="date-head-controls right-control">
                                 <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>  
-                        <div class="time-schedule-container">       
-                            <div class="time-schedule">
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-cloud-sun"></i>
-                                        <p>Morning</p>
+                        <div class="time-schedule-container">     
+                            <% 
+                                dayCount = currentDay;
+
+                                let getSlots = (dayCount) => {
+                                    let slots = {
+                                        morningSlots: [],
+                                        afternoonSlots: [],
+                                        eveningSlots: []
+                                    };
+                                    dayCount = dayCount > 6 ? dayCount % 7 : dayCount;
+                                    let weekday = days[dayCount];
+                                    let slotCount = 0;
+                                    allSlots.forEach((slot) => {
+                                        if(JSON.stringify(slot.doctorId) == JSON.stringify(doctor.userId)){
+                                            slot.days.forEach((day) => {
+                                                if(day == weekday) {
+                                                    slot.subSlots.forEach((subSlot) => {
+                                                        if(subSlot.startTime.split(' ')[1] == 'am'){
+                                                            slots.morningSlots.push(subSlot.startTime.split(' ')[0]);
+                                                        } else if(subSlot.startTime.split(':')[0] <= 5 ) {
+                                                            slots.afternoonSlots.push(subSlot.startTime.split(' ')[0]);
+                                                        } else {
+                                                            slots.eveningSlots.push(subslot.startTime.split(' ')[0]);
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    })
+                                    return slots;
+                                }
+                                
+                                
+                            %>  
+                            <% for(let counter=0;counter<7;counter++) { 
+                                let fetchedSlots = getSlots(dayCount++);
+                            %>
+                                <div class="time-schedule">
+                                    <div class="time-schedule-session">
+                                        <div class="time-schedule-session-head">
+                                            <i class="fas fa-cloud-sun"></i>
+                                            <p>Morning</p>
+                                        </div>
+                                        <div class="time-schedule-session-slots">
+                                            <%
+                                                fetchedSlots.morningSlots.forEach((startTime) => {                                            
+                                            %>
+                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <% }) %>
+                                        </div>
                                     </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    <div class="time-schedule-session">
+                                        <div class="time-schedule-session-head">
+                                            <i class="fas fa-sun"></i>
+                                            <p>Afternoon</p>
+                                        </div>
+                                        <div class="time-schedule-session-slots">
+                                            <%
+                                                fetchedSlots.afternoonSlots.forEach((startTime) => {                                            
+                                            %>
+                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <% }) %>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-sun"></i>
-                                        <p>Afternoon</p>
+                                    <div class="time-schedule-session">
+                                        <div class="time-schedule-session-head">
+                                            <i class="fas fa-moon"></i>
+                                            <p>Evening</p>
+                                        </div>
+                                        <div class="time-schedule-session-slots">
+                                            <%
+                                                fetchedSlots.eveningSlots.forEach((startTime) => {                                            
+                                            %>
+                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <% }) %>
+                                        </div>
                                     </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-moon"></i>
-                                        <p>Evening</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                            </div>  
-                            <div class="time-schedule">
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-cloud-sun"></i>
-                                        <p>Morning</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">set2</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-sun"></i>
-                                        <p>Afternoon</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-moon"></i>
-                                        <p>Evening</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="time-schedule">
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-cloud-sun"></i>
-                                        <p>Morning</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">set3</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-sun"></i>
-                                        <p>Afternoon</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-moon"></i>
-                                        <p>Evening</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="time-schedule">
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-cloud-sun"></i>
-                                        <p>Morning</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">set4</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-sun"></i>
-                                        <p>Afternoon</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                                <div class="time-schedule-session">
-                                    <div class="time-schedule-session-head">
-                                        <i class="fas fa-moon"></i>
-                                        <p>Evening</p>
-                                    </div>
-                                    <div class="time-schedule-session-slots">
-                                        <div class="time-schedule-session-slots-slot">10:30</div>
-                                        <div class="time-schedule-session-slots-slot">10:40</div>
-                                        <div class="time-schedule-session-slots-slot">11:00</div>
-                                        <div class="time-schedule-session-slots-slot">11:15</div>
-                                    </div>
-                                </div>
-                            </div>   
+                                </div>                              
+                            <% } %>
                         </div>
                     </div>
                     <img src="./../assets/images/doctors/rose.jpg" alt="Doctor Image">

@@ -77,11 +77,20 @@ let renderSettings = (req, res) => {
 }
 
 let renderDoctor = async (req, res) => {
-    let allDoctors = await Doctor.find();
+    let allDoctors = await Doctor.find().select('-__v -id -email -about');
+    let schedules = await Slot.find().select('-__v -interval');
+    console.log(allDoctors);
+    console.log("slots");
+    console.log(schedules);
+    let today = new Date();
+    console.log(today);
     res.render('doctor', {
         loggedIn: true,
         session: req.session,
-        allDoctors: allDoctors
+        allDoctors: allDoctors,
+        allSlots: schedules,
+        currentDay: new Date().getDay(),
+        today: today
     });
 }
 
