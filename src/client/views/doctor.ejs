@@ -139,7 +139,7 @@
         </div>
         <div id="list-cards">
             <% allDoctors.forEach(doctor => { %>
-                <div>
+                <div class="list-card">
                     <div>
                         <h5><%= doctor.name %></h5>
                         <ul class="wrap">
@@ -149,7 +149,7 @@
                             <li><i class="fas fa-building"></i> <%= doctor.hospital%></li>
                             <li><i class="fa fa-map-marker"></i> <%= doctor.country%></li>                
                         </ul>
-                        <button class="btn-primary">Book An Appointment</button>
+                        <button class="btn-primary book-appointment">Book An Appointment</button>
                     </div>
                     <div class="available-slots">
                         <h6>Select a Time Slot</h6>
@@ -170,49 +170,169 @@
                                     <p class="date">Day 3</p>
                                     <p class="slot-count">No Slots Available</p>
                                 </div>
+                                <div class="date-head-slides-slide">
+                                    <p class="date">Day 4</p>
+                                    <p class="slot-count">No Slots Available</p>
+                                </div>
                             </div>
                             <div class="date-head-controls right-control">
                                 <i class="fas fa-chevron-right"></i>
                             </div>
-                        </div>         
-                        <div class="time-schedule">
-                            <div class="time-schedule-session">
-                                <div class="time-schedule-session-head">
-                                    <i class="fas fa-cloud-sun"></i>
-                                    <p>Morning</p>
+                        </div>  
+                        <div class="time-schedule-container">       
+                            <div class="time-schedule">
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-cloud-sun"></i>
+                                        <p>Morning</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                                <div class="time-schedule-session-slots">
-                                    <div class="time-schedule-session-slots-slot">10:30</div>
-                                    <div class="time-schedule-session-slots-slot">10:40</div>
-                                    <div class="time-schedule-session-slots-slot">11:00</div>
-                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-sun"></i>
+                                        <p>Afternoon</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="time-schedule-session">
-                                <div class="time-schedule-session-head">
-                                    <i class="fas fa-sun"></i>
-                                    <p>Afternoon</p>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-moon"></i>
+                                        <p>Evening</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                                <div class="time-schedule-session-slots">
-                                    <div class="time-schedule-session-slots-slot">10:30</div>
-                                    <div class="time-schedule-session-slots-slot">10:40</div>
-                                    <div class="time-schedule-session-slots-slot">11:00</div>
-                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                            </div>  
+                            <div class="time-schedule">
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-cloud-sun"></i>
+                                        <p>Morning</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">set2</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="time-schedule-session">
-                                <div class="time-schedule-session-head">
-                                    <i class="fas fa-moon"></i>
-                                    <p>Evening</p>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-sun"></i>
+                                        <p>Afternoon</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                                <div class="time-schedule-session-slots">
-                                    <div class="time-schedule-session-slots-slot">10:30</div>
-                                    <div class="time-schedule-session-slots-slot">10:40</div>
-                                    <div class="time-schedule-session-slots-slot">11:00</div>
-                                    <div class="time-schedule-session-slots-slot">11:15</div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-moon"></i>
+                                        <p>Evening</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>               
+                            </div> 
+                            <div class="time-schedule">
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-cloud-sun"></i>
+                                        <p>Morning</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">set3</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-sun"></i>
+                                        <p>Afternoon</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-moon"></i>
+                                        <p>Evening</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="time-schedule">
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-cloud-sun"></i>
+                                        <p>Morning</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">set4</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-sun"></i>
+                                        <p>Afternoon</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                                <div class="time-schedule-session">
+                                    <div class="time-schedule-session-head">
+                                        <i class="fas fa-moon"></i>
+                                        <p>Evening</p>
+                                    </div>
+                                    <div class="time-schedule-session-slots">
+                                        <div class="time-schedule-session-slots-slot">10:30</div>
+                                        <div class="time-schedule-session-slots-slot">10:40</div>
+                                        <div class="time-schedule-session-slots-slot">11:00</div>
+                                        <div class="time-schedule-session-slots-slot">11:15</div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
                     </div>
                     <img src="./../assets/images/doctors/rose.jpg" alt="Doctor Image">
                 </div>
@@ -231,20 +351,33 @@
 
     <script>
         $(document).ready(() => {
-            // let slidesControls = Array.from($('.date-head-controls'))
-            let slidesContainer = Array.from($('.date-head'));
-            console.log(typeof slidesContainer)
+            let listCards = Array.from(document.querySelectorAll('.list-card'));
+            listCards.forEach((card) =>{
+                let bookAppointment = card.querySelector('.book-appointment');
+                let appointmentLayout = card.querySelector('.available-slots');
+                console.log(bookAppointment);
+                console.log(appointmentLayout);
+                bookAppointment.addEventListener('click',() => {
+                    appointmentLayout.style.display = appointmentLayout.style.display == "block" ? "none" : "block" ;
+                })
+            })
+
+            let slidesContainer = Array.from($('.available-slots'));
             slidesContainer.forEach((container) => {
                 let slides = Array.from(container.querySelectorAll('.date-head-slides-slide'));
+                let slotSlides = Array.from(container.querySelectorAll('.time-schedule'));
                 let moveRight = container.querySelector('.left-control');
                 let moveLeft = container.querySelector('.right-control');
-                console.log(moveRight);
-                console.log($('.left-control'));
                 let currentHead = slides[0];
-                let i=1;
+                let currentSlot = slotSlides[0];
+                let i=1; let j=1;
 
                 slides.forEach((slide) => {
                     slide.style.order = i++;
+                })
+
+                slotSlides.forEach((slide) => {
+                    slide.style.order = j++;
                 })
 
                 console.log("Printing Orders")
@@ -275,11 +408,27 @@
                             slide.style.order = 1;
                         }
                     })
+                    slotSlides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder < slides.length) {
+                            slide.style.order = slideOrder + 1;                            
+                        } else {
+                            slide.style.order = 1;
+                        }
+                    })
                     setActive();
                 })
 
                 moveLeft.addEventListener('click',() => {
                     slides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder == 1) {
+                            slide.style.order = slides.length;                            
+                        } else {
+                            slide.style.order = slideOrder - 1;
+                        }
+                    })
+                    slotSlides.forEach((slide) => {
                         let slideOrder = getOrder(slide);
                         if(slideOrder == 1) {
                             slide.style.order = slides.length;                            

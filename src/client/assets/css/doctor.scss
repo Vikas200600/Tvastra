@@ -1,4 +1,4 @@
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 760px) {
     #list-cards {
         .available-slots{
             grid-row: 2;
@@ -7,8 +7,10 @@
     }
 }
 
+#list-cards{
 .available-slots {
     border-top: 1px solid var(--brightBlue);
+    display: none;
     h6 {
         color: var(--brightBlue);
     }
@@ -55,45 +57,52 @@
             }
         }
     }
-    .time-schedule {
+    .time-schedule-container{
         display: flex;
-        flex-direction: column;
-        grid-gap: 1rem;
-        &-session {
+        overflow: hidden;
+        .time-schedule {
+            flex-basis: 100%;
+            min-width: 100%;
             display: flex;
+            flex-direction: column;
             grid-gap: 1rem;
-            &-head {
+            &-session {
                 display: flex;
-                align-items: center;
-                grid-gap: 0.5rem;
-                font-size: .8rem;
-                p {
-                    font-family: 'NexaBold';
-                }
-                > * {
-                    color: var(--brightBlue);
+                grid-gap: 1rem;
+                &-head {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 0.5rem;
                     font-size: .8rem;
-                    margin: 0;
-                    padding: 0;
+                    p {
+                        font-family: 'NexaBold';
+                    }
+                    > * {
+                        color: var(--brightBlue);
+                        font-size: .8rem;
+                        margin: 0;
+                        padding: 0;
+                    }
                 }
-            }
-            &-slots {
-                display: flex;
-                flex-wrap: wrap;
-                grid-gap: .5rem;
-                &-slot {
-                    padding: .5rem;
-                    border: .8px solid var(--brightBlue);
-                    border-radius: 15%;
-                    font-size: .85rem;
+                &-slots {
+                    display: flex;
+                    flex-wrap: wrap;
+                    grid-gap: .5rem;
+                    &-slot {
+                        padding: .5rem;
+                        border: .8px solid var(--brightBlue);
+                        border-radius: 15%;
+                        font-size: .85rem;
+                    }
                 }
             }
         }
     }
 }
+}
 
 @media only screen and (min-width:760px) {
-    .available-slots .date-head-slides-slide {
+    #list-cards .available-slots .date-head-slides-slide {
         flex-basis: 33%;
         min-width: 33%;
     }

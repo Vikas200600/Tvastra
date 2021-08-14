@@ -1,4 +1,4 @@
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 760px) {
   #list-cards .available-slots {
     -ms-grid-row: 2;
     grid-row: 2;
@@ -8,15 +8,16 @@
   }
 }
 
-.available-slots {
+#list-cards .available-slots {
   border-top: 1px solid var(--brightBlue);
+  display: none;
 }
 
-.available-slots h6 {
+#list-cards .available-slots h6 {
   color: var(--brightBlue);
 }
 
-.available-slots .date-head {
+#list-cards .available-slots .date-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,14 +30,14 @@
   border-bottom: 2px solid var(--lightBlue);
 }
 
-.available-slots .date-head i {
+#list-cards .available-slots .date-head i {
   color: var(--brightBlue);
   border: 1px solid var(--brightBlue);
   padding: .5rem;
   border-radius: 50%;
 }
 
-.available-slots .date-head-slides {
+#list-cards .available-slots .date-head-slides {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,7 +49,7 @@
   overflow: hidden;
 }
 
-.available-slots .date-head-slides-slide {
+#list-cards .available-slots .date-head-slides-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,7 +64,7 @@
   min-width: 100%;
 }
 
-.available-slots .date-head-slides-slide > * {
+#list-cards .available-slots .date-head-slides-slide > * {
   font-size: .8rem;
   margin: 0;
   text-align: center;
@@ -71,19 +72,29 @@
   font-weight: bold;
 }
 
-.available-slots .date-head-slides-slide :first-child {
+#list-cards .available-slots .date-head-slides-slide :first-child {
   color: var(--brightBlue);
 }
 
-.available-slots .date-head-slides-slide :last-child {
+#list-cards .available-slots .date-head-slides-slide :last-child {
   color: green;
 }
 
-.available-slots .date-head-slides-slide--active {
+#list-cards .available-slots .date-head-slides-slide--active {
   border-bottom: 2px solid var(--brightBlue);
 }
 
-.available-slots .time-schedule {
+#list-cards .available-slots .time-schedule-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+#list-cards .available-slots .time-schedule-container .time-schedule {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  min-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,14 +105,14 @@
   grid-gap: 1rem;
 }
 
-.available-slots .time-schedule-session {
+#list-cards .available-slots .time-schedule-container .time-schedule-session {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   grid-gap: 1rem;
 }
 
-.available-slots .time-schedule-session-head {
+#list-cards .available-slots .time-schedule-container .time-schedule-session-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,18 +123,18 @@
   font-size: .8rem;
 }
 
-.available-slots .time-schedule-session-head p {
+#list-cards .available-slots .time-schedule-container .time-schedule-session-head p {
   font-family: 'NexaBold';
 }
 
-.available-slots .time-schedule-session-head > * {
+#list-cards .available-slots .time-schedule-container .time-schedule-session-head > * {
   color: var(--brightBlue);
   font-size: .8rem;
   margin: 0;
   padding: 0;
 }
 
-.available-slots .time-schedule-session-slots {
+#list-cards .available-slots .time-schedule-container .time-schedule-session-slots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,7 +143,7 @@
   grid-gap: .5rem;
 }
 
-.available-slots .time-schedule-session-slots-slot {
+#list-cards .available-slots .time-schedule-container .time-schedule-session-slots-slot {
   padding: .5rem;
   border: 0.8px solid var(--brightBlue);
   border-radius: 15%;
@@ -140,7 +151,7 @@
 }
 
 @media only screen and (min-width: 760px) {
-  .available-slots .date-head-slides-slide {
+  #list-cards .available-slots .date-head-slides-slide {
     -ms-flex-preferred-size: 33%;
         flex-basis: 33%;
     min-width: 33%;
