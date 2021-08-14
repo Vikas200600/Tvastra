@@ -36,17 +36,14 @@ let validateSlots = async (pastSchedules,newSchedule) => {
                     let newEnd = ( parseInt(newSchedule.slotEndTime.split(':')[0]) * 60 ) + parseInt(newSchedule.slotEndTime.split(':')[1]);
                     console.log(`${pastStart} - ${pastEnd} - ${newStart}  - ${newEnd}`);
                     if(newStart > pastStart && newStart < pastEnd ){
-                        console.log("fun dup");
                         flag = 0;
                     } else if(newEnd > pastStart && newEnd < pastEnd){
-                        console.log("fun dup");
                         flag = 0;
                     }
                 }
             })
         }))        
     })
-    console.log("fun valid");
     return flag;
 }
 
