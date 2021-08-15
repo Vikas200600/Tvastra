@@ -18,10 +18,10 @@
                 <%- include('partials/dashboardMenu.ejs')%>
                 <div class="content">
                     <div>
-                        <form>
+                        <form method="POST" action='/create-schedule'>
                             <div>
                                 <label for="days">Days</label>
-                                <select id="days" multiple>
+                                <select id="days" name="days" multiple>
                                     <option name="monday" value="monday">Monday</option>
                                     <option name="tuesday" value="tuesday">Tuesday</option>
                                     <option name="wednesday" value="wednesday">Wednesday</option>
@@ -33,19 +33,19 @@
                             </div>
                             <div>
                                 <label for="s-time">Start Time</label>
-                                <input id="s-time" type="text">
+                                <input id="s-time" name="slotStartTime" type="text">
                             </div>
                             <div>
                                 <label for="e-time">Start Time</label>
-                                <input id="e-time" type="text">
+                                <input id="e-time" name="slotEndTime" type="text">
                             </div>
                             <div>
                                 <label for="interval">Interval</label>
-                                <input id="interval" type="text">
+                                <input id="interval" name="interval" type="text">
                             </div>
                             <div>
                                 <label for="hospital">Hospital</label>
-                                <input id="hospital" type="text">
+                                <input id="hospital" name="hospital" type="text">
                             </div>
                             <div class="submit-btn">
                                 <button id="add" class="btn-secondary">Add Schedule</button>
@@ -84,22 +84,25 @@
         <%- include('partials/footer.ejs') %>
 
         <script>
-            $(document).ready(() => {
-                $('#add').click(() => {
-                    let schedule =  {
-                        slotStartTime : $('#s-time').val(),
-                        slotEndTime: $('#e-time').val(),
-                        interval : $('#interval').val(),
-                        hospital : $('#hospital').val(),
-                        days : $('#days').val(),
-                    };
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://localhost:8080/create-schedule',
-                        data: schedule
-                    }).then(() => { location.reload(true) });
-                })
-            })
+            // $(document).ready(() => {
+            //     $('#add').click(() => {
+            //         let schedule =  {
+            //             slotStartTime : $('#s-time').val(),
+            //             slotEndTime: $('#e-time').val(),
+            //             interval : $('#interval').val(),
+            //             hospital : $('#hospital').val(),
+            //             days : $('#days').val(),
+            //         };
+            //         $.ajax({
+            //             type: 'POST',
+            //             url: 'http://localhost:8080/create-schedule',
+            //             data: schedule,
+            //             success: (data) => {
+            //                 window.location.href('/');
+            //             }
+            //         })
+            //     })
+            // })
 
         </script>
 

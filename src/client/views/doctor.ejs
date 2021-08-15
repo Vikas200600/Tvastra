@@ -188,7 +188,7 @@
                                     <p class="slot-count"><% count = getSlotCount(++dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
                                 </div>
                                 <%
-                                    let slideDate = new Date();
+                                    let slideDate = new Date(today);
                                     slideDate.setDate(slideDate.getDate() + 2);
                                     for(let rem=5; rem > 0; rem--) {
                                 %>
@@ -208,6 +208,7 @@
                         <div class="time-schedule-container">     
                             <% 
                                 dayCount = currentDay;
+                                slotDate = new Date(today);
 
                                 let getSlots = (dayCount) => {
                                     let slots = {
@@ -221,20 +222,25 @@
                                     allSlots.forEach((slot) => {
                                         if(JSON.stringify(slot.doctorId) == JSON.stringify(doctor.userId)){
                                             slot.days.forEach((day) => {
-                                                if(day == weekday) {
+                                                if(day == weekday) {                                  
                                                     slot.subSlots.forEach((subSlot) => {
                                                         if(subSlot.startTime.split(' ')[1] == 'am'){
-                                                            slots.morningSlots.push(subSlot.startTime.split(' ')[0]);
+                                                            slots.morningSlots.push(subSlot);
                                                         } else if(subSlot.startTime.split(':')[0] <= 5 ) {
-                                                            slots.afternoonSlots.push(subSlot.startTime.split(' ')[0]);
+                                                            slots.afternoonSlots.push(subSlot);
                                                         } else {
-                                                            slots.eveningSlots.push(subSlot.startTime.split(' ')[0]);
+                                                            slots.eveningSlots.push(subSlot);
                                                         }
                                                     })
                                                 }
                                             })
+                                            slots.doctorId = slot.doctorId;                                            
                                         }
                                     })
+                                    slots.date = new Date();
+                                    slots.date.setDate(slotDate.getDate());
+                                    slots.date = slots.date.toDateString();
+                                    slotDate.setDate(slotDate.getDate() + 1);
                                     return slots;
                                 }
                                 
@@ -251,9 +257,9 @@
                                         </div>
                                         <div class="time-schedule-session-slots">
                                             <%
-                                                fetchedSlots.morningSlots.forEach((startTime) => {                                            
+                                                fetchedSlots.morningSlots.forEach((slot) => {                                            
                                             %>
-                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <div class="time-schedule-session-slots-slot" onclick="callAppointment(this)" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
                                             <% }) %>
                                         </div>
                                     </div>
@@ -264,9 +270,9 @@
                                         </div>
                                         <div class="time-schedule-session-slots">
                                             <%
-                                                fetchedSlots.afternoonSlots.forEach((startTime) => {                                            
+                                                fetchedSlots.afternoonSlots.forEach((slot) => {                                            
                                             %>
-                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
                                             <% }) %>
                                         </div>
                                     </div>
@@ -277,9 +283,9 @@
                                         </div>
                                         <div class="time-schedule-session-slots">
                                             <%
-                                                fetchedSlots.eveningSlots.forEach((startTime) => {                                            
+                                                fetchedSlots.eveningSlots.forEach((slot) => {                                            
                                             %>
-                                            <div class="time-schedule-session-slots-slot"><%= startTime%></div>
+                                            <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
                                             <% }) %>
                                         </div>
                                     </div>
@@ -392,7 +398,12 @@
                     setActive();
                 })          
             })
+
         })
+
+        let callAppointment = (slot) => {
+            document.location = `appointment/${slot.dataset.doctorid}?slotId=${slot.dataset.slotid}&userId=${slot.dataset.userid}&date=${slot.dataset.date}`
+        }
     </script>
 
     

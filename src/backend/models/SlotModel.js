@@ -37,9 +37,6 @@ let slotSchema = mongoose.Schema({
 
 
 slotSchema.pre('save', async function(next) {
-    console.log(this.slotStartTime);
-    console.log(this.slotEndTime);
-    console.log(this.interval);
     let startTime = new Date();
     let endTime = new Date();
     let duration = parseInt(this.interval) * 60 * 1000;
