@@ -1,7 +1,6 @@
 const Slot = require('./../models/SlotModel');
 
 let createSchedule = async (req, res) => {
-    console.log("called");
     let newSlot =  new Slot({
         slotStartTime: req.body.slotStartTime,
         slotEndTime: req.body.slotEndTime,
@@ -12,10 +11,10 @@ let createSchedule = async (req, res) => {
     });
     let pastSchedules = await Slot.find({doctorId : req.session.userId}).select('-__v -_id -interval -hospital');
     let validated = await validateSlots(pastSchedules, newSlot);
-    if(!validated){
-            req.flash("fail","Failure");
-            req.flash("msg","Unable To Add");
-            return res.redirect('/add-schedule');
+    if(validated == 0){
+        req.flash("fail","Failure");
+        req.flash("msg","Unable To Add");
+        return res.redirect('/add-schedule');
     } else {
         let slotSaved = await newSlot.save();
         req.flash("head","Success");
@@ -34,10 +33,9 @@ let validateSlots = async (pastSchedules,newSchedule) => {
                     let pastEnd = ( parseInt(schedule.slotEndTime.split(':')[0]) * 60 ) + parseInt(schedule.slotEndTime.split(':')[1]);
                     let newStart = ( parseInt(newSchedule.slotStartTime.split(':')[0]) * 60 ) + parseInt(newSchedule.slotStartTime.split(':')[1]);
                     let newEnd = ( parseInt(newSchedule.slotEndTime.split(':')[0]) * 60 ) + parseInt(newSchedule.slotEndTime.split(':')[1]);
-                    console.log(`${pastStart} - ${pastEnd} - ${newStart}  - ${newEnd}`);
-                    if(newStart > pastStart && newStart < pastEnd ){
+                    if(newStart >= pastStart && newStart < pastEnd ){
                         flag = 0;
-                    } else if(newEnd > pastStart && newEnd < pastEnd){
+                    } else if(newEnd > pastStart && newEnd <= pastEnd){
                         flag = 0;
                     }
                 }

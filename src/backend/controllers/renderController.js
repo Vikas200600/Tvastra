@@ -59,6 +59,7 @@ let renderAppointment = (req, res) => {
 
 let renderSchedule = async (req, res) => {
     console.log(`from renderSchedule: flash main = ${req.flash().head}`);
+    console.log(`from renderSchedule: flash main = ${req.flash().fail}`);
     let scheduledSlots = await Slot.find({ doctorId: req.session.userId }).select('-__v -name -email -interval -doctorId');
     res.render('addSchedule', {
         flash: req.flash(),
@@ -80,7 +81,6 @@ let renderDoctor = async (req, res) => {
     let allDoctors = await Doctor.find().select('-__v -id -email -about');
     let schedules = await Slot.find().select('-__v -interval');
     let today = new Date();
-    console.log(today);
     res.render('doctor', {
         loggedIn: true,
         session: req.session,
