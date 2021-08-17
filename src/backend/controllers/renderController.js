@@ -53,11 +53,34 @@ let renderProfile = (req, res) => {
 
 let renderAppointment = async (req, res) => {
     let allAppointments = await Appointment.find({ userId: req.session.userId });
-    console.log(allAppointments);
     res.render('appointments', {
         loggedIn: true,
         session: req.session,
         allAppointments: allAppointments
+    });
+}
+
+let renderConfirmAppointment = async (req, res) => {
+    res.render('confirmBooking', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
+    });
+}
+
+let renderAppointmentBooked = async (req, res) => {
+    res.render('bookingConfirmed', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
+    });
+}
+
+let renderRescheduleAppointment = async (req, res) => {
+    res.render('rescheduleBooking', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
     });
 }
 
@@ -138,6 +161,9 @@ module.exports = {
     renderHome: renderHome,
     renderProfile: renderProfile,
     renderAppointment: renderAppointment,
+    renderConfirmAppointment: renderConfirmAppointment,
+    renderAppointmentBooked: renderAppointmentBooked,
+    renderRescheduleAppointment: renderRescheduleAppointment,
     renderSchedule: renderSchedule,
     renderSettings: renderSettings,
     renderDoctor: renderDoctor,

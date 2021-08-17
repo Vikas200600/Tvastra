@@ -1,0 +1,141 @@
+html {
+    height: 100%;
+}
+body{
+    background-color: var(--bgBlue); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+#confirm-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-gap: 1rem;
+    .card {
+        background-color: white;
+        > :first-child {
+            border-bottom: 1px solid var(--lightBlue);
+            text-align: left;
+        }
+        p{
+            margin: 0;
+            font-weight: normal;
+        }
+        > * {
+            padding: 1rem;
+            margin: 0;
+        }
+        .head, .para {
+            font-family: 'NexaBold';
+            > span {
+                font-family: 'NexaLight';
+                font-weight: normal;
+            }
+        }
+        .head {
+            font-size: .8rem;
+            line-height: 1.5rem;
+        }
+        .para {
+            color: var(--brightBlue);
+            line-height: .8rem;
+            font-size: .6rem;
+        }
+        &-schedule {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--lightBlue);
+        }
+        &-doctor, &-hospital {
+            display: flex;
+            align-items: center;
+            grid-gap: 1rem;
+            i {
+                font-size: 2rem;
+                border: 1px solid var(--lightBlue);
+                border-radius: 15%;
+                padding: .5rem;
+            }
+        }
+        form {
+            > div {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                color: var(--brightBlue);
+                font-family: "NexaBold";
+                font-size: .7rem;
+                padding: 0.5rem 0;
+            }
+            input {
+                border: 1px solid var(--brightBlue);
+                border-radius: 5px;
+                padding: .4rem;
+            }
+            .btn-secondary {
+                margin-top: 1rem;
+            }
+        }
+    }
+    .confirmed > div {
+        > * {
+            text-align: left;
+        }
+        h6 {
+            font-size: 1.05rem;
+        }
+        .chead {
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-bottom: .3rem;
+        }
+        .cpara {
+            font-size: .9rem;
+            line-height: 1rem;
+            font-family: 'NexaBold';
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        #button {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            grid-gap: .6rem;
+            > * {
+                border-radius: 0;
+                margin: 0;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+
+#footer {
+    padding: 1rem;
+    word-spacing: .1rem;
+    letter-spacing: .085rem;
+    .small {
+        font-size : .8rem;
+        text-align: center;
+    }
+}
+
+
+@media only screen and (min-width:760px) {
+    #confirm-cards {
+        flex-direction: row;
+        .card {
+            width:40%
+        }
+        .confirmed > div {
+            #button {
+                flex-direction: row;
+            }
+        }
+    }
+}

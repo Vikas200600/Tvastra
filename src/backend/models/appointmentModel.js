@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 let appointmentSchema = mongoose.Schema({
+    scheduleId: {
+        type: mongoose.ObjectId,
+        ref: 'Slot'
+    },
     slotId :{
         type: mongoose.ObjectId,
         ref: 'SubSlot'
@@ -12,6 +16,15 @@ let appointmentSchema = mongoose.Schema({
     doctorId: {
         type: mongoose.ObjectId,
         ref: 'Doctor'
+    },
+    patientName: {
+        type: String
+    },
+    patientMobile: {
+        type: Number
+    },
+    patientEmail:{
+        type: String
     },
     appointmentDate: {
         type: Date

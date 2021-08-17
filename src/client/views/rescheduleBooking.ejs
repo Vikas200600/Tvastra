@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reschedule Appointment - Tvastra</title>
+    <%- include('partials/linker.ejs') %>  
+    <link href="./../assets/css/confirmBooking.css" rel="stylesheet" type="text/css">   
+</head>
+<body>
+    <%- include('partials/flash.ejs') %>
+    <%- include('partials/header.ejs') %>
+    <%- include('partials/toaster.ejs') %>
+
+    
+    <div class="time-schedule-container">  
+        <div class="time-schedule">
+            <div class="time-schedule-session">
+                <div class="time-schedule-session-head">
+                    <i class="fas fa-cloud-sun"></i>
+                    <p>Morning</p>
+                </div>
+                <div class="time-schedule-session-slots">
+                    <div class="time-schedule-session-slots-slot" onclick="callAppointment(this)" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
+                </div>
+            </div>
+            <div class="time-schedule-session">
+                <div class="time-schedule-session-head">
+                    <i class="fas fa-sun"></i>
+                    <p>Afternoon</p>
+                </div>
+                <div class="time-schedule-session-slots">
+                    <%
+                        fetchedSlots.afternoonSlots.forEach((slot) => {                                            
+                    %>
+                    <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
+                    <% }) %>
+                </div>
+            </div>
+            <div class="time-schedule-session">
+                <div class="time-schedule-session-head">
+                    <i class="fas fa-moon"></i>
+                    <p>Evening</p>
+                </div>
+                <div class="time-schedule-session-slots">
+                    <%
+                        fetchedSlots.eveningSlots.forEach((slot) => {                                            
+                    %>
+                    <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>       
+    </div>
+    
+    <div id="footer">
+        <h6 class="small">
+            All Rights Reserved &copy Tvastra 2021
+        </h6>
+    </div>
+</body>
+</html>

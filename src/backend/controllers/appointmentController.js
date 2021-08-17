@@ -17,8 +17,7 @@ let bookAppointment = async (req, res) => {
             {"subSlots._id": mongoose.Types.ObjectId(req.query.slotId)},
             { $set: { 'subSlots.$.isBooked': true }}
         );
-        console.log(updated);
-        res.redirect('/doctors');
+        res.redirect('/appointment/confirm-appointment');
     } else {
         res.redirect('/home');
     }
