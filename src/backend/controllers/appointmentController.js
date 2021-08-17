@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Appointment = require('./../models/appointmentModel');
+const Appointment = require('../models/AppointmentModel');
 const Slot = require('./../models/SlotModel');
 
 let bookAppointment = async (req, res) => {
@@ -13,15 +13,15 @@ let bookAppointment = async (req, res) => {
         appointmentDate: req.date
     });
     if(newAppointment) {
-        await Slot.findOneAndUpdate(
+        let updated = await Slot.findOneAndUpdate(
             {"subSlots._id": mongoose.Types.ObjectId(req.query.slotId)},
             { $set: { 'subSlots.$.isBooked': true }}
         );
-        res.redirect('/confirm-booking');
+        console.log(updated);
+        res.redirect('/doctors');
     } else {
-        res.redirect('/doctors')
+        res.redirect('/home');
     }
-    // let selectedSlot = await Slot.find({})
 }
 
 module.exports = {

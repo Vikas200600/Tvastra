@@ -1,5 +1,6 @@
 const Doctor = require('./../models/DoctorModel');
 const Slot = require('./../models/SlotModel');
+const Appointment = require('../models/AppointmentModel');
 
 let renderLogin = (req, res) => {
     res.render('login', {
@@ -50,10 +51,13 @@ let renderProfile = (req, res) => {
     });
 }
 
-let renderAppointment = (req, res) => {
+let renderAppointment = async (req, res) => {
+    let allAppointments = await Appointment.find({ userId: req.session.userId });
+    console.log(allAppointments);
     res.render('appointments', {
         loggedIn: true,
-        session: req.session
+        session: req.session,
+        allAppointments: allAppointments
     });
 }
 
@@ -79,7 +83,9 @@ let renderSettings = (req, res) => {
 
 let renderDoctor = async (req, res) => {
     let allDoctors = await Doctor.find().select('-__v -id -email -about');
-    let schedules = await Slot.find().select('-__v -interval');
+    let schedules = await Slot.find(
+        { "subSlots.isBooked": false}
+    ).select('-__v -interval');
     let today = new Date();
     res.render('doctor', {
         loggedIn: true,

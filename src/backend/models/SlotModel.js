@@ -4,8 +4,8 @@ const subSlotSchema = require('./SubSlotModel').subSlotSchema;
 const SubSlot = require('./SubSlotModel').SubSlot;
 
 let slotSchema = mongoose.Schema({
-    days: {
-        type: [String],
+    day: {
+        type: String,
         enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     },
     slotStartTime: {

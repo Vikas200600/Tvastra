@@ -55,26 +55,24 @@
                     <div class="appointments-list">
                         <h4>Scheduled Slots</h4>
                         <% if(slots.length) { %>
-                            <% for(let i=0; i< slots.length; i++ ) {%>
-                                <% for(let j=0;j<slots[i].days.length;j++) { %>
-                                    <div class="appointment">
-                                        <div class="appointment-info">
-                                            <div class="date">
-                                                <h6 style="margin-bottom: 0;"><%= slots[i].days[j] %></h6>
-                                            </div>
-                                            <ul class="details">
-                                                <li style="font-size: 1rem; margin-bottom: .5rem;"><%= slots[i].hospital %></li>
-                                                <li><%= `${slots[i].slotStartTime} - ${slots[i].slotEndTime}` %></li>
-                                            </ul>
+                            <% slots.forEach((slot) => { %>
+                                <div class="appointment">
+                                    <div class="appointment-info">
+                                        <div class="date">
+                                            <h6 style="margin-bottom: 0;"><%= slot.day %></h6>
                                         </div>
-                                        <div class="modify-btn">
-                                            <button class="btn-secondary">Delete Slot</button>
-                                            <button class="btn-secondary">Edit Slot</button>
-                                            <button class="btn-secondary">View Detail</button>
-                                        </div>
+                                        <ul class="details">
+                                            <li style="font-size: 1rem; margin-bottom: .5rem;"><%= slot.hospital %></li>
+                                            <li><%= `${slot.slotStartTime} - ${slot.slotEndTime}` %></li>
+                                        </ul>
                                     </div>
-                                <% } %>
-                            <% } %>
+                                    <div class="modify-btn">
+                                        <button class="btn-secondary">Delete Slot</button>
+                                        <button class="btn-secondary">Edit Slot</button>
+                                        <button class="btn-secondary">View Detail</button>
+                                    </div>
+                                </div>
+                            <% }) %>
                         <% } %>
                     </div>
                 </div>    

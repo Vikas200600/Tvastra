@@ -168,11 +168,13 @@
                                         let slotCount = 0;
                                         allSlots.forEach((slot) => {
                                             if(JSON.stringify(slot.doctorId) == JSON.stringify(doctor.userId)){
-                                                slot.days.forEach((day) => {
-                                                    if(day == weekday) {
-                                                        slotCount += slot.subSlots.length;
-                                                    }
-                                                })
+                                                if(slot.day == weekday) {
+                                                    slot.subSlots.forEach((subSlot) => {
+                                                        if(!subSlot.isBooked){
+                                                            slotCount++;
+                                                        }
+                                                    })
+                                                }
                                             }
                                         })
                                         return slotCount;
@@ -221,19 +223,19 @@
                                     let slotCount = 0;
                                     allSlots.forEach((slot) => {
                                         if(JSON.stringify(slot.doctorId) == JSON.stringify(doctor.userId)){
-                                            slot.days.forEach((day) => {
-                                                if(day == weekday) {                                  
-                                                    slot.subSlots.forEach((subSlot) => {
+                                            if(slot.day == weekday ) {                                  
+                                                slot.subSlots.forEach((subSlot) => {
+                                                    if(!subSlot.isBooked){
                                                         if(subSlot.startTime.split(' ')[1] == 'am'){
                                                             slots.morningSlots.push(subSlot);
-                                                        } else if(subSlot.startTime.split(':')[0] <= 5 ) {
+                                                        } else if(subSlot.startTime.split(':')[0] < 5 ) {
                                                             slots.afternoonSlots.push(subSlot);
                                                         } else {
                                                             slots.eveningSlots.push(subSlot);
                                                         }
-                                                    })
-                                                }
-                                            })
+                                                    }
+                                                })
+                                            }
                                             slots.doctorId = slot.doctorId;                                            
                                         }
                                     })
