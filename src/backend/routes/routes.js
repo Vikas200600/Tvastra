@@ -40,6 +40,7 @@ router.route('/create-schedule').post(slotController.createSchedule);
 //appointment routes
 router.route('/appointment/:doctorId').get(appointmentController.bookAppointment);
 router.route('/confirm-appointment').get(renderController.renderConfirmAppointment);
+router.route('/submit-appointment').post(appointmentController.confirmBooking);
 router.route('/appointment-confirmed').get(renderController.renderAppointmentBooked);
 router.route('/reschedule-appointment').get(renderController.renderRescheduleAppointment);
 

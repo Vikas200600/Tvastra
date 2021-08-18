@@ -1,28 +1,67 @@
 const mongoose = require('mongoose');
 
 const Appointment = require('../models/AppointmentModel');
-const Slot = require('./../models/SlotModel');
+const Doctor = require('../models/DoctorModel')
+const Slot = require('../models/SlotModel');
+const SubSlot = require('../models/SubSlotModel').SubSlot;
 
 let bookAppointment = async (req, res) => {
-    console.log(req.query);
-    console.log(req.params);
-    let newAppointment = await Appointment.create({
+    let doctor = await Doctor.findOne({'userId': req.params.doctorId}).select('-_id name qualification specialization hospital country');
+    let slot = await SubSlot.findOne({'_id': req.query.slotId}).select('startTime');
+    req.session.newAppointment = {
+        scheduleId: req.query.scheduleId,
         slotId: req.query.slotId,
         userId: req.query.userId,
         doctorId: req.params.doctorId,
-        appointmentDate: req.date
-    });
-    if(newAppointment) {
-        let updated = await Slot.findOneAndUpdate(
-            {"subSlots._id": mongoose.Types.ObjectId(req.query.slotId)},
+        appointmentDate: req.query.date,
+        doctorDetails: {
+            name: doctor.name,
+            qualification: doctor.qualification,
+            specialization: doctor.specialization
+        },
+        slotDetails: {
+            hosiptal: doctor.hospital,
+            location: doctor.country,
+            slotTime: slot.startTime
+        }
+    };
+    console.log(req.session);
+    res.redirect('/confirm-appointment');
+}
+
+let confirmBooking = async (req, res, next) => {
+    console.log(req.session);
+    let newAppointment = req.session.newAppointment;
+    let booked = await Appointment.create({
+        scheduleId: newAppointment.scheduleId,
+        slotId: newAppointment.slotId,
+        userId: newAppointment.userId,
+        doctorId: newAppointment.doctorId,
+        appointmentDate: newAppointment.appointmentDate,
+        patientName: req.body.patientName,
+        patientMobile: req.body.patientMobile,
+        patientEmail: req.body.patientEmail
+    })    
+    if(booked) {
+        req.session.newAppointment.id = booked._id;
+        req.session.newAppointment.patientDetails = {
+            patientName : booked.patientName,
+            patientMobile: booked.patientMobile,
+            patientEmail: booked.patientEmail 
+        }
+        console.log(booked);
+        let changedBooked = await Slot.findOneAndUpdate(
+            {"subSlots._id": mongoose.Types.ObjectId(newAppointment.slotId)},
             { $set: { 'subSlots.$.isBooked': true }}
         );
-        res.redirect('/appointment/confirm-appointment');
+        res.redirect('/appointment-confirmed');
     } else {
-        res.redirect('/home');
+        res.redirect('/doctors');
     }
+    next();
 }
 
 module.exports = {
-    bookAppointment: bookAppointment
+    bookAppointment: bookAppointment,
+    confirmBooking: confirmBooking
 }

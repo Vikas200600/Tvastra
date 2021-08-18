@@ -12,25 +12,25 @@
     <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
     <%- include('partials/toaster.ejs') %>
-    <div id="confirm-cards">    
+    <div id="confirm-cards">   
         <div class="card">
             <h6>In Clinic Appointment</h6>
             <div class="card-schedule">
                 <div>
-                    <p class="head"><span>On </span>Mon Aug 16 2021</p>   
+                    <p class="head"><span>On </span><%= session.newAppointment.appointmentDate %></p>   
                     <p class="para" style="margin-top: .3rem;"><a>Change Date and Time</a></p>     
                 </div>
                 <div>
-                    <p class="head"><i class="fas fa-clock"></i><span> At </span>9:00 AM</p>             
+                    <p class="head"><i class="fas fa-clock"></i><span> At </span><%= session.newAppointment.slotDetails.slotTime%></p>             
                 </div>           
             </div>
             <div class="card-doctor">
                 <i class="far fa-user"></i>
                 <div id="card-doctor-details">
                     <div>
-                        <p class="head">Doctor Name</p>
-                        <p class="para">Doc qualification</p>
-                        <p class="para">Doc specialization</p>
+                        <p class="head"><%= session.newAppointment.doctorDetails.name %></p>
+                        <p class="para"><%= session.newAppointment.doctorDetails.qualification %></p>
+                        <p class="para"><%= session.newAppointment.doctorDetails.specialization %></p>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,8 @@
                 <i class="far fa-hospital"></i>
                 <div class="card-hospital-details">
                     <div>
-                        <p class="head">Hospital Name</p>
-                        <p class="para">Location</p>
+                        <p class="head"><%= session.newAppointment.slotDetails.hospital%></p>
+                        <p class="para"><%= session.newAppointment.slotDetails.location%></p>
                         <p class="para"><a>Get Direction</a></p>     
                     </div>           
                 </div>
@@ -50,11 +50,11 @@
             <div>
                 <h6>Appointment Details</h6>
                 <p class="chead">Appointment ID</p>
-                <p class="cpara">652facde12dabfe32eacbb</p>
+                <p class="cpara"><%= session.newAppointment.id %></p>
                 <p class="chead">Patient Name</p>
-                <p class="cpara">Sunil k</p>
+                <p class="cpara"><%= session.newAppointment.patientDetails.patientName %></p>
                 <p class="chead">Patient Mobile</p>
-                <p class="cpara">8978987452</p>
+                <p class="cpara"><%= session.newAppointment.patientDetails.patientMobile %></p>
                 <div id="button">
                     <button class="btn-danger">Cancel Appointment</button>
                     <button class="btn-secondary">Reschedule Appointment</button>
