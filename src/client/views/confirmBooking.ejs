@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Appointment - Tvastra</title>
+    <%- include('partials/linker.ejs') %>  
+    <link href="./../assets/css/confirmBooking.css" rel="stylesheet" type="text/css">   
+</head>
+<body>
+    <%- include('partials/flash.ejs') %>
+    <%- include('partials/header.ejs') %>
+    <%- include('partials/toaster.ejs') %>
+    <div id="confirm-cards">    
+        <div class="card">
+            <h6>In Clinic Appointment</h6>
+            <div class="card-schedule">
+                <div>
+                    <p class="head"><span>On </span><%= session.newAppointment.appointmentDate %></p>   
+                    <p class="para" style="margin-top: .3rem;"><a>Change Date and Time</a></p>     
+                </div>
+                <div>
+                    <p class="head"><i class="fas fa-clock"></i><span> At </span><%= session.newAppointment.slotDetails.slotTime%></p>             
+                </div>           
+            </div>
+            <div class="card-doctor">
+                <i class="far fa-user"></i>
+                <div id="card-doctor-details">
+                    <div>
+                        <p class="head"><%= session.newAppointment.doctorDetails.name %></p>
+                        <p class="para"><%= session.newAppointment.doctorDetails.qualification %></p>
+                        <p class="para"><%= session.newAppointment.doctorDetails.specialization %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-hospital">
+                <i class="far fa-hospital"></i>
+                <div class="card-hospital-details">
+                    <div>
+                        <p class="head"><%= session.newAppointment.slotDetails.hospital%></p>
+                        <p class="para"><%= session.newAppointment.slotDetails.location%></p>
+                        <p class="para"><a>Get Direction</a></p>     
+                    </div>           
+                </div>
+            </div>
+        </div>   
+        <div class="card">
+            <h6>Patient Details</h6>
+            <div>
+                <form action="/submit-appointment" method="POST">
+                    <label for="patient-name">This appointment is for:</label>
+                    <input id="patient-name" name="patientName" type="text">
+                    <label for="mobile">Mobile</label>
+                    <input id="mobile" name="patientMobile" type="text">
+                    <label for="email">Your Email</label>
+                    <input id="email" name="patientEmail" type="text">
+                    <button class="btn-secondary">Book Appointment</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+    
+    <div id="footer">
+        <h6 class="small">
+            All Rights Reserved &copy Tvastra 2021
+        </h6>
+    </div>
+</body>
+</html>

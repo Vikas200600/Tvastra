@@ -8,6 +8,7 @@ const otpController = require('../controllers/otpController');
 const sessionAuth = require('../controllers/sessionAuth');
 const dashboardController = require('../controllers/dashboardController');
 const slotController = require('../controllers/slotController');
+const appointmentController = require('../controllers/appointmentController');
 
 router.route('/test').get(testController.test);
 router.route('/testFlash').get(testController.testFlash);
@@ -36,6 +37,12 @@ router.route('/logout').get(sessionAuth.redirectlogin, dashboardController.logou
 //slot routes
 router.route('/create-schedule').post(slotController.createSchedule);
 
+//appointment routes
+router.route('/appointment/:doctorId').get(appointmentController.bookAppointment);
+router.route('/confirm-appointment').get(renderController.renderConfirmAppointment);
+router.route('/submit-appointment').post(appointmentController.confirmBooking);
+router.route('/appointment-confirmed').get(renderController.renderAppointmentBooked);
+router.route('/reschedule-appointment').get(renderController.renderRescheduleAppointment);
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);

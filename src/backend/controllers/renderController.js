@@ -1,5 +1,6 @@
 const Doctor = require('./../models/DoctorModel');
 const Slot = require('./../models/SlotModel');
+const Appointment = require('../models/AppointmentModel');
 
 let renderLogin = (req, res) => {
     res.render('login', {
@@ -50,15 +51,42 @@ let renderProfile = (req, res) => {
     });
 }
 
-let renderAppointment = (req, res) => {
+let renderAppointment = async (req, res) => {
+    let allAppointments = await Appointment.find({ userId: req.session.userId });
     res.render('appointments', {
         loggedIn: true,
-        session: req.session
+        session: req.session,
+        allAppointments: allAppointments
+    });
+}
+
+let renderConfirmAppointment = async (req, res) => {
+    res.render('confirmBooking', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
+    });
+}
+
+let renderAppointmentBooked = async (req, res) => {
+    res.render('bookingConfirmed', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
+    });
+}
+
+let renderRescheduleAppointment = async (req, res) => {
+    res.render('rescheduleBooking', {
+        flash: req.flash(),
+        loggedIn: true,
+        session: req.session,
     });
 }
 
 let renderSchedule = async (req, res) => {
     console.log(`from renderSchedule: flash main = ${req.flash().head}`);
+    console.log(`from renderSchedule: flash main = ${req.flash().fail}`);
     let scheduledSlots = await Slot.find({ doctorId: req.session.userId }).select('-__v -name -email -interval -doctorId');
     res.render('addSchedule', {
         flash: req.flash(),
@@ -77,11 +105,18 @@ let renderSettings = (req, res) => {
 }
 
 let renderDoctor = async (req, res) => {
-    let allDoctors = await Doctor.find();
+    let allDoctors = await Doctor.find().select('-__v -id -email -about');
+    let schedules = await Slot.find(
+        { "subSlots.isBooked": false}
+    ).select('-__v -interval');
+    let today = new Date();
     res.render('doctor', {
         loggedIn: true,
         session: req.session,
-        allDoctors: allDoctors
+        allDoctors: allDoctors,
+        allSlots: schedules,
+        currentDay: new Date().getDay(),
+        today: today
     });
 }
 
@@ -126,6 +161,9 @@ module.exports = {
     renderHome: renderHome,
     renderProfile: renderProfile,
     renderAppointment: renderAppointment,
+    renderConfirmAppointment: renderConfirmAppointment,
+    renderAppointmentBooked: renderAppointmentBooked,
+    renderRescheduleAppointment: renderRescheduleAppointment,
     renderSchedule: renderSchedule,
     renderSettings: renderSettings,
     renderDoctor: renderDoctor,

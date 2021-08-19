@@ -1,0 +1,197 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bgBlue);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100%;
+}
+
+#confirm-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 1rem;
+}
+
+#confirm-cards .card {
+  background-color: white;
+}
+
+#confirm-cards .card > :first-child {
+  border-bottom: 1px solid var(--lightBlue);
+  text-align: left;
+}
+
+#confirm-cards .card p {
+  margin: 0;
+  font-weight: normal;
+}
+
+#confirm-cards .card > * {
+  padding: 1rem;
+  margin: 0;
+}
+
+#confirm-cards .card .head, #confirm-cards .card .para {
+  font-family: 'NexaBold';
+}
+
+#confirm-cards .card .head > span, #confirm-cards .card .para > span {
+  font-family: 'NexaLight';
+  font-weight: normal;
+}
+
+#confirm-cards .card .head {
+  font-size: .8rem;
+  line-height: 1.5rem;
+}
+
+#confirm-cards .card .para {
+  color: var(--brightBlue);
+  line-height: .8rem;
+  font-size: .6rem;
+}
+
+#confirm-cards .card-schedule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid var(--lightBlue);
+}
+
+#confirm-cards .card-doctor, #confirm-cards .card-hospital {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1rem;
+}
+
+#confirm-cards .card-doctor i, #confirm-cards .card-hospital i {
+  font-size: 2rem;
+  border: 1px solid var(--lightBlue);
+  border-radius: 15%;
+  padding: .5rem;
+}
+
+#confirm-cards .card form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#confirm-cards .card form label {
+  color: var(--brightBlue);
+  font-family: "NexaBold";
+  font-size: .7rem;
+  padding: 0.5rem 0;
+}
+
+#confirm-cards .card form input {
+  border: 1px solid var(--brightBlue);
+  border-radius: 5px;
+  padding: .4rem;
+}
+
+#confirm-cards .card form .btn-secondary {
+  margin-top: 1rem;
+}
+
+#confirm-cards .confirmed > div > * {
+  text-align: left;
+}
+
+#confirm-cards .confirmed > div h6 {
+  font-size: 1.05rem;
+}
+
+#confirm-cards .confirmed > div .chead {
+  font-size: .8rem;
+  line-height: 1rem;
+  margin-bottom: .3rem;
+}
+
+#confirm-cards .confirmed > div .cpara {
+  font-size: .9rem;
+  line-height: 1rem;
+  font-family: 'NexaBold';
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#confirm-cards .confirmed > div #button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  grid-gap: .6rem;
+}
+
+#confirm-cards .confirmed > div #button > * {
+  border-radius: 0;
+  margin: 0;
+  font-size: .9rem;
+}
+
+#footer {
+  padding: 1rem;
+  word-spacing: .1rem;
+  letter-spacing: .085rem;
+}
+
+#footer .small {
+  font-size: .8rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 760px) {
+  #confirm-cards {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #confirm-cards .card {
+    width: 40%;
+  }
+  #confirm-cards .confirmed > div #button {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+/*# sourceMappingURL=confirmBooking.css.map */

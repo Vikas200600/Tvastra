@@ -211,6 +211,11 @@ button {
     border: 0.01rem solid var(--darkBlue);
 }
 
+.btn-danger {
+    background-color: red;
+    color: var(--white);    
+}
+
 
 /* <------------------------------ Media Query themes ------------------------------------------------------------> */
 

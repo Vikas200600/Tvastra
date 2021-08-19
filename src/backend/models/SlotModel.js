@@ -4,8 +4,8 @@ const subSlotSchema = require('./SubSlotModel').subSlotSchema;
 const SubSlot = require('./SubSlotModel').SubSlot;
 
 let slotSchema = mongoose.Schema({
-    days: {
-        type: [String],
+    day: {
+        type: String,
         enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     },
     slotStartTime: {
@@ -37,9 +37,6 @@ let slotSchema = mongoose.Schema({
 
 
 slotSchema.pre('save', async function(next) {
-    console.log(this.slotStartTime);
-    console.log(this.slotEndTime);
-    console.log(this.interval);
     let startTime = new Date();
     let endTime = new Date();
     let duration = parseInt(this.interval) * 60 * 1000;
