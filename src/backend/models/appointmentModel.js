@@ -17,6 +17,12 @@ let appointmentSchema = mongoose.Schema({
         type: mongoose.ObjectId,
         ref: 'Doctor'
     },
+    doctorName: {
+        type: String
+    },
+    hospitalName: {
+        type: String
+    },
     patientName: {
         type: String
     },
@@ -28,6 +34,9 @@ let appointmentSchema = mongoose.Schema({
     },
     appointmentDate: {
         type: Date
+    },
+    startTime: {
+        type: String
     },
     status: {
         type: String,
