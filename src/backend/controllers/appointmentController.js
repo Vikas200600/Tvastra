@@ -20,12 +20,11 @@ let bookAppointment = async (req, res) => {
             specialization: doctor.specialization
         },
         slotDetails: {
-            hosiptal: doctor.hospital,
+            hospital: doctor.hospital,
             location: doctor.country,
             slotTime: slot.startTime
         }
     };
-    console.log(req.session);
     res.redirect('/confirm-appointment');
 }
 
@@ -40,7 +39,10 @@ let confirmBooking = async (req, res, next) => {
         appointmentDate: newAppointment.appointmentDate,
         patientName: req.body.patientName,
         patientMobile: req.body.patientMobile,
-        patientEmail: req.body.patientEmail
+        patientEmail: req.body.patientEmail,
+        doctorName: newAppointment.doctorDetails.name,
+        hospitalName: newAppointment.slotDetails.hospital,
+        startTime: newAppointment.slotDetails.slotTime
     })    
     if(booked) {
         req.session.newAppointment.id = booked._id;
@@ -63,5 +65,5 @@ let confirmBooking = async (req, res, next) => {
 
 module.exports = {
     bookAppointment: bookAppointment,
-    confirmBooking: confirmBooking
+    confirmBooking: confirmBooking,
 }

@@ -1,5 +1,6 @@
 const Doctor = require('./../models/DoctorModel');
 const Slot = require('./../models/SlotModel');
+const SubSlot = require('./../models/SubSlotModel').SubSlot;
 const Appointment = require('../models/AppointmentModel');
 
 let renderLogin = (req, res) => {
@@ -52,11 +53,17 @@ let renderProfile = (req, res) => {
 }
 
 let renderAppointment = async (req, res) => {
-    let allAppointments = await Appointment.find({ userId: req.session.userId });
+    let allAppointments;
+    if(!req.session.isDoctor) {
+        allAppointments = await Appointment.find({ userId: req.session.userId });
+    } else {
+        allAppointments = await Appointment.find({ doctorId: req.session.userId });
+    }
     res.render('appointments', {
         loggedIn: true,
         session: req.session,
-        allAppointments: allAppointments
+        allAppointments: allAppointments,
+        today: new Date()
     });
 }
 
@@ -73,6 +80,7 @@ let renderAppointmentBooked = async (req, res) => {
         flash: req.flash(),
         loggedIn: true,
         session: req.session,
+        today: new Date()
     });
 }
 
