@@ -92,6 +92,7 @@
 }
 
 #list-cards .available-slots .time-schedule-container .time-schedule {
+  padding-top: 1rem;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   min-width: 100%;
@@ -151,11 +152,49 @@
   cursor: pointer;
 }
 
+#list-cards #reschedule {
+  display: block;
+}
+
+.reschedule-card {
+  border: 1px solid var(--lightBlue);
+}
+
+.reschedule-card .reschedule-appointment h5 {
+  color: var(--brightBlue);
+}
+
+.reschedule-card .reschedule-appointment-details p {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: .9rem;
+  line-height: 1.2rem;
+  font-weight: bold;
+  font-family: 'NexaBold';
+}
+
+.reschedule-card .reschedule-appointment-details #head {
+  font-weight: normal;
+  font-family: 'NexaLight';
+  margin-top: .5rem;
+}
+
+.reschedule-card > div {
+  padding: 1rem 2rem;
+}
+
 @media only screen and (min-width: 760px) {
   #list-cards .available-slots .date-head-slides-slide {
     -ms-flex-preferred-size: 33%;
         flex-basis: 33%;
     min-width: 33%;
+  }
+  .reschedule-card .reschedule-appointment-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    grid-gap: 1rem;
   }
 }
 /*# sourceMappingURL=doctor.css.map */

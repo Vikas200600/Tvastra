@@ -61,6 +61,7 @@
         display: flex;
         overflow: hidden;
         .time-schedule {
+            padding-top: 1rem;
             flex-basis: 100%;
             min-width: 100%;
             display: flex;
@@ -100,11 +101,51 @@
         }
     }
 }
+#reschedule {
+    display: block;
+}
+}
+
+.reschedule-card {
+    border: 1px solid var(--lightBlue);
+    .reschedule-appointment {
+        h5 {
+            color: var(--brightBlue);
+        }
+        &-details {
+            p {
+                margin: 0;
+                padding: 0;
+                text-align: left;
+                font-size: .9rem;
+                line-height: 1.2rem;
+                font-weight: bold;
+                font-family:  'NexaBold';
+            }
+            #head {
+                font-weight: normal;
+                font-family:  'NexaLight';
+                margin-top: .5rem;
+            }
+        }
+    }
+    > div {
+        padding: 1rem 2rem;
+    }
 }
 
 @media only screen and (min-width:760px) {
     #list-cards .available-slots .date-head-slides-slide {
         flex-basis: 33%;
         min-width: 33%;
+    }
+
+    .reschedule-card {
+        .reschedule-appointment {
+            &-details {
+                display: flex;
+                grid-gap: 1rem;
+            }
+        }
     }
 }
