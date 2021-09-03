@@ -46,6 +46,6 @@ mongoose.connect(appConfig.db.uri, { useNewUrlParser: true, useUnifiedTopology: 
 mongoose.connection.on('error', (err) => { console.log(err) }).on('open', () => { console.log("MongoDB Connection Successful.") });
 
 // Start Listening server
-app.listen(appConfig.port, () => {
+app.listen(appConfig.port, appConfig.lanHostname || 'localhost', () => {
     console.log(`App Listening At: ${appConfig.port}`);
 })

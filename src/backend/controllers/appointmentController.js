@@ -13,7 +13,7 @@ let bookAppointment = async (req, res) => {
         slotId: req.query.slotId,
         userId: req.query.userId,
         doctorId: req.params.doctorId,
-        appointmentDate: req.query.date,
+        appointmentDate: new Date(req.query.date),
         doctorDetails: {
             name: doctor.name,
             qualification: doctor.qualification,
@@ -63,7 +63,31 @@ let confirmBooking = async (req, res, next) => {
     next();
 }
 
+let rescheduleAppointment = async (req, res) => {
+    let prevSlotId = await Appointment.findOne({_id: req.params.appointmentId}).select('slotId');
+    console.log(`beginning: ${prevSlotId}`);
+    SubSlot.find({_id: req.query.slotId}).select('startTime').exec().then(async (data) => {
+        let updatedSchedule = {
+            slotId: req.query.slotId,
+            appointmentDate: req.query.date,
+            startTime: data[0].startTime
+        }        
+        console.log(updatedSchedule);
+        await Appointment.findOneAndUpdate({_id: mongoose.Types.ObjectId(req.params.appointmentId)}, updatedSchedule);
+        await Slot.findOneAndUpdate(
+            {"subSlots._id": mongoose.Types.ObjectId(req.query.slotId)},
+            { $set: { 'subSlots.$.isBooked': true }}
+        );
+        await Slot.findOneAndUpdate(
+            {"subSlots._id": mongoose.Types.ObjectId(prevSlotId.slotId)}, 
+            { $set: { 'subSlots.$.isBooked': false }}
+        );
+    })
+    res.redirect('/dashboard-appointments');
+}
+
 module.exports = {
     bookAppointment: bookAppointment,
     confirmBooking: confirmBooking,
+    rescheduleAppointment: rescheduleAppointment
 }
