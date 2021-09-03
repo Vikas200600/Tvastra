@@ -14,11 +14,14 @@
     <%- include('partials/toaster.ejs') %>
     <div id="confirm-cards">   
         <div class="card">
+            <% 
+                let date = new Date(session.newAppointment.appointmentDate).toDateString();
+            %>
             <h6>In Clinic Appointment</h6>
             <div class="card-schedule">
                 <div>
-                    <p class="head"><span>On </span><%= session.newAppointment.appointmentDate %></p>   
-                    <p class="para" style="margin-top: .3rem;"><a>Change Date and Time</a></p>     
+                    <p class="head"><span>On </span><%= date %></p>   
+                    <p class="para" style="margin-top: .3rem;" onclick="callReschedule('<%= session.newAppointment.id %>')"><a>Change Date and Time</a></p>     
                 </div>
                 <div>
                     <p class="head"><i class="fas fa-clock"></i><span> At </span><%= session.newAppointment.slotDetails.slotTime%></p>             
@@ -57,7 +60,7 @@
                 <p class="cpara"><%= session.newAppointment.patientDetails.patientMobile %></p>
                 <div id="button">
                     <button class="btn-danger">Cancel Appointment</button>
-                    <button class="btn-secondary">Reschedule Appointment</button>
+                    <button class="btn-secondary" onclick="callReschedule('<%= session.newAppointment.id %>')">Reschedule Appointment</button>
                 </div>
             </div>
         </div>    
@@ -68,5 +71,11 @@
             All Rights Reserved &copy Tvastra 2021
         </h6>
     </div>
+
+    <script>
+        let callReschedule = (slot) => {
+            document.location = `reschedule-appointment/<%= session.newAppointment.id %>`;
+        }
+    </script>
 </body>
 </html>

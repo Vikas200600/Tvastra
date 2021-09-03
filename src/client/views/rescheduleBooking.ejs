@@ -114,7 +114,6 @@
                                             }
                                         })
                                     slots.doctorId = slot.doctorId;
-                                    slots.scheduleId = slot._id;                                            
                                 }
                             })
                             slots.date = new Date();
@@ -139,7 +138,7 @@
                                     <%
                                         fetchedSlots.morningSlots.forEach((slot) => {                                            
                                     %>
-                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)" data-scheduleId="<%= fetchedSlots.scheduleId %>" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
                                     <% }) %>
                                 </div>
                             </div>
@@ -152,7 +151,7 @@
                                     <%
                                         fetchedSlots.afternoonSlots.forEach((slot) => {                                            
                                     %>
-                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)" data-scheduleId="<%= fetchedSlots.scheduleId %>" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
                                     <% }) %>
                                 </div>
                             </div>
@@ -165,7 +164,7 @@
                                     <%
                                         fetchedSlots.eveningSlots.forEach((slot) => {                                            
                                     %>
-                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)" data-scheduleId="<%= fetchedSlots.scheduleId %>" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
                                     <% }) %>
                                 </div>
                             </div>
@@ -276,7 +275,7 @@
         })
 
         let callReschedule = (slot) => {
-            document.location = `appointment/${slot.dataset.doctorid}?scheduleId=${slot.dataset.scheduleid}&slotId=${slot.dataset.slotid}&userId=${slot.dataset.userid}&date=${slot.dataset.date}`;
+            document.location = `reschedule/<%=appointment._id%>?slotId=${slot.dataset.slotid}&date=${slot.dataset.date}`;
         }
     </script>
 </body>
