@@ -49,7 +49,7 @@
                                             </ul>
                                         </div>
                                         <div class="modify-btn">
-                                            <button class="btn-secondary">Cancel Apointment</button>
+                                            <button class="btn-secondary" onclick="callCancel('<%= appointment._id %>')">Cancel Apointment</button>
                                             <button class="btn-secondary" onclick="callReschedule('<%= appointment._id %>')" >Reschedule Apointment</button>
                                         </div>
                                     </div>
@@ -220,6 +220,9 @@
             document.location = `reschedule-appointment/${appointmentId}`;
         }
 
+        let callCancel = (appointmentId) => {
+            document.location = `cancel-appointment/${appointmentId}`;
+        }
     </script>
 
 </body>

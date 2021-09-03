@@ -59,7 +59,7 @@
                 <p class="chead">Patient Mobile</p>
                 <p class="cpara"><%= session.newAppointment.patientDetails.patientMobile %></p>
                 <div id="button">
-                    <button class="btn-danger">Cancel Appointment</button>
+                    <button class="btn-danger" onclick="callCancel('<%= session.newAppointment.id %>')">Cancel Appointment</button>
                     <button class="btn-secondary" onclick="callReschedule('<%= session.newAppointment.id %>')">Reschedule Appointment</button>
                 </div>
             </div>
@@ -75,6 +75,10 @@
     <script>
         let callReschedule = (slot) => {
             document.location = `reschedule-appointment/<%= session.newAppointment.id %>`;
+        }
+
+        let callCancel = (appointmentId) => {
+            document.location = `cancel-appointment/${appointmentId}`;
         }
     </script>
 </body>
