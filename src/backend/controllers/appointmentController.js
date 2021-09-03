@@ -86,8 +86,20 @@ let rescheduleAppointment = async (req, res) => {
     res.redirect('/dashboard-appointments');
 }
 
+let cancelAppointment = async (req, res) => {
+    Appointment.findOne({_id: mongoose.Types.ObjectId(req.params.appointmentId)}).exec().then(async (appointment) => {
+        await Slot.findOneAndUpdate(
+            {"subSlots._id": appointment.slotId}, 
+            { $set: { 'subSlots.$.isBooked': false }}
+        );
+        await Appointment.deleteOne({_id: mongoose.Types.ObjectId(appointment._id)});
+    })    
+    res.redirect('/dashboard-appointments');
+}
+
 module.exports = {
     bookAppointment: bookAppointment,
     confirmBooking: confirmBooking,
-    rescheduleAppointment: rescheduleAppointment
+    rescheduleAppointment: rescheduleAppointment,
+    cancelAppointment: cancelAppointment
 }
