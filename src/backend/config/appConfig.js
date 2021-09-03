@@ -5,7 +5,8 @@ let appConfig = {
     db : {
         uri: 'mongodb+srv://tvastraConn:admin-Tvastra@tvastracluster.lj8do.mongodb.net/tvastraDB?retryWrites=true&w=majority'
     },
-    apiVersion : '/api/v1'
+    apiVersion : '/api/v1',
+    lanHostname : '192.168.0.106'
 };
 
 module.exports = {
@@ -13,4 +14,5 @@ module.exports = {
     env: appConfig.env,
     db: appConfig.db,
     apiVersion: appConfig.apiVersion,
+    lanHostname: appConfig.lanHostname
 }

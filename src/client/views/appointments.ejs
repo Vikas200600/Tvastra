@@ -49,8 +49,8 @@
                                             </ul>
                                         </div>
                                         <div class="modify-btn">
-                                            <button class="btn-secondary">Cancel Apointment</button>
-                                            <button class="btn-secondary">Reschedule Apointment</button>
+                                            <button class="btn-secondary" onclick="callCancel('<%= appointment._id %>')">Cancel Apointment</button>
+                                            <button class="btn-secondary" onclick="callReschedule('<%= appointment._id %>')" >Reschedule Apointment</button>
                                         </div>
                                     </div>
                                 <% }) %>
@@ -72,10 +72,6 @@
                                                 <li><%= appointment.hospitalName %></li>
                                                 <li class="status"><%= appointment.status %></li>
                                             </ul>
-                                        </div>
-                                        <div class="modify-btn">
-                                            <button class="btn-secondary">Cancel Apointment</button>
-                                            <button class="btn-secondary">Reschedule Apointment</button>
                                         </div>
                                     </div>
                                 <% }) %>
@@ -217,6 +213,17 @@
         </section>
 
     <%- include('partials/footer.ejs') %>
+
+    <script>
+
+        let callReschedule = (appointmentId) => {
+            document.location = `reschedule-appointment/${appointmentId}`;
+        }
+
+        let callCancel = (appointmentId) => {
+            document.location = `cancel-appointment/${appointmentId}`;
+        }
+    </script>
 
 </body>
 

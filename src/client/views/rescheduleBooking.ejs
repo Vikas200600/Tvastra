@@ -6,58 +6,277 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reschedule Appointment - Tvastra</title>
     <%- include('partials/linker.ejs') %>  
-    <link href="./../assets/css/confirmBooking.css" rel="stylesheet" type="text/css">   
+    <link href="./../assets/css/doctor.css" rel="stylesheet" type="text/css">   
 </head>
 <body>
     <%- include('partials/flash.ejs') %>
     <%- include('partials/header.ejs') %>
     <%- include('partials/toaster.ejs') %>
 
-    
-    <div class="time-schedule-container">  
-        <div class="time-schedule">
-            <div class="time-schedule-session">
-                <div class="time-schedule-session-head">
-                    <i class="fas fa-cloud-sun"></i>
-                    <p>Morning</p>
-                </div>
-                <div class="time-schedule-session-slots">
-                    <div class="time-schedule-session-slots-slot" onclick="callAppointment(this)" data-slotId="<%= slot._id %>"" data-userId="<%= session.userId %>" data-doctorId="<%= fetchedSlots.doctorId%>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
+    <section>
+        <div id="list-cards" class="reschedule-card">
+            <div class="reschedule-appointment">
+                <h5>Reschedule Appointment</h5>
+                <div class="reschedule-appointment-details">
+                    <div class="reschedule-appointment-details-card">
+                        <p id="head">Doctor</p>
+                        <p><%= appointment.doctorName %></p>
+                    </div>
+                    <div class="reschedule-appointment-details-card">
+                        <p id="head">Date</p>
+                        <p><%= appointment.appointmentDate.toDateString() %></p>
+                    </div>
+                    <div class="reschedule-appointment-details-card">
+                        <p id="head">Time</p>
+                        <p><%= appointment.startTime.toUpperCase() %></p>
+                    </div>
                 </div>
             </div>
-            <div class="time-schedule-session">
-                <div class="time-schedule-session-head">
-                    <i class="fas fa-sun"></i>
-                    <p>Afternoon</p>
-                </div>
-                <div class="time-schedule-session-slots">
-                    <%
-                        fetchedSlots.afternoonSlots.forEach((slot) => {                                            
+            <div id="reschedule" class="available-slots">
+                <h6>Select a Time Slot</h6>
+                <div class="date-head">
+                    <div class="date-head-controls left-control">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="date-head-slides">
+                        <%
+                            let dayCount = currentDay;
+                            let days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+        
+                            let getSlotCount = (dayCount) => {
+                                dayCount = dayCount > 6 ? dayCount % 7 : dayCount;
+                                let weekday = days[dayCount];
+                                let slotCount = 0;
+                                allSlots.forEach((slot) => {
+                                        if(slot.day == weekday) {
+                                            slot.subSlots.forEach((subSlot) => {
+                                                if(!subSlot.isBooked){
+                                                    slotCount++;
+                                                }
+                                            })
+                                        }
+                                })
+                                return slotCount;
+                            } 
+                        %>
+        
+                        <div class="date-head-slides-slide date-head-slides-slide--active">
+                            <p class="date">Today</p>
+                            <p class="slot-count"><% let count = getSlotCount(dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
+                        </div>
+                        <div class="date-head-slides-slide">
+                            <p class="date">Tommorow</p>
+                            <p class="slot-count"><% count = getSlotCount(++dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
+                        </div>
+                        <%
+                            let slideDate = new Date(today);
+                            slideDate.setDate(slideDate.getDate() + 2);
+                            for(let rem=5; rem > 0; rem--) {
+                        %>
+                            <div class="date-head-slides-slide">
+                                <p class="date"><%= slideDate.toDateString() %></p>
+                                <p class="slot-count"><% count = getSlotCount(++dayCount); %> <%= count == 0 ? 'No' : count %> Slots Available</p>
+                            </div>      
+                        <% 
+                                slideDate.setDate(slideDate.getDate() + 1);
+                            }
+                        %>                       
+                    </div>
+                    <div class="date-head-controls right-control">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>  
+                <div class="time-schedule-container">     
+                    <% 
+                        dayCount = currentDay;
+                        slotDate = new Date(today);
+        
+                        let getSlots = (dayCount) => {
+                            let slots = {
+                                morningSlots: [],
+                                afternoonSlots: [],
+                                eveningSlots: []
+                            };
+                            dayCount = dayCount > 6 ? dayCount % 7 : dayCount;
+                            let weekday = days[dayCount];
+                            let slotCount = 0;
+                            allSlots.forEach((slot) => {
+                                    if(slot.day == weekday ) {                                  
+                                        slot.subSlots.forEach((subSlot) => {
+                                            if(!subSlot.isBooked){
+                                                if(subSlot.startTime.split(' ')[1] == 'am'){
+                                                    slots.morningSlots.push(subSlot);
+                                                } else if(subSlot.startTime.split(':')[0] < 5 ) {
+                                                    slots.afternoonSlots.push(subSlot);
+                                                } else {
+                                                    slots.eveningSlots.push(subSlot);
+                                                }
+                                            }
+                                        })
+                                    slots.doctorId = slot.doctorId;
+                                }
+                            })
+                            slots.date = new Date();
+                            slots.date.setDate(slotDate.getDate());
+                            slots.date = slots.date.toDateString();
+                            slotDate.setDate(slotDate.getDate() + 1);
+                            return slots;
+                        }
+                        
+                        
+                    %>  
+                    <% for(let counter=0;counter<7;counter++) { 
+                        let fetchedSlots = getSlots(dayCount++);
                     %>
-                    <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
-                    <% }) %>
+                        <div class="time-schedule">
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-cloud-sun"></i>
+                                    <p>Morning</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <%
+                                        fetchedSlots.morningSlots.forEach((slot) => {                                            
+                                    %>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>" ><%= slot.startTime.split(' ')[0]%></div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-sun"></i>
+                                    <p>Afternoon</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <%
+                                        fetchedSlots.afternoonSlots.forEach((slot) => {                                            
+                                    %>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                            <div class="time-schedule-session">
+                                <div class="time-schedule-session-head">
+                                    <i class="fas fa-moon"></i>
+                                    <p>Evening</p>
+                                </div>
+                                <div class="time-schedule-session-slots">
+                                    <%
+                                        fetchedSlots.eveningSlots.forEach((slot) => {                                            
+                                    %>
+                                    <div class="time-schedule-session-slots-slot" onclick="callReschedule(this)"  data-slotId="<%= slot._id %>" data-date="<%= fetchedSlots.date %>"><%= slot.startTime.split(' ')[0]%></div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        </div>                              
+                    <% } %>
                 </div>
             </div>
-            <div class="time-schedule-session">
-                <div class="time-schedule-session-head">
-                    <i class="fas fa-moon"></i>
-                    <p>Evening</p>
-                </div>
-                <div class="time-schedule-session-slots">
-                    <%
-                        fetchedSlots.eveningSlots.forEach((slot) => {                                            
-                    %>
-                    <div class="time-schedule-session-slots-slot"><%= slot.startTime.split(' ')[0]%></div>
-                    <% }) %>
-                </div>
-            </div>
-        </div>       
-    </div>
+        </div>
+    </section>
     
     <div id="footer">
-        <h6 class="small">
+        <h6 class="small" style="text-align:center">
             All Rights Reserved &copy Tvastra 2021
         </h6>
     </div>
+
+    <script>
+        $(document).ready(() => {
+            let listCards = Array.from(document.querySelectorAll('.list-card'));
+            listCards.forEach((card) =>{
+                let bookAppointment = card.querySelector('.book-appointment');
+                let appointmentLayout = card.querySelector('.available-slots');
+                console.log(bookAppointment);
+                console.log(appointmentLayout);
+                bookAppointment.addEventListener('click',() => {
+                    appointmentLayout.style.display = appointmentLayout.style.display == "block" ? "none" : "block" ;
+                })
+            })
+
+            let slidesContainer = Array.from($('.available-slots'));
+            slidesContainer.forEach((container) => {
+                let slides = Array.from(container.querySelectorAll('.date-head-slides-slide'));
+                let slotSlides = Array.from(container.querySelectorAll('.time-schedule'));
+                let moveRight = container.querySelector('.left-control');
+                let moveLeft = container.querySelector('.right-control');
+                let currentHead = slides[0];
+                let currentSlot = slotSlides[0];
+                let i=1; let j=1;
+
+                slides.forEach((slide) => {
+                    slide.style.order = i++;
+                })
+
+                slotSlides.forEach((slide) => {
+                    slide.style.order = j++;
+                })
+
+                console.log("Printing Orders")
+                slides.forEach((slide) => {
+                    console.log(slide.style.order)
+                })
+                
+                let getOrder = (slide) => {
+                    return parseInt(getComputedStyle(slide).order);
+                }
+
+                let setActive =  _ =>{
+                    slides.forEach((slide) => {
+                        if(slide.style.order == 1) {
+                            slide.classList.add("date-head-slides-slide--active");
+                        } else {
+                            slide.classList.remove("date-head-slides-slide--active")
+                        }
+                    })
+                }
+
+                moveRight.addEventListener('click', () => {
+                    slides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder < slides.length) {
+                            slide.style.order = slideOrder + 1;                            
+                        } else {
+                            slide.style.order = 1;
+                        }
+                    })
+                    slotSlides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder < slides.length) {
+                            slide.style.order = slideOrder + 1;                            
+                        } else {
+                            slide.style.order = 1;
+                        }
+                    })
+                    setActive();
+                })
+
+                moveLeft.addEventListener('click',() => {
+                    slides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder == 1) {
+                            slide.style.order = slides.length;                            
+                        } else {
+                            slide.style.order = slideOrder - 1;
+                        }
+                    })
+                    slotSlides.forEach((slide) => {
+                        let slideOrder = getOrder(slide);
+                        if(slideOrder == 1) {
+                            slide.style.order = slides.length;                            
+                        } else {
+                            slide.style.order = slideOrder - 1;
+                        }
+                    })
+                    setActive();
+                })          
+            })
+
+        })
+
+        let callReschedule = (slot) => {
+            document.location = `reschedule/<%=appointment._id%>?slotId=${slot.dataset.slotid}&date=${slot.dataset.date}`;
+        }
+    </script>
 </body>
 </html>

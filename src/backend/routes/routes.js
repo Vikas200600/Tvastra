@@ -42,7 +42,9 @@ router.route('/appointment/:doctorId').get(appointmentController.bookAppointment
 router.route('/confirm-appointment').get(renderController.renderConfirmAppointment);
 router.route('/submit-appointment').post(appointmentController.confirmBooking);
 router.route('/appointment-confirmed').get(renderController.renderAppointmentBooked);
-router.route('/reschedule-appointment').get(renderController.renderRescheduleAppointment);
+router.route('/reschedule-appointment/:appointmentId').get(renderController.renderRescheduleAppointment);
+router.route('/reschedule-appointment/reschedule/:appointmentId').get(appointmentController.rescheduleAppointment);
+router.route('/cancel-appointment/:appointmentId').get(appointmentController.cancelAppointment);
 
 router.route('/requestotp').post(otpController.otpRequest);
 router.route('/verify').post(otpController.otpVerify);

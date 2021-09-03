@@ -85,10 +85,19 @@ let renderAppointmentBooked = async (req, res) => {
 }
 
 let renderRescheduleAppointment = async (req, res) => {
+    let appointment = await Appointment.findOne({_id: req.params.appointmentId});
+    let availableSlots = await Slot.find(
+        {doctorId: appointment.doctorId, "subSlots.isBooked" : false},
+        // { subSlots: {$elemMatch: {isBooked: false}}}
+    ).select('-__v -interval');
     res.render('rescheduleBooking', {
         flash: req.flash(),
         loggedIn: true,
         session: req.session,
+        allSlots: availableSlots,
+        appointment: appointment,
+        currentDay: new Date().getDay(),
+        today: new Date()
     });
 }
 
